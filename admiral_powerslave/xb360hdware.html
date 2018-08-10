@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Xbox 360 Hardware Information</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big><big
+ style="font-weight: bold;">XBOX 360 HARDWARE INFORMATION</big></big><br>
+<br>
+<a href="graphics/x360_vid_con3.jpg">Video Connector Pinout</a><br>
+<br>
+<a href="#dvd">DVD DRIVE</a> &nbsp; <a href="#chip">ONBOARD CHIP STUFF</a>
+&nbsp; <a href="#boot">BOOT UP</a><br>
+</span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><big style="font-weight: bold;">HDD
+DRIVE STUFF:</big><br>
+<a href="diagrams/Xb360SataHDDpinout.jpg"><br>
+SATA PINOUT</a><br>
+<br>
+<a style="color: rgb(255, 255, 102);" href="xb360hdd.html">CONTENTS</a><br>
+<br>
+The harddisk is not locked in any way. A completely zero drive will
+only be read by the Xbox 360 if the relevent headers are in place on
+the disk.<br>
+<br>
+A FATX partition exists on the drive.<br>
+<br>
+For a drive to be considered valid it must have the 'Plain text hard
+disk info' and MS logo PNG. If these elements do not exist then no HDD
+is detected. So there is no way for third parties to manufacture hard
+disks without a license or without infringing Microsoft's copyright.<br>
+<br>
+Your XB360 serial number is required when formatting a HDD.<br>
+<br>
+The drive's capacity is reported as 13GB by the 360 immediately after
+formatting.<br>
+<br>
+</span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><big><span
+ style="font-weight: bold;"><a name="dvd"></a>DVD DRIVE STUFF:</span></big><br>
+<br>
+There are two different rom versions 0046DH (Core) 0047DJ
+(Premium).&nbsp; When they are swapped between each XB360 they will not
+boot game discs.&nbsp;&nbsp;&nbsp; They may be marrying DVD drives to
+the Xbox as well.<br>
+<br>
+The DVD drive uses the standard 7-pin Serial ATA connectors with a
+custom power connector.&nbsp;&nbsp; <br>
+<br>
+The 360 has a standard dual layer SATA DVD-ROM drive manufactured by
+Hitachi-LG - GDR-3120L.<br>
+<br>
+The 360 does DVD not use the ISO9660 or UDF filesystem for the content
+on
+game DVDs.&nbsp; It is supposed to be the standard xboxdvdfs, however
+the offset and layer breakpoint are different.<br>
+<br>
+XB360 calls it \Device\CdRom0\ (found in default.xex)<br>
+<br>
+Philips XBOX1 drive firmware, different dumps of the VAD6011 firmware
+are all identical. This means, no key or serial is present in the
+firmware.&nbsp; However, dumps of a Toshiba/Samsung TS-H943 DVD-ROM
+drive. are 16 bytes are different. The difference is at offset 0x401A -
+0x4029.&nbsp; A 16 byte difference was also the case with the GDR-3120
+dumps.&nbsp; <br>
+<br>
+All clues indicate that each x360 dvd-rom firmware contains an unique
+key.&nbsp; <br>
+<br>
+There doesn't appear to be a match of the key to a console id, serial,
+or drive serial. It's probably a unique key used in the AES routine to
+encrypt/decrypt communications between console and drive. Something
+which is new for the x360.</span><span class="font"></span><br>
+<span style="color: rgb(255, 255, 255);"></span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><big><span
+ style="font-weight: bold;"><a name="chip"></a>CHIP STUFF</span></big><br>
+<br>
+</span><span style="color: rgb(255, 255, 255);" class="font">The TSOP
+of Premium system put in a Core console does not work.<br>
+<br>
+A core system has an EEPROM chip near the CPU, some premium Xbox 360s
+do not.<br>
+<br>
+</span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);" class="font"><big
+ style="font-weight: bold;"><a name="boot"></a>BOOT UP STUFF:</big><br>
+</span><span style="color: rgb(255, 255, 255);">The Xbox 360 boots, and
+works with the EEPROM removed.<br>
+<br>
+The system boots with the SATA HDD removed, DUH.&nbsp; The system boots
+with the SATA DVD drive dissconected.&nbsp; The system boots with a
+SATA HDD placed on the DVD side, and boots with no SATA devices
+connected.&nbsp; Conencting a normal store bought SATA drive, system
+boots, but the drive goes undetected.&nbsp; <br>
+<br>
+System boots without the
+fans connected, why?&nbsp; <br>
+<br>
+The 360 is capable of delivering graphics at least as impressive as a
+far more expensive gaming PC.&nbsp; YOu can upgrade a PC though, not
+the XB360 so game makers have to "optimize" instead.<br>
+</span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><br>
+The XB360 Memory unit looks like it can be upgraded to 128Mb - there is
+a spot to place another memory chip.&nbsp; It would be the same
+tecnique as upgrading the memory on Xbox - the spaces are there, the
+chips are not.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</span>
+</body>
+</html>

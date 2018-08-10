@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Xbox Multi Game Boot Disc using EvoX</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big><big
+ style="font-weight: bold;">MAKING A MULTI-GAME BOOT DVD</big></big><br>
+</span><span style="color: rgb(255, 255, 255);"></span><br>
+<span style="color: rgb(255, 255, 255);"><big style="font-weight: bold;">Here
+is the INI file I made for EvoX, you can experiment with it:</big><br>
+<br>
+When EvoX boots, all you get is a default skin, with the list of games,
+no other menu options.&nbsp; <br>
+<br>
+There are probably more things you can remove from the file, but, this
+is what gave me JUST a list of games on the screen to choose
+from.&nbsp; <br>
+<br>
+This small ini gives you network support and other functions.&nbsp; If
+you do not need ANY of this, go <a style="color: rgb(255, 255, 102);"
+ href="#simple">HERE</a><br>
+<br>
+First, you'll need to FTP the games to the PC, so do that!<br>
+<br>
+<span style="color: rgb(255, 153, 102);">PC:\MultiGame\default.xbe
+(EVOX)</span><br style="color: rgb(255, 153, 102);">
+<span style="color: rgb(255, 153, 102);">PC:\MultiGame\evox.ini</span><br
+ style="color: rgb(255, 153, 102);">
+<span style="color: rgb(255, 153, 102);"></span></span><span
+ style="color: rgb(255, 153, 102);"> PC:\MultiGame\Games\IHRA<br>
+PC:\MultiGame\Games\Big Mutha
+Truckers<br>
+PC:\MultiGame\Games\Shrek<br>
+PC:\MultiGame\Games\Pitfall The
+Lost Expedition<br>
+PC:\MultiGame\Games\Taz Wanted</span><span
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 204);"></span><span
+ style="color: rgb(255, 255, 204);"></span><br
+ style="color: rgb(255, 255, 204);">
+<br>
+You will Use QWIX or other ISO builder to make the image from
+PC:\MultiGame when you are done!<br>
+<br>
+Change the Evox.ini file to look like this:<br>
+<br>
+[Misc]<br>
+<br>
+UseFDrive&nbsp;&nbsp;&nbsp; = Yes<br>
+UseGDrive&nbsp;&nbsp;&nbsp; = No<br>
+SkinName&nbsp;&nbsp;&nbsp; = Delta Fines<br>
+#SkinName&nbsp;&nbsp;&nbsp; = RuDeDuDe2<br>
+UseItems&nbsp;&nbsp;&nbsp; = Yes<br>
+ScreenSaver&nbsp;&nbsp;&nbsp; = 5<br>
+Fahrenheit&nbsp;&nbsp;&nbsp; = No<br>
+ShadeLevel&nbsp;&nbsp;&nbsp; = 90<br>
+EnableSMART&nbsp;&nbsp;&nbsp; = Yes<br>
+HDD_Temp_ID&nbsp;&nbsp;&nbsp; = 194<br>
+ChameleonLed&nbsp;&nbsp;&nbsp; = 15<br>
+TSR_Type&nbsp;&nbsp;&nbsp; = 1<br>
+IGR&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; = Yes<br>
+GameRegion&nbsp;&nbsp;&nbsp; = 0<br>
+<br>
+[Network]<br>
+<br>
+SetupNetwork&nbsp;&nbsp;&nbsp; = Yes<br>
+StaticIP&nbsp;&nbsp;&nbsp; = No<br>
+Ip&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; = 192.168.0.107<br>
+Subnetmask&nbsp;&nbsp;&nbsp; = 255.255.255.0<br>
+Defaultgateway&nbsp;&nbsp;&nbsp; = 192.168.100.1<br>
+DNS1&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; = 0.0.0.0<br>
+DNS2&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; = 0.0.0.0<br>
+SetupDelay&nbsp;&nbsp;&nbsp; = 0<br>
+SkipIfNoLink&nbsp;&nbsp;&nbsp; = No<br>
+<br>
+[Clock]<br>
+<br>
+JumpToMsDash&nbsp;&nbsp;&nbsp; = No<br>
+JumpIfNoLink&nbsp;&nbsp;&nbsp; = Yes<br>
+Use24&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; = Yes<br>
+SwapDate&nbsp;&nbsp;&nbsp; = No<br>
+SNTP_Server&nbsp;&nbsp;&nbsp; = 0.0.0.0<br>
+<br>
+[FTP]<br>
+<br>
+Enable&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; = Yes<br>
+Password&nbsp;&nbsp;&nbsp; = xbox<br>
+<br>
+[Telnet]<br>
+<br>
+Enable&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; = Yes<br>
+<br>
+[RDTOOLS]<br>
+<br>
+Enable&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; = Yes<br>
+Name&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; = XBOX_V1.0<br>
+<br>
+[BIOS]<br>
+<br>
+Current&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; =
+0xaa4d0820b932009090f780f0ee1d1b1c<br>
+<br>
+[Skin_Original]<br>
+<br>
+#<br>
+# &lt;Time&gt;&nbsp;&nbsp; =<br>
+# &lt;IP&gt;&nbsp;&nbsp;&nbsp;&nbsp; =<br>
+# &lt;Name&gt;<br>
+# &lt;Version&gt;<br>
+# &lt;CD&gt;<br>
+# &lt;BIOSVer&gt;<br>
+# &lt;KernelVer&gt;<br>
+# &lt;RDName&gt;<br>
+# &lt;SpaceC&gt;<br>
+# &lt;SpaceE&gt;<br>
+# &lt;SpaceF&gt;<br>
+# &lt;SpaceX&gt;<br>
+# &lt;SpaceY&gt;<br>
+# &lt;SpaceZ&gt;<br>
+#<br>
+Text&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+30,37,0.5,0x000000,0,"&lt;Time&gt;"<br>
+Text&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+28,39,0.5,0x808080,0,"&lt;Time&gt;"<br>
+Text&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+620,420,0.5,0x000000,1,"&lt;Name&gt; V&lt;Version&gt;"<br>
+Text&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+618,422,0.5,0x808080,1,"&lt;Name&gt; V&lt;Version&gt;"<br>
+Text&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+620,37,0.5,0x000000,1,"&lt;CD&gt;"<br>
+Text&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+618,39,0.5,0x808080,1,"&lt;CD&gt;"<br>
+Text&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+30,420,0.5,0x000000,0,"RD Name : &lt;RDName&gt;"<br>
+Text&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+28,422,0.5,0x808080,0,"RD Name : &lt;RDName&gt;"<br>
+LogoType=&nbsp;&nbsp;&nbsp; 0<br>
+<br>
+<span style="color: rgb(255, 204, 102);">[Menu]</span><br
+ style="color: rgb(255, 204, 102);">
+<br style="color: rgb(255, 204, 102);">
+<span style="color: rgb(255, 204, 102);">&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; Section "Games"</span><br
+ style="color: rgb(255, 204, 102);">
+<span style="color: rgb(255, 204, 102);">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; {</span><br style="color: rgb(255, 204, 102);">
+<span style="color: rgb(255, 204, 102);">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; AutoAddItem
+"d:\games\"</span><br style="color: rgb(255, 204, 102);">
+<span style="color: rgb(255, 204, 102);">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; SortAll</span><br
+ style="color: rgb(255, 204, 102);">
+<span style="color: rgb(255, 204, 102);">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; }<br>
+<br>
+<span style="color: rgb(255, 255, 255);">Changes made in YELLOW, Deete
+everything else.&nbsp; This allows for FTP and NETWORK support, and
+other items as listed in the beginning of the EVOX.INI<br>
+file.&nbsp; IF you ONLY want a MULTI GAME BOOT DISC, then go below for
+the SIMPLEST evox.ini file.<br>
+</span></span></span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);"><big><big style="font-weight: bold;"><a
+ name="simple"></a>THE SIMPLEST WAY:</big></big><br>
+<br>
+Make an "evox.ini" file with just this text:<br>
+<br>
+</span></span><span style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 153);">[Menu]</span><br
+ style="color: rgb(255, 255, 153);">
+<br style="color: rgb(255, 255, 153);">
+<span style="color: rgb(255, 255, 153);">&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; Section "Games"</span><br
+ style="color: rgb(255, 255, 153);">
+<span style="color: rgb(255, 255, 153);">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; {</span><br style="color: rgb(255, 255, 153);">
+<span style="color: rgb(255, 255, 153);">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; AutoAddItem
+"d:\games\"</span><br style="color: rgb(255, 255, 153);">
+<span style="color: rgb(255, 255, 153);">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; SortAll</span><br
+ style="color: rgb(255, 255, 153);">
+<span style="color: rgb(255, 255, 153);">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; }</span><br>
+<br>
+YEP, that's it!<br>
+<br>
+1. Open NOTE PAD<br>
+2. Highlight, and COPY the text in YELLOW<br>
+3. PASTE into Notepad<br>
+4. Save file as "evox.ini"<br>
+<br>
+Make your disc!<br>
+<br>
+NO network, No Skin, no nothing, just a menu with games, that is ALL
+you need!<br>
+<br>
+Works with APPS as well.<br>
+</span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"></span><span
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);"></span></span><span
+ style="color: rgb(255, 255, 255);"><big style="font-weight: bold;">FILE
+STRUCTURE OF THE DVD ROM:<br>
+<br>
+</big><big>Your DVD should look like this:</big><big
+ style="font-weight: bold;"><br>
+<br>
+<br>
+</big><br>
+<span style="color: rgb(255, 204, 204);">D:\evox.ini&nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+MODIFIED EVOX.INI FILE</span><br style="color: rgb(255, 204, 204);">
+<span style="color: rgb(255, 204, 204);">D:\default.xbe&nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; RENAMED "EVOXDASH.XBE"</span><br>
+<span style="color: rgb(255, 102, 102);">D:\Games&nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+ALL GAMES IN THIS FOLDER</span><br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <span style="color: rgb(255, 0, 0);">\IHRA</span><br
+ style="color: rgb(255, 0, 0);">
+<span style="color: rgb(255, 0, 0);">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; \Big Mutha
+Truckers</span><br style="color: rgb(255, 0, 0);">
+<span style="color: rgb(255, 0, 0);">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; \Shrek</span><br
+ style="color: rgb(255, 0, 0);">
+<span style="color: rgb(255, 0, 0);">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; \Pitfall The
+Lost Expedition</span><br style="color: rgb(255, 0, 0);">
+<span style="color: rgb(255, 0, 0);">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; \Taz Wanted<br>
+<br>
+<span style="color: rgb(255, 255, 255);">MultiGameDisc.ISO - 2.75 GB
+(2,957,443,072 bytes)<br>
+</span></span></span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><span style="color: rgb(255, 0, 0);"><span
+ style="color: rgb(255, 255, 255);"><br>
+</span></span><br>
+<br>
+<br>
+<br>
+<br>
+</span>
+</body>
+</html>

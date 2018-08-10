@@ -1,0 +1,2027 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=iso-8859-1">
+  <link rel="shortcut icon"
+ href="http://forums.xbox-scene.com/favicon.ico">
+  <title>Xboxhdm For Dummies - Xbox-Scene Online Web Community</title>
+  <style type="text/css">
+	html
+{
+	overflow-x: auto;
+}
+
+body
+{
+	background: #FFF;
+	color: #222;
+	font-family: Verdana, Tahoma, Arial, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;
+	font-size: 11px;
+	line-height: 135%;
+	text-align: center;
+	margin: 0px;
+	padding: 0px; /* required for Opera to have 0 margin */
+	text-align: center; /* centers board in MSIE */
+}
+
+table,
+tr,
+td
+{
+	background: transparent;
+	color: Black;
+	font-size: 11px;
+	line-height: 120%;
+}
+
+table
+{
+	width: 100%;
+}
+
+td,
+.divpad
+{
+	padding: 5px;
+}
+
+td.nopad
+{
+}
+
+.ipbtable { width:100% }
+
+table.ipbtable,
+tr.ipbtable,
+td.ipbtable
+{ /* required for text in tables, because tables do not inherit from body */
+	background: transparent;
+	color: #222;
+	font-size: 11px;
+	line-height: 135%;
+}
+
+.ipbtable td,
+.divpad{ /* gives all tables faux cellpadding of 5px */
+	padding: 5px;
+}
+
+td.nopad{ /* allows some tables to have no padding on the td */
+	padding: 0;
+}
+
+
+form{
+	display: inline;
+	margin: 0; /* removes mystery form tag gapping */
+	padding: 0; /* removes mystery form tag gapping */
+}
+
+img{
+	border: 0; /* makes sure linked images do not have a border */
+	vertical-align: middle;
+}
+
+a:link,
+a:visited,
+a:active
+{
+	background: transparent;
+	color: Black;
+	text-decoration: underline;
+}
+
+a:hover
+{
+	background: transparent;
+	color: #7CB12D;
+	text-decoration: underline;
+}
+
+#ipbwrapper
+{
+	margin: 20px auto 20px auto;
+	width: 96%;
+	text-align: left;
+}
+
+.pagelink,
+.pagelinklast,
+.pagecurrent,
+.minipagelink,
+.minipagelinklast
+{
+	background: White;
+	border: 1px solid #54761E;
+	padding: 1px 3px 1px 3px;
+}
+
+.pagelinklast,
+.minipagelinklast
+{
+	background: #CCCCCC;
+}
+
+.pagecurrent
+{
+	background: #D6D6D6;
+}
+
+.minipagelink,
+.minipagelinklast
+{
+	border: 1px solid #000000;
+	font-size: 10px;
+	margin: 0 1px 0 0;
+}
+
+.pagelink a:active,
+.pagelink a:visited,
+.pagelink a:link,
+.pagelinklast a:active,
+.pagelinklast a:visited,
+.pagelinklast a:link,
+.pagecurrent a:active,
+.pagecurrent a:visited,
+.pagecurrent a:link,
+.minipagelink a:active,
+.minipagelink a:visited,
+.minipagelink a:link,
+.minipagelinklast a:active,
+.minipagelinklast a:visited,
+.minipagelinklast a:link
+{
+	text-decoration: none;
+}
+
+.fauxbutton
+{
+	background: #DBDBDB;
+	border: 1px solid #54761E;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.fauxbutton a:link,
+.fauxbutton a:visited,
+.fauxbutton a:active
+{
+	color: #222 !important;
+	text-decoration: none;
+}
+
+.forumdesc,
+.forumdesc a:link,
+.forumdesc a:visited,
+.forumdesc a:active
+{
+	background: transparent;
+	font-size: 10px;
+	color: #666;
+	line-height: 135%;
+	margin: 2px 0 0 0;
+}
+
+.searchlite
+{
+	background-color: yellow;
+	font-weight: bold;
+	color: red;
+}
+
+.activeusers
+{
+	background: #FFF;
+	border: 1px solid #54761E;
+	color: #000;
+	margin: 0px;
+	padding: 1px;
+}
+
+.activeuserposting a:link,
+.activeuserposting a:visited,
+.activeuserposting a:active,
+.activeuserposting
+{
+	font-style: italic;
+	text-decoration: none;
+	border-bottom: 1px dotted black;
+}
+
+fieldset.search
+{
+	line-height: 150%;
+	padding: 6px;
+}
+
+label
+{
+	cursor: pointer;
+}
+
+img.attach
+{
+	background: #F1F1F1 url(style_images/oldx/click2enlarge.gif) no-repeat top right;
+	border: 1px solid #54761E;
+	margin: 0 2px 0 0;
+	padding: 11px 2px 2px 2px;
+}
+
+.thumbwrap,
+.thumbwrapp,
+.fullimagewrap
+{
+	border: 1px solid #54761E;
+	margin: 2px;
+}
+
+.thumbwrapp
+{
+	border: 3px double #54761E;
+}
+
+.fullimagewrap
+{
+	background: #F5F9FD;
+	text-align: center;
+	margin: 5px 0 5px 0;
+	padding: 5px;
+}
+
+.thumbwrap h4,
+.thumbwrapp h4
+{
+	background: #DDE6F2;
+	border: 0 !important;
+	border-bottom: 1px solid #54761E;
+	color: Black;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.thumbwrap p,
+.thumbwrapp p
+{
+	background: #EEF2F7 !important;
+	border: 0 !important;
+	border-top: 1px solid #54761E;
+	margin: 0 !important;
+	padding: 5px !important;
+	text-align: left;
+}
+
+.thumbwrap p.alt,
+.thumbwrapp p.alt
+{
+	background: #DFE6EF !important;
+	margin: 0 !important;
+	padding: 5px !important;
+	text-align: left;
+}
+
+.thumbwrapp p.pin
+{
+	background: #EFDFDF !important;
+	text-align: center !important;
+}
+
+.thumbwrap img.galattach,
+.thumbwrapp img.galattach
+{
+	background: #FFF url(style_images/oldx/img_larger.gif) no-repeat bottom right;
+	border: 1px solid #54761E;
+	margin: 5px;
+	padding: 2px 2px 10px 2px;
+}
+
+li.helprow
+{
+	margin: 0 0 10px 0;
+}
+
+ul#help
+{
+	padding: 0 0 0 15px;
+}
+
+.warngood,
+.warnbad
+{
+	color: #0B9500;
+	font-weight: bold;
+}
+
+.warnbad
+{
+	color: #DD0000;
+}
+
+#padandcenter
+{
+	margin: 0 auto 0 auto;
+	padding: 14px 0 14px 0;
+	text-align: center;
+}
+
+#profilename
+{
+	font-size: 28px;
+	font-weight: bold;
+}
+
+#photowrap
+{
+	padding: 6px;
+}
+
+#phototitle
+{
+	border-bottom: 1px solid #54761E;
+	font-size: 24px;
+}
+
+#photoimg
+{
+	margin: 15px 0 0 0;
+	text-align: center;
+}
+
+#ucpmenu,
+#ucpcontent
+{
+	background: #E3E3E3;
+	border: 1px solid #54761E;
+	line-height: 150%;
+}
+
+#ucpmenu p
+{
+	padding: 2px 5px 6px 9px;
+}
+
+#ucpmenu a:link, 
+#ucpmenu a:active, 
+#ucpmenu a:visited
+{
+	text-decoration: none;
+}
+
+#ucpcontent
+{
+	width: auto;
+}
+
+#ucpcontent p
+{
+	padding: 10px;
+}
+
+.activeuserstrip
+{
+	background: #F8F8F8;
+	padding: 6px;
+}
+
+.signature
+{
+	background: transparent;
+	color: Black;
+	font-size: 10px;
+	line-height: 150%;
+}
+
+.postdetails
+{
+	font-size: 10px;
+	line-height: 140%;
+}
+
+.postcolor
+{
+	font-size: 12px;
+	line-height: 160%;
+}
+
+.normalname
+{
+	color: Black;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.normalname a:link, 
+.normalname a:visited, 
+.normalname a:active
+{
+	font-size: 12px;
+}
+
+.post1,
+.bg1
+{
+	background: #CFCFCF;
+}
+
+.post2,
+.bg3
+{
+	background: #DDDCDC;
+}
+
+.row2shaded,
+.post1shaded
+{
+	background-color: #DEDBE4;
+}
+
+.row4shaded,
+.post2shaded
+{
+	background-color: #E3DFE7;
+}
+
+.row1
+{
+	background: #CFCFCF;
+}
+
+.row2
+{
+	background: #CFCFCF;
+}
+
+.darkrow1
+{
+	background: #DFDFDF;
+	color: Black;
+}
+
+.darkrow3
+{
+	background: #F5F5F5;
+	color: Black;
+}
+
+.plainborder,
+.tablefill,
+.tablepad
+{
+	background: #DEDEDE;
+	border: 1px solid #54761E;
+}
+
+.tablefill,
+.tablepad
+{
+	padding: 6px;
+}
+
+.tablepad
+{
+	border: 0 !important;
+}
+
+.wrapmini
+{
+	float: left;
+	line-height: 1.5em;
+	width: 25%;
+}
+
+.pagelinks
+{
+	float: left;
+	line-height: 1.2em;
+	width: 35%;
+}
+
+.desc
+{
+	font-size: 11px;
+	color: Black;
+}
+
+.lastaction
+{
+	font-size: 10px;
+	color: Black;
+}
+
+.edit
+{
+	font-size: 9px;
+}
+
+.thin
+{
+	border: 1px solid #54761E;
+	line-height: 150%;
+	margin: 2px 0 2px 0;
+	padding: 6px 0 6px 0;
+}
+
+.calmonths
+{
+	background: #F5F5F5;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 5px 0 5px 0;
+	padding: 8px;
+	text-align: center;
+}
+
+.weekday
+{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.calmonths a
+{
+	text-decoration: none;
+}
+
+.calday,
+.calweekday
+{
+	background: #949494;
+	color: Black;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 4px;
+	text-align: right;
+}
+
+.calweekday
+{
+	border-right: 1px solid #AAA;
+	color: #222;
+	font-size: 14px;
+	padding: 6px;
+	text-align: center;
+}
+
+.cellblank,
+.celldate,
+.celltoday,
+.mcellblank,
+.mcelldate,
+.mcelltoday
+{
+	background: #CFCFCF;
+	height: 100px;
+	vertical-align: top;
+}
+
+.mcellblank,
+.mcelldate,
+.mcelltoday
+{
+	height: auto;
+}
+
+.cellblank,
+.mcellblank
+{
+	background: #9F9F9F;
+}
+
+.celltoday,
+.mcelltoday
+{
+	border: 2px outset #54761E;
+}
+
+input,
+textarea,
+select
+{
+	background: #FFF;
+	border: 1px solid #54761E;
+	color: #000;
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 11px;
+	margin: 5px;
+	padding: 2px;
+	vertical-align: middle;
+}
+
+select
+{
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+input.button
+{
+	width: auto;
+}
+
+optgroup option
+{
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.codebuttons
+{
+	font-family: Verdana, Helvetica, Sans-Serif;
+	font-size: 10px;
+	vertical-align: middle;
+	margin: 2px;
+}
+
+.textarea,
+.searchinput,
+.button,
+.gobutton
+{
+	background: #FFF;
+	border: 1px solid #54761E;
+	color: #000;
+	font-family: Verdana, Helvetica, Sans-Serif;
+	font-size: 11px;
+	padding: 2px;
+	vertical-align: middle;
+}
+
+.button
+{
+	background: #D3D3D3;
+}
+
+.gobutton
+{
+	background: transparent;
+	color: #072A66;
+	vertical-align: middle;
+}
+
+.radiobutton,
+.checkbox,
+.helpbox
+{
+	vertical-align: middle;
+}
+
+.formtable
+{
+	background: transparent;
+}
+
+.formtable td,
+.pformleft,
+.pformleftw,
+.pformright
+{
+	background: #CBCBCB;
+	border: 1px solid #54761E;
+	font-weight: bold;
+	margin: 1px 0 0 0;
+	padding: 6px;
+	width: 25%;
+}
+
+.formtable td.wider,
+.pformleftw,
+.pformright
+{
+	width: 40%;
+}
+
+.formtable td.formright,
+.pformright
+{
+	font-weight: normal;
+	width: auto;
+}
+
+.formtable td.formtitle,
+.formsubtitle
+{
+	background: #D4D4D4;
+	border: 1px solid #54761E;
+	font-weight: normal;
+}
+
+.formsubtitle
+{
+	color: Black;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.formtable td.formstrip
+{
+	background: White;
+	border: 1px solid #54761E;
+	font-weight: normal;
+}
+
+.quotetop
+{
+	background: #BABABA right;
+	color: Black;
+	font-weight: bold;
+	font-size: 10px;
+	margin: 8px auto 0 auto;
+	padding: 3px;
+	border: 3px double #54761E;
+}
+
+.quotemain
+{
+	background: #FAFCFE;
+	border: 1px solid #54761E;
+	color: Black;
+	padding: 4px;
+	margin: 0 auto 8px auto;
+}
+
+.codetop,
+.sqltop,
+.htmltop
+{
+	background: #FDDBCC url(style_images/oldx/css_img_code.gif) no-repeat right;
+	color: #000;
+	font-weight: bold;
+	margin: 0 auto 0 auto;
+	padding: 3px;
+	width: 98%;
+}
+
+.codemain,
+.sqlmain,
+.htmlmain
+{
+	background: #FAFCFE;
+	border: 1px dotted #000;
+	color: #465584;
+	font-family: Courier, Courier New, Verdana, Arial;
+	margin: 0 auto 0 auto;
+	padding: 2px;
+	width: 98%;
+}
+
+#QUOTE,
+#CODE
+{
+	background: #FAFCFE;
+	border: 1px solid #54761E;
+	color: #465584;
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	padding: 2px;
+	white-space: normal;
+}
+
+#board
+{
+	border: 1px solid #9E9E9E;
+	width: 92%;
+}
+
+#board2
+{
+	width: 92%;
+}
+
+#CODE
+{
+	font-family: Courier, Courier New, Verdana, Arial;
+}
+
+.cleared
+{
+	clear: both;
+}
+
+.borderwrap,
+.borderwrapm
+{
+	background: #FFF;
+	border: 1px solid #54761E;
+}
+
+.borderwrapm
+{
+	margin: 5px;
+}
+
+.borderwrap h3,
+.maintitle,
+.maintitlecollapse
+{
+	background: #EAE9E8;
+	color: Black;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 1px 2px 1px 2px;
+}
+
+.maintitlecollapse
+{
+	border: 1px solid #FFF;
+}
+
+.maintitle p,
+.maintitlecollapse p,
+.formsubtitle p
+{
+	background: transparent !important;
+	border: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.maintitle p.expand,
+.maintitle p.goto,
+.maintitlecollapse p.expand,
+.formsubtitle p.members
+{
+	float: right;
+	width: auto !important;
+}
+
+.maintitle a:link, 
+.maintitle a:visited,
+.maintitlecollapse a:link, 
+.maintitlecollapse a:visited
+{
+	background: transparent;
+	color: #000000;
+	text-decoration: none;
+}
+
+.maintitle a:hover, 
+.maintitle a:active,
+.maintitlecollapse a:hover, 
+.maintitlecollapse a:active
+{
+	background: transparent;
+	text-decoration: underline;
+}
+
+table th,
+.borderwrap table th,
+.subtitle,
+.subtitlediv,
+.postlinksbar
+{
+	background: transparent url(style_images/oldx/grad2.jpg);
+	border-bottom: 0px solid #5176B5;
+	color: #4B4B4B;
+	font-weight: bold;
+	padding: 3px;
+}
+
+.subtitlediv
+{
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #54761E;
+	text-align: right;
+}
+
+.borderwrap table th a:link,
+.subtitle a:link,
+.subtitlediv a:link,
+.borderwrap table th a:visited,
+.subtitle a:visited, 
+.subtitlediv a:visited, 
+.borderwrap table th a:active,
+.subtitle a:active,
+.subtitlediv a:active,
+.borderwrap table th a:hover,
+.subtitle a:hover,
+.subtitlediv a:hover
+{
+	background: transparent;
+	color: Black;
+	text-decoration: none;
+	font-size: 10px;
+}
+
+.borderwrap h4
+{
+	background: #C4C4C4;
+	border: 1px solid #FFF;
+	border-bottom: 1px solid #54761E;
+	border-top: 1px solid #54761E;
+	color: Black;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.borderwrap p
+{
+	background: #F9F9F9;
+	border: 0px solid #CCC;
+	margin: 5px;
+	padding: 10px;
+	text-align: left;
+}
+
+td.formbuttonrow,
+.borderwrap p.formbuttonrow,
+.borderwrap p.formbuttonrow1
+{
+	background: #F4F4F4 !important;
+	border: 1px solid #FFF;
+	border-top: 1px solid #54761E;
+	margin: 0px !important;
+	padding: 5px !important;
+	text-align: center;
+}
+
+td.formbuttonrow
+{
+}
+
+.borderwrap p.formbuttonrow1
+{
+	background: #F9F9F9 !important;
+	border-top: 1px solid #CCC;
+}
+
+.bar,
+.barb,
+.barc
+{
+	background: #DADADA;
+	border: 1px solid #54761E;
+}
+
+.barc
+{
+}
+
+.bar p,
+.barb p,
+.barc p
+{
+	background: transparent;
+	color: Black;
+	font-size: 11px;
+	padding: 5px;
+	text-align: left;
+}
+
+.barb p
+{
+	text-align: right;
+}
+
+.bar p.over,
+.bar p.overs,
+.barc p.over,
+.barc p.overs
+{
+	float: right;
+}
+
+.barb p.over,
+.barb p.overs
+{
+	float: left;
+}
+
+.bar p.overs,
+.barb p.overs,
+.barc p.overs
+{
+	position: relative;
+	top: 5px;
+}
+
+.catend
+{
+	background: #CFCFCF;
+	color: #000;
+	font-size: 10px;
+	height: 10px;
+}
+
+.newslink
+{
+	background: #F5F5F5;
+	border: 1px solid #54761E;
+	width: 100%;
+}
+
+.newslink td
+{
+	color: #222;
+	font-size: 10px;
+	padding: 5px 5px 5px 10px;
+}
+
+.newslink span
+{
+	background: transparent;
+	color: #072A66;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.newslink input
+{
+	background: #FFF;
+	border: 1px solid #54761E;
+	color: #072A66;
+	font-size: 10px;
+	padding: 3px;
+	vertical-align: middle;
+	width: auto;
+}
+
+.newslink input.button
+{
+	background: transparent;
+	color: #072A66;
+	vertical-align: middle;
+}
+
+.fieldwrap
+{
+	background: #F9F9F9;
+	border: 1px solid #54761E;
+	margin: 5px;
+	text-align: left;
+}
+
+.fieldwrap h4
+{
+	background: #EEE;
+	border: 1px solid #54761E;
+	color: Black;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.errorwrap,
+#pmnotewrap
+{
+	background: #F2DDDD;
+	border: 1px solid #54761E;
+	margin: 5px;
+}
+
+#pmnotewrap
+{
+	line-height: 135%;
+	margin: 0 0 5px 0;
+}
+
+.errorwrap h4,
+#pmnotewrap h4
+{
+	background: White;
+	border: 1px solid #54761E;
+	color: Black;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.errorwrap p,
+#pmnotewrap p
+{
+	background: transparent;
+	color: Black;
+	padding: 8px;
+}
+
+#pmnotewrap p.pmavatar
+{
+	float: left;
+}
+
+#pmnotewrap p.pmnotefoot
+{
+	background: #E3C0C0;
+	border-top: 1px solid #992A2A;
+	text-align: right;
+}
+
+#pmnotewrap a:link, 
+#pmnotewrap  a:visited
+{
+	background: transparent;
+	color: Black;
+	text-decoration: underline;
+}
+
+#pmnotewrap a:hover, 
+#pmnotewrap a:active
+{
+	background: transparent;
+	color: Black;
+	text-decoration: none;
+}
+
+.ruleswrap
+{
+	background: #EBEBEB;
+	border: 1px solid #54761E;
+	color: Black;
+	margin: 5px 0 5px 0;
+	padding: 5px;
+}
+
+#redirectwrap
+{
+	background: #F5F5F5;
+	border: 1px solid #000000;
+	margin: 200px auto 0 auto;
+	text-align: left;
+	width: 500px;
+}
+
+#redirectwrap h4
+{
+	background: #F5F5F5;
+	border-bottom: 1px solid #000000;
+	color: Black;
+	font-size: 14px;
+	padding: 5px;
+}
+
+#redirectwrap p
+{
+	padding: 5px;
+}
+
+#redirectwrap p.redirectfoot
+{
+	background: #F5F5F5;
+	border-top: 1px solid #000000;
+	text-align: center;
+}
+
+#gfooter
+{
+	background: #F8F9FC;
+	margin: 5px 0 5px 0;
+	width: 100%;
+	border: 3px double #54761E;
+}
+
+#gfooter td
+{
+	color: Black;
+	font-size: 10px;
+	padding: 4px;
+}
+
+#gfooter a:link,
+#gfooter a:visited
+{
+	color: #909090;
+}
+
+#logostrip
+{
+	background: #3860BB url(style_images/oldx/tile_back.gif);
+	border: 1px solid #FFF;
+	height: 68px;
+}
+
+#submenu
+{
+	background: transparent url(style_images/oldx/tile_sub.gif);
+	border: 1px solid #FFF;
+	color: Black;
+}
+
+#userlinks,
+#userlinksguest
+{
+	background: White;
+	border: 0px solid #C2CFDF;
+	margin: 0px 0 2px 0;
+	padding: 0 5px 0 5px;
+}
+
+#userlinksguest
+{
+	background: White;
+	border: 0px solid #986265;
+}
+
+#submenu p,
+#userlinks p,
+#userlinksguest p
+{
+	background: transparent !important;
+	border: 0 !important;
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	margin: 0 !important;
+	padding: 7px 0 7px 0;
+	text-align: right;
+}
+
+#userlinks p,
+#userlinksguest p
+{
+	font-weight: normal;
+}
+
+#submenu p.home,
+#userlinks p.home,
+#userlinksguest p.home
+{
+	float: left;
+}
+
+#userlinksguest p.pcen
+{
+	text-align: center;
+}
+
+#submenu a:link, 
+#submenu  a:visited
+{
+	background: transparent;
+	color: Black;
+	padding: 0 6px 0 6px;
+	text-decoration: none;
+}
+
+#submenu a:hover, 
+#submenu a:active
+{
+	background: transparent;
+	color: Black;
+}
+
+#navstrip
+{
+	background: transparent;
+	color: #999;
+	font-size: 11px;
+	font-weight: bold;
+	margin: 0 0 1px 0;
+	padding: 4px 0 4px 0px;
+}
+
+#navstrip a:link, 
+#navstrip  a:visited
+{
+	background: transparent;
+	color: Black;
+	text-decoration: underline;
+}
+
+#navstrip a:hover, 
+#navstrip a:active
+{
+	background: transparent;
+	color: #7CB12D;
+	text-decoration: underline;
+}
+
+.toplinks
+{
+	background: transparent;
+	color: #000;
+	padding: 0 0 5px 0;
+	text-align: right;
+}
+
+.toplinks span
+{
+	background: #F5F5F5;
+	border: 1px solid #54761E;
+	color: #000;
+	font-size: 10px;
+	font-weight: bold;
+	margin: 0 10px 0 0;
+	padding: 5px;
+}
+
+.copyright
+{
+	background: #EEE;
+	font-size: 11px;
+	margin: 0 0 5px 0;
+	padding: 8px;
+}
+
+#print
+{
+	margin: 20px auto 20px auto;
+	text-align: left;
+	width: 85%;
+}
+
+#print h1,
+#print h2,
+#print h3,
+#print h4,
+#print p
+{
+	color: Black;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 8px;
+}
+
+#print h2,
+#print h3,
+#print p
+{
+	border-bottom: 1px solid #999;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+#print h3
+{
+	background: #F5F5F5;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+
+#print h4
+{
+	background: #F9F9F9;
+	font-size: 11px;
+}
+
+#print p
+{
+	margin: 0 0 5px 0;
+	padding: 10px;
+}
+
+#print p.printcopy
+{
+	color: #000;
+	text-align: center;
+}
+
+
+
+.iTt{
+    FONT-FAMILY:       Verdana, Arial, Helvetica;
+    FONT-SIZE:         11px;
+    FONT-STYLE:        normal;
+    FONT-WEIGHT:       normal;
+    COLOR:             black;
+    BACKGROUND-COLOR:  lightyellow;
+    BORDER:            black 1px solid;
+    PADDING:           2px;
+}
+
+
+
+
+
+
+/* ============================================================== */
+/* RTE STYLES
+/* ============================================================== */
+
+.rteimage {
+	/*background: #D3D3D3;*/
+	/*border: 1px outset transparent*/;
+	cursor: pointer;
+	cursor: hand;
+	padding:1px;
+}
+
+.rteImageRaised {
+	/*background: #D3D3D3;*/
+	border: 1px outset;
+	cursor: pointer;
+	cursor: hand;
+	padding:0px;
+}
+
+.rteImageLowered {
+	/*background: #D3D3D3;*/
+	border: 1px inset;
+	cursor: pointer;
+	cursor: hand;
+	padding:0px;
+}
+
+.rteimage:hover {
+	background: #EBEBEB;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.rteVertSep {
+	margin: 0 4px 0 4px;
+}
+
+.rteBack {
+	background: #D3D3D3;
+	border: 1px outset;
+	letter-spacing: 0;
+	padding: 2px;
+}
+
+/* used in ips_rte.js - do not remove */
+.rtebottombutton
+{
+	font-size:10px;
+	border:1px solid #777;
+	border-top:0px;
+	padding:3px;
+	margin:0px;
+	background-color: #EBEBEB;
+}
+
+/* used in ips_rte.js - do not remove */
+.rtebottombuttonon
+{
+	font-size:10px;
+	border:1px solid #777;
+	border-top:0px;
+	padding:3px;
+	margin:0px;
+	background-color: #D3D3D3;
+}
+
+.rtebuttonbar1 {
+	/*background: #D3D3D3;*/
+	background-image: url(style_images/oldx/folder_rte_images/rte_tile.gif);
+	border: 1px solid gray;
+	border-bottom:0px;
+	letter-spacing: 0;
+	padding: 2px;
+	height:26px;
+}
+
+.rtebuttonbar2 {
+	/*background: #D3D3D3;*/
+	background-image: url(style_images/oldx/folder_rte_images/rte_tile.gif);
+	border: 1px solid gray;
+	border-top:1px solid gray;
+	letter-spacing: 0;
+	padding: 2px;
+	height:26px;
+}
+
+.rtebuttonbar1 tbody tr td,
+.rtebuttonbar1 tr td,
+.rtebuttonbar2 tbody tr td,
+.rtebuttonbar2 tr td,
+.rteBack tbody tr td,
+.rteBack tr td
+{
+	/*background: #D3D3D3;*/
+	padding: 0;
+}
+
+.rteDiv {
+	display: block;
+	position: relative;
+	padding:0px;
+	margin:0px;
+}
+
+.rteiframe
+{
+	border:1px solid #777;
+	background-color:#FFF;
+}
+
+.rteselectbox
+{
+	font-size:11px;
+}
+
+
+.dny-edit-title
+{
+	border:0px;
+	padding:3px;
+	margin:0px;
+	background: #D1DCEB; 
+	color: #3A4F6C; 
+}
+
+
+/* ======================================== */
+/* TABS
+/* ======================================== */
+
+.tabon
+{
+	border-top:1px solid #999;
+	border-left:1px solid #999;
+	border-right:1px solid #999;
+	background-color:#FFF;
+	padding:8px;
+	padding-bottom:9px;
+	font-size:10px;
+	float:left;
+	width:auto;
+	margin-top:3px;
+}
+
+.taboff
+{
+	border-top: 1px solid #999;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+	background-color: #F5F5F5;
+	color: #333;
+	padding: 8px;
+	font-size:10px;
+	float: left;
+	width: auto;
+	margin-top:3px;
+}
+
+.tabon a:link, 
+.tabon a:visited, 
+.tabon a:active
+{
+	text-decoration:none;
+	color: #000;
+}
+
+.taboff a:link, 
+.taboff a:visited, 
+.taboff a:active
+{
+	text-decoration:none;
+	color: #333;
+}
+
+.mya-back
+{
+	background: #FFFFFF;
+	margin:1px;
+}
+
+.mya-content
+{
+	background: #FFF;
+	padding:8px;
+	margin:1px;
+	border: 1px solid #777;
+}
+
+/* -------------------------------- */
+/* Create PM box defaults           */
+/* -------------------------------- */
+
+.iframeshim
+{
+	position:absolute;
+	display:none;
+	background: #FFF;
+	filter:alpha(opacity=0);
+	border:0px;
+	width:auto;
+	height:auto;
+}
+
+
+
+/* -------------------------------- */
+/* Experimental                     */
+/* -------------------------------- */
+
+.popupmenu
+{
+   background: #FFFFFF;
+   border: 1px solid #000000;
+   text-align:left;
+   font-size:10px;
+   white-space:nowrap;
+   /*padding:3px 5px 3px 3px;*/
+   /*width:300px;*/
+}
+
+.popupmenu-item
+{
+	padding: 5px;
+	/*margin-top:4px;*/
+	white-space: nowrap;
+	border-bottom: 1px solid #000000;
+}
+
+.popupmenu-item-last
+{
+	padding: 5px;
+	/*margin-top:4px;*/
+	white-space: nowrap;
+}
+
+.popmenubutton
+{
+	width:120px;
+	white-space:nowrap;
+	background-color: #CFCFCF;
+	border:1px solid #000000;
+	color: #000000;
+	font-weight:bold;
+	float:right;
+	height:18px;
+	text-align:center;
+	margin:0px;
+	font-size:11px;
+	padding:3px;
+}
+
+
+.popmenubutton a:link, 
+.popmenubutton a:visited,
+.popupmenu-item a:link, 
+.popupmenu-item a:visited,
+.popupmenu-item-last a:link, 
+.popupmenu-item-last a:visited
+{ 
+	color: #000000; 
+	text-decoration: none;
+}
+
+.popmenubutton a:hover, 
+.popupmenu-item a:hover, 
+.popupmenu-item-last a:hover
+{ 
+	color: #000000; 
+	text-decoration: none;
+}
+
+.popupmenu-category
+{ 
+	background: #EAE9E8;
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	color: #000000; 
+	font-size: 10px;
+	font-weight: bold; 
+	letter-spacing: 1px;
+	margin: 0; 
+	padding: 5px; 
+}
+
+
+  </style>
+  <style type="text/css"></style>
+</head>
+<body>
+<table style="width: 831px; height: 9315px;" id="board" align="center"
+ cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>
+      <div id="ipbwrapper"><!--IBF.NEWPMBOX-->
+      <script type="text/javascript">
+<!--
+var ipb_lang_tt_prompt = "Manually copy the direct link to this post below to store the link in your computer's clipboard";
+var ipb_lang_js_del_1  = "Are you sure you want to delete this message?";
+var ipb_lang_js_del_2  = "Ok, no action has been taken";
+var addquotebutton     = "style_images/oldx/p_mq_add.gif";
+var removequotebutton  = "style_images/oldx/p_mq_remove.gif";
+var unselectedbutton = "style_images/oldx/topic_unselected.gif";
+var selectedbutton   = "style_images/oldx/topic_selected.gif";
+var lang_gobutton    = "With Selected";
+var lang_suredelete  = "Are you sure you wish to delete these posts?";
+var js_error_no_permission = "Sorry, you do not have permission to edit that post";
+-</script>
+      <div class="borderwrap">
+      <div class="maintitle"
+ style="padding: 4px; background-color: rgb(0, 0, 0);"><!-- TABLE FIX FOR MOZILLA WRAPPING-->
+      <big style="color: rgb(255, 255, 255);"><big><big>XboxHDM - <small><small>(<a
+ style="color: rgb(255, 255, 102);" href="xboxhsm_ins.html">Sample
+Instructions</a>)</small></small></big></big></big><br>
+      </div>
+<!--{IBF.POLL}-->
+      <script type="text/javascript">
+  menu_build_menu(
+  "topicmenu-options",
+  new Array( img_item + " <a href='http://forums.xbox-scene.com/index.php?act=usercp&amp;CODE=start_subs&amp;method=topic&amp;tid=244043'>Track this topic</a>",
+  			 img_item + " <a href='http://forums.xbox-scene.com/index.php?act=Forward&amp;f=45&amp;t=244043'>Email this topic</a>",
+  			 img_item + " <a href='http://forums.xbox-scene.com/index.php?act=Print&amp;client=printer&amp;f=45&amp;t=244043'>Print this topic</a>",
+  			 img_item + " <a href='http://forums.xbox-scene.com/index.php?act=usercp&amp;CODE=start_subs&amp;method=forum&amp;fid=45'>Subscribe to this forum</a>",
+  			 "--NODIV--<div class='popupmenu-category' align='center'>Display Modes</div>",
+  			 img_item + " <a href='http://forums.xbox-scene.com/index.php?showtopic=244043&amp;mode=threaded'>Switch to: Outline</a>",
+  			 img_item + " <strong><em><a href='http://forums.xbox-scene.com/index.php?showtopic=244043&amp;mode=linear'>Standard</a></em></strong>",
+  			 img_item + " <a href='http://forums.xbox-scene.com/index.php?showtopic=244043&amp;mode=linearplus'>Switch to: Linear+</a>"
+		    ) );
+ </script>
+      <div class="popupmenu" id="topicmenu-options_menu"
+ style="z-index: 100; display: none; position: absolute; left: 0px; top: 0px;">
+      <div class="popupmenu-item"><img src="xboxhdm_files/menu_item.gif"
+ alt="V" style="vertical-align: middle;" border="0"> <a
+ href="http://forums.xbox-scene.com/index.php?act=usercp&amp;CODE=start_subs&amp;method=topic&amp;tid=244043">Track
+this topic</a> </div>
+      <div class="popupmenu-item"> <img
+ src="xboxhdm_files/menu_item.gif" alt="V"
+ style="vertical-align: middle;" border="0"> <a
+ href="http://forums.xbox-scene.com/index.php?act=Forward&amp;f=45&amp;t=244043">Email
+this topic</a> </div>
+      <div class="popupmenu-item"> <img
+ src="xboxhdm_files/menu_item.gif" alt="V"
+ style="vertical-align: middle;" border="0"> <a
+ href="http://forums.xbox-scene.com/index.php?act=Print&amp;client=printer&amp;f=45&amp;t=244043">Print
+this topic</a> </div>
+      <div class="popupmenu-item"> <img
+ src="xboxhdm_files/menu_item.gif" alt="V"
+ style="vertical-align: middle;" border="0"> <a
+ href="http://forums.xbox-scene.com/index.php?act=usercp&amp;CODE=start_subs&amp;method=forum&amp;fid=45">Subscribe
+to this forum</a> </div>
+      <div class="popupmenu-category" align="center">Display Modes</div>
+      <div class="popupmenu-item"><img src="xboxhdm_files/menu_item.gif"
+ alt="V" style="vertical-align: middle;" border="0"> <a
+ href="http://forums.xbox-scene.com/index.php?showtopic=244043&amp;mode=threaded">Switch
+to: Outline</a> </div>
+      <div class="popupmenu-item"> <img
+ src="xboxhdm_files/menu_item.gif" alt="V"
+ style="vertical-align: middle;" border="0"> <strong><em><a
+ href="http://forums.xbox-scene.com/index.php?showtopic=244043&amp;mode=linear">Standard</a></em></strong>
+      </div>
+      <div class="popupmenu-item-last"> <img
+ src="xboxhdm_files/menu_item.gif" alt="V"
+ style="vertical-align: middle;" border="0"> <a
+ href="http://forums.xbox-scene.com/index.php?showtopic=244043&amp;mode=linearplus">Switch
+to: Linear+</a> </div>
+      </div>
+<!--Begin Msg Number 1601823-->
+      <table class="ipbtable" cellspacing="1">
+        <tbody>
+          <tr>
+            <td class="post2" id="post-main-1601823" valign="top"
+ width="100%"><!-- THE POST 1601823 -->
+            <div class="postcolor" id="post-1601823"><span
+ style="color: blue;"><span style="font-size: 21pt; line-height: 100%;"><span
+ class="searchlite"></span></span></span><span style="color: red;"></span><span
+ style="color: red;"></span><b>TOOLS USED:</b><br>
+            <br>
+1. <span class="searchlite">xboxhdm</span>&nbsp; ( current version
+1.9)<br>
+            <a
+ href="http://dwl.xbox-scene.com/%7Exbox/xbox-scene/software/linux/xboxhdm_v1.9.zip"
+ target="_blank">download</a><br>
+            <br>
+2. <a href="http://slayer.xbox-scene.com/" target="_blank">Slayers Disk</a>
+2.6 final ( for dash version 5960.01)<br>
+            <br>
+            <b>How to get: Usual places</b><br>
+            <br>
+            <br>
+            <span style="color: blue;">MAKE YOUR BOOTABLE <span
+ class="searchlite">XBOXHDM</span> CD IMAGE:</span><br>
+            <br>
+1. Unpack xboxhdm_v1.6<br>
+            <br>
+2. After you unpack you find this files under <span class="searchlite">xboxhdm</span>
+folder:<br>
+1. linux ( folder)<br>
+2. cygwin1.dll<br>
+3. make-DOS-floppy.bat<br>
+4. make-iso-lin.sh<br>
+5. make-iso-win.bat<br>
+6. mkisofs.exe<br>
+7. rawrite.exe<br>
+            <br>
+there is also some other readme files but u need these files.<br>
+            <br>
+3. Copy files for <a target="_blank" href="#"
+ style="border-bottom: medium double darkgreen; text-decoration: none; color: darkgreen; background-color: transparent;"
+ class="iAs">xbox</a> C:\ drive from slayers disk and put the files in <span
+ class="searchlite">xboxhdm</span>'s linux&gt;C folder.<br>
+            <br>
+4. copy your xbox's eeprom.bin to linux&gt;eeprom folder<br>
+            <br>
+5. Double click on make-iso-win.bat, it will bringup command prompt and
+dump the bootable iso same folder.<br>
+            <br>
+            <img src="xboxhdm_files/19vg.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+6. Burn the iso with your favorite burning program.<br>
+            <br>
+            <b>SETUP YOUR COMPUTER AND XBOX:</b><br>
+            <br>
+1. Put you cd/dvd drive in primary slave and xbox HDD in primary master
+( Not tested with
+secondery master and slave).<br>
+            <br>
+            <img src="xboxhdm_files/lhorn19fn.jpg"
+ alt="user posted image" border="0"><br>
+            <br>
+2. Unlock your xbox hard drive and put it to the primary master. ( If
+you can, unless there is procedure later)<br>
+            <br>
+            <b>UNLOCK THE HD</b><br>
+            <br>
+After you boot to <span class="searchlite">xboxhdm</span> choose
+"3"(Boot linux with locking/unlocking utilities). <br>
+            <br>
+You will see this screen:<br>
+            <br>
+            <img src="xboxhdm_files/171wt.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+write "unlockhd -a" and press enter to unlock you hard drive. make sure
+you have eeprom.bin in linux&gt;eeprom folder.<br>
+            <br>
+            <br>
+            <b>BOOTING <span class="searchlite">XBOXHDM</span> ( First
+setup your computer to boot from cd):</b><br>
+            <br>
+After you boot you will see this screen:<br>
+            <br>
+            <img src="xboxhdm_files/28ql.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+now press enter to boot into Console and you will be in this screen:<br>
+            <br>
+            <img src="xboxhdm_files/33qp.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+            <br>
+now write "xboxhd" and press enter, if you xbox hd in the master you
+will see this screen:<br>
+            <br>
+            <img src="xboxhdm_files/44xv.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+write "yes" and press enter and you will be in the option screen:<br>
+            <br>
+            <img src="xboxhdm_files/57vs.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+if you had your eeprom.bin in the linux&gt;eeprom folder and your hd is
+still locked then write "6" and press enter. <span class="searchlite">xboxhdm</span>
+will calculate your hd key and password and unlock the hd.Write down
+the info.<br>
+            <br>
+            <img src="xboxhdm_files/64kh.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+your hd in now unlocked so you can perform the necessary
+operations.press enter and you will be in the option screen<br>
+            <br>
+            <b>BUILD YOU HD FROM SCRATCH:</b><br>
+            <br>
+After unlocking the hd, write "1" in option screen and press enter. It
+will bring this screen:<br>
+            <br>
+            <img src="xboxhdm_files/72sx.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+write "yes" and press enter, now it will build the partition table and
+reboot:<br>
+            <br>
+            <img src="xboxhdm_files/85xm.jpg" alt="user posted image"
+ border="0"><br>
+            <span class="edit"><br>
+            </span></div>
+<!--IBF.ATTACHMENT_1601823--><!-- THE POST --> </td>
+          </tr>
+        </tbody>
+      </table>
+      <script type="text/javascript">
+ //<![CDATA[
+ if ( ajax_loaded && use_enhanced_js )
+ {
+ menu_build_menu( 'edit-but-1601823',
+ new Array( img_item + "<a title='Full edit screen with all options' href='http://forums.xbox-scene.com/index.php?act=post&amp;do=edit_post&amp;f=45&amp;t=244043&amp;p=1601823&amp;st='>Full Edit</a>",
+ img_item + "<a href='#' title='Edit this post in place with basic options' onclick='return ajax_prep_for_edit(1601823, event);'>Quick Edit</a>" ) );
+ }
+ //]]>
+      </script>
+      <div class="popupmenu" id="edit-but-1601823_menu"
+ style="display: none; z-index: 100;">
+      <div class="popupmenu-item"><img src="xboxhdm_files/menu_item.gif"
+ alt="V" style="vertical-align: middle;" border="0"><a
+ title="Full edit screen with all options"
+ href="http://forums.xbox-scene.com/index.php?act=post&amp;do=edit_post&amp;f=45&amp;t=244043&amp;p=1601823&amp;st=">Full
+Edit</a> </div>
+      <div class="popupmenu-item-last"> <img
+ src="xboxhdm_files/menu_item.gif" alt="V"
+ style="vertical-align: middle;" border="0"><a href="#"
+ title="Edit this post in place with basic options"
+ onclick="return ajax_prep_for_edit(1601823, event);">Quick Edit</a> </div>
+      </div>
+<!--Begin Msg Number 1602142-->
+      <table style="width: 812px; height: 3359px;" class="ipbtable"
+ cellspacing="1">
+        <tbody>
+          <tr>
+            <td class="post1" id="post-main-1602142" valign="top"
+ width="100%"><!-- THE POST 1602142 -->
+            <div class="postcolor" id="post-1602142"><b>RESTORE YOUR
+C:\ DRIVE:</b><br>
+            <br>
+After
+rebooting go to option screen. Write "2" and press enter. After you hit
+enter it will ask you to write "yes" or "no". Write "yes" and press
+enter. first it will format your C:\ drive:<br>
+            <br>
+            <img src="xboxhdm_files/92oc.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+and
+then if you have proper files in the cd it will copy the files from cd
+to C:\ drive, you can also use this option to downgrade dash if you
+dont have a memcard to do savegame exploit:<br>
+            <br>
+            <img src="xboxhdm_files/109pe.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+write "yes" and hit enter. C:\ drive will be copied from cd.<br>
+            <br>
+            <b>INSTALLING F:\ Drive or UPGRADE YOUR HARD DRIVE:</b><br>
+            <br>
+To upgrade your hard-drive do all the above steps. Then again come to
+the Option screen of <span class="searchlite">xboxhdm</span>. Write
+"4" and press enter. Now <span class="searchlite">xboxhdm</span>
+will scan your hd tell you if you can have F:\ drive or not. If you can
+you will be asked to write "yes" or "no". Write "yes" and press enter.
+It will make the partition table and reboot:<br>
+            <br>
+            <img src="xboxhdm_files/114xf.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+After you reboot, once again go to option screen and press "4" again.
+Your F:\ drive will be build:<br>
+            <br>
+            <img src="xboxhdm_files/121gu.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+And now you are done.<br>
+            <br>
+            <b>CLONE EXISTING HD</b><br>
+            <br>
+In
+the welcome screen type "3" and press enter, xbxohdm will list
+available drives attached with primary and secondery ide cable:<br>
+            <br>
+            <img src="xboxhdm_files/182ft.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+A formatted xbox hd is attached with primary master, cd-drive
+with primary slave and another new blank hd with secondery master. so
+to start cloning first you have to enter your xbox hd's address in this
+case its "hda". so type "hda" and press enter. from the picture you can
+see theres another hard drive attached to secondery slave and its "hdc"
+so enter "hdc" as destination drive and press enter. Now it will ask
+for confermation. type "yes" and press enter and ur hd will be cloned. <br>
+            <br>
+            <span style="color: red;">note:
+cloning takes extremely long time and there is no progress indicator..
+wait around 2-3 hour to clone a complete 120gb drive. For cloning stock
+drives, it takes abouta hour.</span><br>
+            <br>
+            <img src="xboxhdm_files/198xb.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+now
+wait few minutes to finish the job. it took about 12 minutes to
+clone the hd with nothing extra in xbox hd ( no games, apps, movies
+only the orinal files) and F:\ drive formatted. If you have more stuff
+in your Xbox HDD it will take more time.<br>
+            <br>
+            <span style="color: red;">make sure your new hd is unlocked
+first and then locked when you are done by the following method.</span>
+            <br>
+            <br>
+            <b>LOCK/UNLOCK YOUR HD:</b><br>
+            <br>
+After you boot to <span class="searchlite">xboxhdm</span> choose
+"3"(Boot linux with locking/unlocking utilities). <br>
+            <br>
+You will see this screen:<br>
+            <br>
+            <img src="xboxhdm_files/171wt.jpg" alt="user posted image"
+ border="0"><br>
+            <br>
+write
+"lockhd" or "unlockhd" and press enter to lock or unlock you hard
+drive. make sure you have eeprom.bin in linux&gt;eeprom folder.<br>
+            <br>
+            <span style="color: red;">DONT FORGET TO LOCK YOUR HD
+BEFORE YOU SHUTDOWN XBOX</span><br>
+            <br>
+            <span class="edit"></span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

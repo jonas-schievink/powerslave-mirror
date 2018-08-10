@@ -1,0 +1,583 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>The Xbox HardDrive</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><big><img
+ alt="" src="graphics/blue_topbar.gif"
+ style="width: 764px; height: 26px;"><br>
+<img alt="" src="graphics/blue_sidebar.jpg"
+ style="width: 74px; height: 5778px;" align="left">THE
+XBOX HARD DRIVE</big></big><br>
+<br>
+</span><font style="color: rgb(255, 255, 255);" size="+1">The Xbox is
+"compatible" with any standard computer IDE hard drive.&nbsp;
+Compatible means just that "compatible".&nbsp; For 100% functionality
+(For both the Microsoft O/S and Alternate Dashboard), the drive nust be
+LOCKABLE.&nbsp; I have tested tons of HDDs, and found that anything
+MFGed from 2002 up should "Work", but I have found a few 10GB drives
+that do not lock.&nbsp; The MFG date of the HDD must be at least the
+same period as the Xbox releace.<br>
+<br>
+OK, Stock drives are 8GB (Western Digital) or 10GB (Seagate) drives,
+but even at 10GB, only 8GB is
+addressed
+from what I have read.&nbsp; The original Segate was 10GB, only
+formatted to 8GB.<br>
+<br>
+<small><span style="font-family: tahoma;"><big
+ style="font-weight: bold;">Note: </big>To access the extra 2GB of
+space, using EvoX, using the evox.ini file:</span><br
+ style="font-family: tahoma;">
+<span style="color: rgb(255, 204, 153); font-family: tahoma;">Item
+"Install F drive",@215</span><br style="font-family: tahoma;">
+<br style="font-family: tahoma;">
+<span style="font-family: tahoma;">Then add this section to the very
+bottom of the ini:</span><br style="font-family: tahoma;">
+<span style="color: rgb(255, 204, 153); font-family: tahoma;">[Action_15]</span><br
+ style="color: rgb(255, 204, 153); font-family: tahoma;">
+<br style="color: rgb(255, 204, 153); font-family: tahoma;">
+<span style="color: rgb(255, 204, 153); font-family: tahoma;">Info
+"Install F_Drive HDD"</span><br
+ style="color: rgb(255, 204, 153); font-family: tahoma;">
+<span style="color: rgb(255, 204, 153); font-family: tahoma;">Warning
+"This will not format all drives, Only the F Partition."</span><br
+ style="color: rgb(255, 204, 153); font-family: tahoma;">
+<span style="color: rgb(255, 204, 153); font-family: tahoma;">Warning
+"Make sure you have a backup of C &amp; E anyway."</span><br
+ style="color: rgb(255, 204, 153); font-family: tahoma;">
+<span style="color: rgb(255, 204, 153); font-family: tahoma;">Progress
+"Formatting drive"</span><br
+ style="color: rgb(255, 204, 153); font-family: tahoma;">
+<span style="color: rgb(255, 204, 153); font-family: tahoma;">ConfigSector
+"\backup\disk.bin"</span><br
+ style="color: rgb(255, 204, 153); font-family: tahoma;">
+<span style="color: rgb(255, 204, 153); font-family: tahoma;">Format f:<br>
+<br>
+</span><span style="font-family: tahoma;">After you save the changes to
+the ini file, reboot and choose Install F drive from the menu. <br>
+<br>
+This does not work with the Western Digital 8GB drives, only the
+SEAGATE HDDs.<br style="font-family: tahoma;">
+</span><br style="font-family: tahoma;">
+<span style="font-family: tahoma;">As you know, F drive is not EMPTY or
+NULL anyway, this will get you 2GB of space for some
+applications.&nbsp; Better than nothing, huh? </span></small><br>
+<br>
+The Xbox HDD uses <a href="#fatx">FATX</a>, not FAT16 or FAT32.<br>
+</font>
+<hr style="width: 100%; height: 2px;"><font
+ style="color: rgb(255, 255, 255);" size="+1"><big
+ style="font-weight: bold;">FORMAT DRIVE USING RAW FTP COMMANDS:</big><br>
+<br>
+<small>With Evox Dash booted off CDRW/DVD-R, connect through FlashFTP
+(Windows) or Transmit (MacOS).<br>
+<br>
+You will now need to send "Raw FTP Commands" with your FTP client. You
+may have to hunt through the pull down menus for an option called "send
+raw FTP command." Send the following "Raw FTP Command" with your FTP
+client:<br>
+<br>
+Formatpath \Device\Harddisk0\Partition1<br>
+<br>
+The FTP app will echo a hard drive key (later referred to as 'the
+number') <br>
+(display a long number in a dialog box). Use that key for the next
+command.<br>
+<br>
+FormatDrive 'the number' (no quotes)<br>
+<br>
+Do the same as above for the next few raw commands:<br>
+<br>
+Formatpath \Device\Harddisk0\Partition2<br>
+FormatDrive 'the number'<br>
+Formatpath \Device\Harddisk0\Partition6<br>
+FormatDrive 'the number'<br>
+<br>
+If you are using a +137gb drive and you flashed your xbox with a bios
+with LBA48 support with up to 137gb to F:&nbsp; rest to G: (also called
+'67' or '6+7' or 'F+G'). You will also have to run this command to
+format your G: drive:<br>
+<br>
+Formatpath \Device\Harddisk0\Partition7<br>
+FormatDrive 'the number'<br>
+<br>
+Your drive is now formatted and ready to use. The X:, Y:, and Z: drives
+are made automagically.<br>
+<br>
+Found at: <a
+ href="http://www.xboxhackz.com/tutorials/hardware/hdd/hddftp.htm">http://www.xboxhackz.com/tutorials/hardware/hdd/hddftp.htm</a><br>
+</small></font>
+<hr style="width: 100%; height: 2px;"><font
+ style="color: rgb(255, 255, 255);" size="+1"><br>
+<big style="font-weight: bold;">PARTITIONS:</big><br>
+<span style="font-weight: bold;"># C:</span> This is the primary boot
+partition. The xbox dashboard &amp; files
+are here.&nbsp; Do not alter the files on this drive, except where
+applicable.<br>
+<br>
+<span style="font-weight: bold;"># D:</span> This is the DVD drive.<br>
+<br>
+<span style="font-weight: bold;"># E:</span> This is the drive that the
+xbox uses to store gamesaves, music
+tracks, and content download from xbox live.&nbsp; There is about 5
+gigs of space available on this drive. You can use some of this space
+to store files or apps, a FEW. &nbsp; Try to make sure at least you
+have at least 1GB of frees space, or you might not be able to create
+new gamesaves.<br>
+<br>
+<span style="font-weight: bold;"># X: </span>This partition is used
+during gameplay by the xbox. Leave it alone.<br>
+<span style="font-weight: bold;"># Y:</span> This partition is used
+during gameplay by the xbox. Leave it alone.<br>
+<span style="font-weight: bold;"># Z:</span> This partition is used
+during gameplay by the xbox. Leave it alone.<br>
+</font>
+<hr style="width: 100%; height: 2px;"><font
+ style="color: rgb(255, 255, 255);" size="+1"><br>
+<big style="font-weight: bold;">Why a hard disk?</big><br>
+</font><font style="color: rgb(255, 255, 255);" class="content"><b>Data
+Cache</b><br>
+Data Caching is the technique that lets the CPU/GPU to manipulate data
+files that are larger than the system's memory (RAM).&nbsp; </font><font
+ style="color: rgb(255, 255, 255);" class="content">By effectively
+streaming the level off of the
+hard drive and into RAM, the player is given nearly limitless levels
+without realizing that only a fraction of the level has been loaded at
+any given moment.
+</font><br>
+<font style="color: rgb(255, 255, 255);" class="content"><b><br>
+More Textures - Low Load Times:</b><br>
+The hard drive can also be used as a texture cache to store extra
+textures, so that&nbsp;<span class="iAs"
+ style="text-decoration: underline; background-color: transparent;"></span>games
+will have the most diverse and rich textures possible.<br>
+<br style="color: rgb(255, 255, 255);">
+</font><font style="color: rgb(255, 255, 255);" class="content"><b>Rewritability</b><br>
+Rewritability is the constant exchange and saving of game data. The
+hard drive can do an excellent job of modifications.</font><br
+ style="color: rgb(255, 255, 255);">
+<font style="color: rgb(255, 255, 255);" size="+1"><big><br
+ style="color: rgb(255, 255, 255);">
+</big></font><font style="color: rgb(255, 255, 255);" class="content"><b>Increased
+Replayability</b><br>
+With the hard drive and the LAN adaper, you can download new levels,
+tracks,
+arenas, characters, cars, weapons, costumes, spells, updated rosters,
+soundtracks, etc.! By allowing for software expansion, any given game
+can continue to grow in size and scope for as long as the developer
+and, possibly, the online community continue to work on it.
+<br>
+<br style="color: rgb(255, 255, 255);">
+</font><font style="color: rgb(255, 255, 255);" class="content"><b>Create
+Your Game [I haven't seen this yet, personally]</b><br>
+More and more console games are beginning to ship with level editors.
+Similarly, Many Xbox games will have an editor section to let you
+create your own levels, tracks, and characters; then save them on the
+hard drive and perhaps share them with your friends or on the web. <br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;">Does the hard drive slow down when
+filled up with information?</span><br>
+No. It has been tested - there is no slowdown or loss of performance
+when the drive is full.<br>
+<br>
+<span style="font-weight: bold;">How many game save blocks does the OE
+hard drive
+actually have on the Xbox?</span><br>
+Just over 300,000.<br>
+<br>
+<span style="font-weight: bold;">Do I have to defragment the Xbox hard
+drive?</span><br>
+No. You don't need to. The Xbox hard drive has separate partitions for
+cache, music etc &amp; there is no need to defragment the drive ever,
+period.<br>
+</font>
+<hr style="width: 100%; height: 2px;"><font
+ style="color: rgb(255, 255, 255);" size="+1"><big><span
+ style="font-weight: bold;">Failure Rate? </span></big><br>
+The Xbox HDD Failure Rate is no better or worse than a PC HDD.&nbsp; As
+always, there will be some excaptions to that, you just get a bad
+one.&nbsp; Power surges, and failures during HDD I/O are lead causes of
+HDD Failure and Data Corruption.&nbsp; <br>
+<br>
+<big style="font-weight: bold;">What is Locking? - </big></font><span
+ style="color: rgb(255, 255, 255);"><span style="font-weight: bold;">Why
+does the HDD have to be locked?</span><br>
+Originally, locking was
+Microsoft's way of assuring you could not easily upgrade the hard disk,
+remove it and modify it externally.&nbsp;&nbsp; The Xbox BIOS demands
+the HDD be locked
+in order to boot, without a modchip on.&nbsp; If you boot an unlocked
+hard disk, you get the Error number at the top left of the
+screen, which means the drive us NOT locked.&nbsp; You can get
+dashboard errors as well.&nbsp; A modchip bypasses the LOCKING check,
+and will boot to an alternate dashboard without checking the status of
+the HDD.<br>
+<br>
+<big><span style="font-weight: bold;">BASIC LOCK EXPLANATION [<a
+ href="hddlock.html">DETAILED</a>]</span></big><br>
+Initially the drive is unlocked. It is locked by sending a lock command
+followed by the key across the IDE bus. The drive then stores the KEY
+and lock status (locked or not) on the hard disk. This in stored in a
+non addressable sector on the harddisk. In other words the drive cannot
+be commanded to go to a particular sector and read the data to you.<br>
+<br style="color: rgb(255, 255, 255);">
+Now we have a locked drive. Assuming the BIOS supports the IDE drive
+locking standard (not all controllers implement this) you will be
+prompted for an unlock code if booted in a PC. When you input the code,
+the BIOS sends an unlock drive command followed by the code. This code
+is compared to the code on the drive and if they match, the controller
+now allows for reads and writes to the rest of the drive.<br>
+<br>
+The HDD will automatically LOCK if:<br>
+<span style="color: rgb(255, 255, 255);">1) The power is removed from
+the drive, or 2) the drive is reset.&nbsp; </span>A drive is reset on
+any of the following conditions: the BIOS scans the drive (like at
+boot), the OS sends a LOCK command to the drive, or the OS installs the
+drivers for the IDE controller.<br>
+<br>
+<big><span style="font-weight: bold;">What you should know about a
+LOCKED Drive:</span></big><br>
+</span>
+<ul style="color: rgb(255, 255, 255);">
+  <li><font face="Arial">It cannot "Just be Formatted" in a PC to
+circumvent the lock.<br>
+    </font></li>
+  <li><font face="Arial">You cannot do the cable swap (hot-swap) or use
+the board
+to unlock it.</font></li>
+  <li><font face="Arial">You don't want to de-solder the EPROM from
+either the board or the drive.</font></li>
+  <li><font face="Arial">Drive is locked in Max Security mode (only
+user pass will unlock, there is no master pass)</font></li>
+  <li><font face="Arial">LiveInfo Beta 2 will not supply the proper
+password.</font></li>
+  <li><font face="Arial">Config Magic cannot unlock unless it has a
+board with the password.</font></li>
+</ul>
+<big style="font-weight: bold; font-family: tahoma;"><big><span
+ style="color: rgb(255, 255, 255);">Known Drives Used:</span></big></big><br
+ style="color: rgb(255, 255, 255);">
+<font style="color: rgb(255, 255, 255);" face="Arial"><span
+ style="font-weight: bold;">Seagate 10GB &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="graphics/seagate_2_big.gif">DRIVE</a>
+&nbsp;&nbsp; <a href="graphics/seagate_1_logicboard_big.gif">LOGIC
+BOARD</a></span><br>
+Model number ST310014ACE<br>
+P/N: 9W1001--280<br>
+This is the Thin HDD.</font><br>
+<font style="color: rgb(255, 255, 255);" face="Arial"><br>
+<span style="font-weight: bold;">Seagate 10GB </span></font><font
+ style="color: rgb(255, 255, 255); font-weight: bold;" face="Arial">U
+Series 5&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; <a href="graphics/seagate_1_big.gif">DRIVE</a> &nbsp; &nbsp; <a
+ href="graphics/seagate_2_logicboard_big.gif">LOGIC
+BOARD</a></font><font style="color: rgb(255, 255, 255);" face="Arial"><span
+ style="font-weight: bold;"></span><br>
+Model number ST310211A<br>
+P/N: 9R4005-279<br>
+This is the Full Size HDD, not the "Thin" Model.<br>
+<br>
+</font><font style="color: rgb(255, 255, 255);" face="Arial"><span
+ style="font-weight: bold;">Western
+Digital 8GB (Protege' Drives Used) &nbsp; &nbsp;&nbsp; <a
+ href="graphics/wd_big.gif">DRIVE</a> &nbsp; <a
+ href="graphics/wd_logicboard_big.gif">LOGIC BOARD</a></span><br>
+Model number WD80EB-00CGH0<br>
+WD P/N: WD80EB-00CGH0&nbsp; <br>
+<br>
+Western Digital 8GB<br>
+Model Number WD80EB-28CGH2<br>
+</font><font style="color: rgb(255, 255, 255);" face="Arial">WD P/N:
+WD80EB-</font><font style="color: rgb(255, 255, 255);" face="Arial">28CGH2<br>
+Date: 11-OCT-2004<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 25-OCT-2001<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font
+ style="color: rgb(255, 255, 255);" face="Arial">12-APR-2002<br>
+</font><font style="color: rgb(255, 255, 255);" face="Arial"><b><br>
+</b></font><font style="color: rgb(255, 255, 255);" face="Arial">
+Western Digital 8GB<br>
+Model Number WD80EB-28CGH1<br>
+</font><font style="color: rgb(255, 255, 255);" face="Arial">WD P/N:
+WD80EB-</font><font style="color: rgb(255, 255, 255);" face="Arial">28CGH1</font><br>
+<font style="color: rgb(255, 255, 255);" face="Arial"><b><br>
+</b></font><font style="color: rgb(255, 255, 255);" face="Arial">
+Western Digital 8GB<br>
+</font>
+<ul>
+  <li><font style="color: rgb(255, 255, 255);" face="Arial">Model
+Number WD80EB-28CGF2</font></li>
+</ul>
+<font style="color: rgb(255, 255, 255);" face="Arial"></font><font
+ style="color: rgb(255, 255, 255);" face="Arial">WD P/N:
+WD80EB-</font><font style="color: rgb(255, 255, 255);" face="Arial">28CFH2<br>
+<br>
+<big style="font-weight: bold;"><big><a name="fatx"></a>FATX</big></big><br>
+</font>
+<p style="color: rgb(255, 255, 255);">The Xbox hard drive file system
+is known as "FATX".&nbsp; It is basically a FAT derivative that dropped
+some legacy fields as well as redundant information that could lead to
+inconsistencies, creating possible security problems.</p>
+<p style="color: rgb(255, 255, 255);">The FAT filesystem consists of
+the boot block (or superblock in Unix jargon), the File Allocation
+Table(s), the directory entries and the actual file data. The File
+Allocation Table format and the file data layout on disk are actually
+identical on FAT and FATX.<br style="color: rgb(255, 255, 255);">
+</p>
+<h2 style="color: rgb(255, 255, 255);">The Superblock</h2>
+<p style="color: rgb(255, 255, 255);">The DOS boot block is partially
+defined by the IBM-PC hard disk layout (boot program, OEM string, ...).
+FATX has a very different boot block. The actual data is 18 bytes long,
+but the complete boot block always occupies 4 KB.</p>
+<table style="color: rgb(255, 255, 255);" border="0">
+  <tbody>
+    <tr>
+      <td> <b>Offset</b> </td>
+      <td> <b>Size</b> </td>
+      <td> <b>Description</b> </td>
+    </tr>
+    <tr>
+      <td> <br>
+      </td>
+      <td> <br>
+      </td>
+      <td> <br>
+      </td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>4</td>
+      <td>"FATX" string (ASCII)</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>4</td>
+      <td>Volume ID (int)</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>4</td>
+      <td>Cluster size in (512 byte) sectors</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2</td>
+      <td>Number of FAT copies</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>4</td>
+      <td>Unknown (always 0?)</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>4078</td>
+      <td>Unused</td>
+    </tr>
+  </tbody>
+</table>
+<p style="color: rgb(255, 255, 255);">On the Xbox, the cluster size is
+always set to 32 sectors (that's 16 KB) and the number of FATs is
+always 1. With conventional methods, there are always TWO "FATs", one
+is a backup.</p>
+<p style="color: rgb(255, 255, 255);">As you can see, the FATX boot
+block lacks some fields the PC formatted FATs use:</p>
+<table style="color: rgb(255, 255, 255);" border="0">
+  <tbody>
+    <tr>
+      <td> <b>Field</b> </td>
+      <td> <b>FAT Version</b> </td>
+      <td> <b>Comment</b> </td>
+    </tr>
+    <tr>
+      <td>Bytes per sector</td>
+      <td>all</td>
+      <td>Always 512 on FATX</td>
+    </tr>
+    <tr>
+      <td>Reserved clusters</td>
+      <td>all</td>
+      <td>no reserved clusters on FATX</td>
+    </tr>
+    <tr>
+      <td>Number of root directory entries</td>
+      <td>all</td>
+      <td>Always 256 (one cluster) on FATX</td>
+    </tr>
+    <tr>
+      <td>Number of sectors</td>
+      <td>all</td>
+      <td>Redundant, definied by partitioning</td>
+    </tr>
+    <tr>
+      <td>Media code</td>
+      <td>all</td>
+      <td>Legacy</td>
+    </tr>
+    <tr>
+      <td>Number of sectors the FAT occupies</td>
+      <td>all</td>
+      <td>Redundant, can be calculated with volume size</td>
+    </tr>
+    <tr>
+      <td>Sectors per track</td>
+      <td>all</td>
+      <td>Legacy</td>
+    </tr>
+    <tr>
+      <td>Heads</td>
+      <td>all</td>
+      <td>Legacy</td>
+    </tr>
+    <tr>
+      <td>Flags ("Fat Mirroring", "Active FAT")</td>
+      <td>FAT32 only</td>
+      <td>Not supported on FATX</td>
+    </tr>
+    <tr>
+      <td>Filesystem version</td>
+      <td>FAT32 only</td>
+      <td>There will never be more than one version of FATX.</td>
+    </tr>
+    <tr>
+      <td>First cluster in root directory</td>
+      <td>FAT32 only</td>
+      <td>???</td>
+    </tr>
+    <tr>
+      <td>Filesystem info sector</td>
+      <td>FAT32 only</td>
+      <td>Not supported on FATX</td>
+    </tr>
+    <tr>
+      <td>Backup boot sector</td>
+      <td>FAT32 only</td>
+      <td>Not supported on FATX</td>
+    </tr>
+  </tbody>
+</table>
+<h2 style="color: rgb(255, 255, 255);">The File Allocation Table</h2>
+<p style="color: rgb(255, 255, 255);">The (single) File Allocation
+Table always starts at position 4 KB of the filesystem. Its format is
+identical to the FAT16/32 formats. Partitions with less than 65525
+clusters (smaller than about 1GB) will be FATX16, else FATX32. Just as
+FAT16/FAT32, FATX16 has 16 bit FAT entries and FATX32 has 32 bit FAT
+entries.</p>
+<p style="color: rgb(255, 255, 255);">On the Xbox, partitions 0, 1, 2
+and 3 (A0, B1, C2 and System3) are FATX16, partition 4 (Data) is FATX32.</p>
+<p style="color: rgb(255, 255, 255);">The size of the FAT can be
+calculated like this (cluster map size entry being 16 or 32):&nbsp; <br>
+</p>
+<p style="color: rgb(255, 255, 255); font-family: tahoma;"> FAT size in
+bytes = ((partition size in bytes / cluster size) * cluster map entry
+size) rounded up to the nearest 4096 byte boundary. </p>
+<h2 style="color: rgb(255, 255, 255);">The Directory Entries</h2>
+<p style="color: rgb(255, 255, 255);">Standard PC FAT directory entries
+are quite complicated because of their ancient original design and the
+downwards-compatible extension to long file names.&nbsp; FATX has
+directory entries similar to the orginal FAT ones, but with long
+filenames (up to 42 characters).&nbsp; Any directory entry longer that
+42 characters is ignored, and not written, or are truncated, not
+exactly sure.<br>
+</p>
+<p style="color: rgb(255, 255, 255);">A directory entry is 64 bytes
+long, thus a cluster can contain up to 256 directory entries.
+Subdirectories can contain more than 256 entries, since they may
+consist of more than one cluster, as on FAT.</p>
+<p style="color: rgb(255, 255, 255);">A directory entry looks like this:</p>
+<table style="color: rgb(255, 255, 255);" border="0">
+  <tbody>
+    <tr>
+      <td> <b>Offset</b> </td>
+      <td> <b>Size</b> </td>
+      <td> <b>Description</b> </td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>Size of filename (max. 42)</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>Attribute as on FAT</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>42</td>
+      <td>Filename in ASCII, padded with 0xff (not zero-terminated)</td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>4</td>
+      <td>First cluster</td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>4</td>
+      <td>File size in bytes</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>2</td>
+      <td>Modification time</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>2</td>
+      <td>Modification date</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>2</td>
+      <td>Creation time</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>2</td>
+      <td>Creation date</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>2</td>
+      <td>Last access time</td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>2</td>
+      <td>Last access date</td>
+    </tr>
+  </tbody>
+</table>
+<p style="color: rgb(255, 255, 255);">The order of the three time
+stamps has not yet been verified, the order in the table corresponds to
+the order in VFAT directory entries. The format of the timestamps looks
+a lot like the DOS one, but this has not been fully confirmed yet.</p>
+<p style="color: rgb(255, 255, 255);">Note that FATX doesn't support
+Unicode filenames. The file names are case insensitive but case
+preserving, as on FAT.</p>
+<p style="color: rgb(255, 255, 255);">Deleted files are marked with a
+value of 0xe5 in the filename size field. (FAT marks deleted files with
+a first filename character of 0xe5.) A directory entry with a filename
+size of 0xff marks the end of the directory.<img alt=""
+ src="graphics/blue_bottombar.gif" style="width: 762px; height: 26px;"><br>
+</p>
+<font style="color: rgb(255, 255, 255);" face="Arial"><b><br>
+</b></font><font style="color: rgb(255, 255, 255);" face="Arial"><b>&nbsp;
+</b></font><br style="color: rgb(255, 255, 255);">
+<font style="color: rgb(255, 255, 255);" face="Arial"><b><br>
+</b></font><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);"><br
+ style="color: rgb(255, 255, 255);">
+<br>
+</span>
+</body>
+</html>

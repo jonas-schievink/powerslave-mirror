@@ -1,0 +1,96 @@
+Version 1.0
+
+Fixed a bug which wouldn't allow writing of table or formatting 
+under non-compliant kernels.
+====================================
+This is NOT partition magic. If you change a partition it should be 
+formatted.   If you format a partition all data will be lost on that 
+partition. The built-in  formatter will not format unchanged 
+partitions.
+
+* The single partition format action doesn't check whether the 
+partition has changed.
+
+============================================
+Keys:
+
+ A...................Cycle through quick setup schemes
+
+ B...................distribute allocated and free space among extended
+                     partitions
+
+ X...................toggle change size \ change start sector
+
+ Y...................toggle cluster size for single partition format
+
+ L-Trigger...........increase partition size
+
+ R-Trigger...........decrease partition size
+
+ D-Pad-Left..........increase partition size by 1GB
+
+ D-Pad-Right.........decrease partition size by 1GB
+
+ R-Thumb.............enable\disable current partition
+
+ L+R Thumb Buttons...undo all changes since last write
+
+ Black...............erase partition table
+
+ White...............select Start Button action
+
+ Start...............write & format changed partitions \ write only \ format
+                     selected partition depending on current mode
+
+ Back................help
+ 
+
+You will always be asked for confirmation before anything is written to the
+disk.
+
+================================================================================
+Quick setup schemes are:
+
+ F takes everything above the standard partitions up to 129GB \ no G
+ F takes everything above the standard partitions
+ F takes everything above the standard partitions up to 129GB \ G takes rest
+ F & G split everything above the standard partitions
+
+
+Formatting
+
+ If in 'write and format mode' all changed partitions will be formatted.
+ Partitions which haven't been changed won't be formatted.
+ 
+ If in 'format mode' only the currently highlighted partition will be formatted
+ (regardless of whether it has been changed or not). In 'format mode' the Y
+ Button toggles between 16k and 32k clusters.
+ 
+ 32k clusters may solve the corruption problem some people have reported when
+ using 06 BIOS's on 300GB and larger drives. Assuming this is a cluster count
+ limit, 32k cluster would allow partitions of up to 512GB.
+ 
+================================================================================
+Supported BIOS's
+
+ Current BIOS's which can read the partition table from disk are X2 4976.02,
+ x2 4977, Evox D6, Evox M7 and Evox M8. These BIOS's need to be patched with
+ XBtool  or EVtool for LBA48 support before they can read the partition table.
+
+ Team X-ecuter has announced that they will support on-disk partition tables in
+ their future releases.
+
+================================================================================
+XBpartitioner should run under most any BIOS, LBA48 patch version 2 is
+supported, but it is recommended that you update to version 3 if you are using a
+patched kernel.
+
+Changing partitions 2, 3, 4, and 5 is not recommended.
+
+Changing partition 1 should be safe, but you shouldn't use a BIOS which doesn't
+read the partition table from the disk if you do this. That means all non LBA48
+BIOS's and X2 4979 and up should NOT be used with a modified partition 1.
+
+The LBA48 info checking code in XBpartitioner is mostly copied from a post made by Paul Bartholomew on xbox-scene.com. 
+
+

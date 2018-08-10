@@ -1,0 +1,891 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Xbox Serial EEPROM</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><img
+ alt="" src="graphics/serialeeprom.gif"
+ style="width: 125px; height: 100px;" align="left"><big><big><br>
+SERIAL
+EEPROM INFORMATION</big></big></big><br>
+</span>
+<p style="color: rgb(255, 255, 255);"><br>
+</p>
+<p style="color: rgb(255, 255, 255);"><a href="#fix">FIXING A CORRUPTED
+SERIAL EEPROM</a><br>
+<br>
+</p>
+<p style="color: rgb(255, 255, 255);">This information I found was
+written before the
+BACKUP function in EvoX was implemented.<br>
+</p>
+<p style="color: rgb(255, 255, 255);">There is a 256 byte Serial&nbsp;
+EEPROM on
+the Xbox which stores:</p>
+<p style="color: rgb(255, 255, 255);">*XBOX VERSION<br>
+*KERNEL VERSION<br>
+*RAM SIZE<br>
+*XBOX SERIAL<br>
+*MAC ADDRESS<br>
+*ONLINE KEY<br>
+*VIDEO STANDARD<br>
+*XBE REGION<br>
+*HDD KEY<br>
+*CONFOUNDER<br>
+*HDD MODEL<br>
+*HDD SERIAL<br>
+*HDD PASSWORD<br>
+*XBOX DVD MODEL</p>
+<p style="color: rgb(255, 255, 255);">The
+EEPROM is
+located on the motherboard between the TSOP and another chip.&nbsp; The
+EEPROM is a Rhom BR24C02 device (runs on Vcc = 3.3V), and its I2C
+address code is 0xA8 (that's
+already shifted left to compensate for the LSB r/w bit, the "real"
+device code is 0x54). I managed to find a sample contents, taken from
+an ACTUAL box, and Here's what I found:</p>
+<pre><span style="color: rgb(255, 255, 255);">00000000: e31c 5c23 6a58 6837 b712 266c 9911 30d1  ..\#jXh7..&amp;l..0.</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">00000010: e23e 4d56 f773 2b73 85fe 7f0a 08ef 153c  .&gt;MV.s+s.......&lt;</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">00000020: 77ee 6d4e 932f 28ee f861 f794 171f fc11  w.mN./(..a......</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">00000030: 0b84 44ed 3130 3535 3831 3131 3430 3033  ..D.<span
+ style="font-weight: bold; text-decoration: underline;">105581114003</span></span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">00000040: 0050 f24f 6552 0000 0a1e 3533 7185 314d  .P.OeR....53q.1M</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">00000050: 5912 3848 1c91 5360 0001 4000 0000 0000  Y.8H..S`..@.....</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">00000060: 7561 57fb 2c01 0000 4553 5400 4544 5400  uaW.,...EST.EDT.</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">00000070: 0000 0000 0000 0000 0a05 0002 0401 0002  ................</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">00000080: 0000 0000 0000 0000 0000 0000 c4ff ffff  ................</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">00000090: 0100 0000 0000 0000 0000 0000 0000 0000  ................</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">000000a0: 0000 0000 0000 0000 0000 0000 0000 0000  ................</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">000000b0: 0000 0000 0000 0000 0000 0000 0000 0000  ................</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">000000c0: 0000 0000 0000 0000 0000 0000 0000 0000  ................</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">000000d0: 0000 0000 0000 0000 0000 0000 0000 0000  ................</span><br><span
+ style="color: rgb(255, 255, 255);">000000e0: 0000 0000 0000 0000 0000 0000 0000 0000  ................</span><br
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 255, 255);">000000f0: 0000 0000 0000 0000 0000 0000 0000 0000  ................<br><br><span
+ style="font-family: helvetica,arial,sans-serif;">This is what is BACKED UP when you use the EvoX Dash BACKUP option.</span><br
+ style="font-family: helvetica,arial,sans-serif;"><span
+ style="font-family: helvetica,arial,sans-serif;">The file EEPROM.BIN contains this information.  The numbers in <span
+ style="font-weight: bold; text-decoration: underline;">bold</span>?</span><br
+ style="font-family: helvetica,arial,sans-serif;"><span
+ style="font-family: helvetica,arial,sans-serif;">That would be SERIAL NUMBER of the Xbox.  Which if you look on your<br>serial number sticker, those numbers should match!  You can also see<br>the EST and EDT time zone markers.  As for the HDD Key?  Be my guest. . .<br><br><br>Now that there is ConfigMagic, you cqn edit the contents of the Serial EEPROM on the fly, <br>or load one already saved.  Be careful when you mess with these things, you can turn your<br>Xbox into a door stop by putting the wrong thing in.<br><br>I have changed my Serial # to try to get back on Xbox live - Apparently I needed more than<br>that.  I got a TECHNICAL ERROR signing in to Xbox Live.<br><br>You would need Serial#, Keys, and MAC Address from a never on-line Xbox!<br></span></span></pre>
+<hr style="width: 100%; height: 2px;">
+<div style="text-align: center;"><big><span
+ style="color: rgb(255, 255, 255);"><big><big><span
+ style="font-weight: bold;">MORE SERIAL EEPROM INFO<br>
+<br>
+</span></big></big></span></big>
+<div style="text-align: left;"><big style="font-weight: bold;"><span
+ style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;<big
+ style="font-weight: bold;">EEPROM Contents Reference</big></span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);"></span></big><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;<small>typedef
+struct _EEPROMDATA {</small></span><small><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HMAC_SHA1_Hash[20];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x00 - 0x13 HMAC_SHA1 Hash</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Confounder[8];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x14 - 0x1B RC4 Encrypted Confounder ??</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HDDKkey[16];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x1C - 0x2B RC4 Encrypted HDD key</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+XBERegion[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x2C - 0x2F RC4 Encrypted Region code (0x01 North America, 0x02
+Japan, 0x04 Europe)</span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Checksum2[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x30 - 0x33 Checksum of next 44 bytes</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SerialNumber[12];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x34 - 0x3F Xbox serial number</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MACAddress[6];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x40 - 0x45 Ethernet MAC address</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UNKNOWN2[2];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x46 - 0x47 Unknown Padding ?</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OnlineKey[16];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x48 - 0x57 Online Key ?</span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VideoStandard[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x58 - 0x5B&nbsp; 0x00800300 = PAL, 0x00400100 = NTSC,
+0x00400200=NTSC_J </span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UNKNOWN3[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x5C - 0x5F&nbsp; Unknown Padding ?</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+//Comes configured up to here from factory..&nbsp; everything after
+this can be zero'd out...</span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+//To reset XBOX to Factory settings, Make checksum3 0xFFFFFFFF and zero
+all data below (0x64-0xFF)</span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+//Doing this will Reset XBOX and upon startup will get Language &amp;
+Setup screen...</span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Checksum3[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x60 - 0x63&nbsp; other Checksum of next</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TimeZoneBias[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x64 - 0x67 Zone Bias?</span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TimeZoneStdName[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x68 - 0x6B Standard timezone</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TimeZoneDltName[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x5C - 0x6F Daylight timezone</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UNKNOWN4[8];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x70 - 0x77 Unknown Padding ?</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TimeZoneStdDate[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x78 - 0x7B 10-05-00-02 (Month-Day-DayOfWeek-Hour)</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TimeZoneDltDate[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x7C - 0x7F 04-01-00-02 (Month-Day-DayOfWeek-Hour)</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UNKNOWN5[8];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x80 - 0x87 Unknown Padding ?</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TimeZoneStdBias[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x88 - 0x8B Standard Bias?</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TimeZoneDltBias[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x8C - 0x8F Daylight Bias?</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LanguageID[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x90 - 0x93 Language ID</span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VideoFlags[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x94 - 0x97 Video Settings - 0x96 b0==widescreen 0x96 b4 == letterbox</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AudioFlags[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x98 - 0x9B Audio Settings</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ParentalControlGames[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0x9C - 0x9F 0=MAX rating</span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ParentalControlPwd[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0xA0 - 0xA3 7=X, 8=Y, B=LTrigger, C=RTrigger</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ParentalControlMovies[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0xA4 - 0xA7 0=Max rating</span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+XBOXLiveIPAddress[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0xA8 - 0xAB XBOX Live IP Address..</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+XBOXLiveDNS[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0xAC - 0xAF XBOX Live DNS Server..</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+XBOXLiveGateWay[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0xB0 - 0xB3 XBOX Live Gateway Address..</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+XBOXLiveSubNetMask[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0xB4 - 0xB7 XBOX Live Subnet Mask..</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OtherSettings[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0xA8 - 0xBB Other XBLive settings ?</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DVDPlaybackKitZone[4];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0xBC - 0xBF DVD Playback Kit Zone</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+u8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UNKNOWN6[64];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 0xC0 - 0xFF Unknown Codes / Memory timing table?</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;}
+EEPROMDATA</span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);"></span><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);"></span></small></div>
+<span style="color: rgb(255, 255, 255);"></span></div>
+<span style="color: rgb(255, 255, 255);"></span><br>
+<br>
+<h2 style="color: rgb(255, 255, 255);">The Region Code</h2>
+<p style="color: rgb(255, 255, 255);">This DWORD is encrypted. It
+corresponds to the region code in the XBE header:
+</p>
+<table style="color: rgb(255, 255, 255);">
+  <tbody>
+    <tr>
+      <td> 1 </td>
+      <td> North America </td>
+    </tr>
+    <tr>
+      <td> 2 </td>
+      <td> Japan </td>
+    </tr>
+    <tr>
+      <td> 4 </td>
+      <td> Europe/Australia </td>
+    </tr>
+    <tr>
+      <td> 0x80000000 </td>
+      <td> Manufacturing plant</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h2 style="color: rgb(255, 255, 255);">DVD Region</h2>
+<p style="color: rgb(255, 255, 255);">This DWORD corresponds to the
+region code for playback of DVD movies:
+</p>
+<table style="color: rgb(255, 255, 255);">
+  <tbody>
+    <tr>
+      <td> 0x00 </td>
+      <td> None </td>
+    </tr>
+    <tr>
+      <td> 0x01 </td>
+      <td> Region 1 </td>
+    </tr>
+    <tr>
+      <td> ... </td>
+      <td> ... </td>
+    </tr>
+    <tr>
+      <td> 0x06 </td>
+      <td> Region 6</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<hr style="width: 100%; height: 2px;"> <big
+ style="font-weight: bold; color: rgb(255, 255, 255);"><big>MY EEPROM </big></big><big
+ style="color: rgb(255, 255, 255);"><big><small>[EEPROM.BIN]</small></big></big><br>
+<table x:str="" style="border-collapse: collapse; width: 421pt;"
+ border="0" cellpadding="0" cellspacing="0" width="550">
+  <col style="width: 59pt;" width="78"> <col span="16"
+ style="width: 17pt;" width="22"> <col style="width: 90pt;" width="120">
+  <tbody>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; width: 59pt; color: rgb(255, 255, 255);"
+ height="17" width="78">00000000</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">A9</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">D3</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">EA</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">8B</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">91</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">7A</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">88</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">D1</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">03</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">CA</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">52</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">CE</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">18</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">FB</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">7B</td>
+      <td class="xl22" style="width: 17pt; color: rgb(255, 255, 255);"
+ width="22">C2</td>
+      <td class="xl22" style="width: 90pt; color: rgb(255, 255, 255);"
+ width="120">&copy;&Oacute;&ecirc;&#8249;&#8216;z&#710;&Ntilde;.&Ecirc;R&Icirc;.&ucirc;{&Acirc;</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">00000010</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">78</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">A4</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">AA</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">D8</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">83</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">5A</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">DF</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">A0</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">CD</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">28</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">19</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">31</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">53</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">9B</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">BF</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">30</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">x&curren;&ordf;&Oslash;&#402;Z&szlig;&nbsp;&Iacute;(.1S&#8250;&iquest;0</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">00000020</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">21</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">93</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">F3</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">39</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">0E</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">FA</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">CC</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">04</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">D6</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">56</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">37</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">0D</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">C4</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">E6</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">22</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">0F</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">!&#8220;&oacute;9.&uacute;&Igrave;.&Ouml;V7.&Auml;&aelig;".</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">00000030</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">F0</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">1A</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">DD</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">59</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">33</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">31</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">32</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">32</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">33</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">38</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">32</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">33</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">30</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">32</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">30</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">35</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">&eth;.&Yacute;Y<span
+ style="font-weight: bold;">312238230205</span></td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">00000040</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">50</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">F2</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">D1</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">69</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">CA</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">92</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">BC</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">C0</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">7A</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">CD</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">9A</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">43</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">F2</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">.P&ograve;&Ntilde;i&Ecirc;..&#8217;&frac14;&Agrave;z&Iacute;&#353;C&ograve;</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">00000050</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">59</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">2C</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">C3</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">DB</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">54</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">AA</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">93</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">F0</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">01</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">40</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">Y,&Atilde;&Ucirc;T&ordf;&#8220;&eth;..@.....</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">00000060</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">DD</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">A4</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">44</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">FB</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">2C</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">01</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">45</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">53</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">54</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">45</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">44</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">54</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">&Yacute;&curren;D&ucirc;,...EST.EDT.</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">00000070</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">0A</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">05</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">02</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">04</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">01</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">02</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">................</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">00000080</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">C4</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">FF</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">FF</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">FF</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">............&Auml;&yuml;&yuml;&yuml;</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">00000090</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">01</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">0F</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">02</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">03</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">01</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">................</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">000000A0</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">88</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">BC</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">&#710;&frac14;..............</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">000000B0</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">0D</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">................</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">000000C0</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">................</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">000000D0</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">................</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22"
+ style="height: 12.75pt; color: rgb(255, 255, 255);" height="17">000000E0</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">00</td>
+      <td style="color: rgb(255, 255, 255);" class="xl22">................</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<span style="color: rgb(255, 255, 255);">My console has been banned,
+and has my upgraded HDD key anyway, so this will do you no good for
+getting back on to Xbox live.<br>
+<br>
+<big style="font-weight: bold;"><big>HDD KEY</big></big> [HDD KEY.BIN]<br
+ style="color: rgb(255, 255, 255);">
+</span>
+<table x:str=""
+ style="border-collapse: collapse; width: 421pt; color: rgb(255, 255, 255);"
+ border="0" cellpadding="0" cellspacing="0" width="550">
+  <col style="width: 59pt;" width="78"> <col span="16"
+ style="width: 17pt;" width="22"> <col style="width: 90pt;" width="120">
+  <tbody>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22" style="height: 12.75pt; width: 59pt;" height="17"
+ width="78">00000000</td>
+      <td class="xl22" style="width: 17pt;" width="22">D5</td>
+      <td class="xl22" style="width: 17pt;" width="22">A8</td>
+      <td class="xl22" style="width: 17pt;" width="22">C8</td>
+      <td class="xl22" style="width: 17pt;" width="22">47</td>
+      <td class="xl22" style="width: 17pt;" width="22">B8</td>
+      <td class="xl22" style="width: 17pt;" width="22">E9</td>
+      <td class="xl22" style="width: 17pt;" width="22">94</td>
+      <td class="xl22" style="width: 17pt;" width="22">41</td>
+      <td class="xl22" style="width: 17pt;" width="22">BF</td>
+      <td class="xl22" style="width: 17pt;" width="22">27</td>
+      <td class="xl22" style="width: 17pt;" width="22">92</td>
+      <td class="xl22" style="width: 17pt;" width="22">2F</td>
+      <td class="xl22" style="width: 17pt;" width="22">FD</td>
+      <td class="xl22" style="width: 17pt;" width="22">DD</td>
+      <td class="xl22" style="width: 17pt;" width="22">84</td>
+      <td class="xl22" style="width: 17pt;" width="22">F7</td>
+      <td class="xl22" style="width: 90pt;" width="120">&Otilde;&uml;&Egrave;G&cedil;&eacute;&#8221;A&iquest;'&#8217;/&yacute;&Yacute;&#8222;&divide;</td>
+    </tr>
+    <tr style="height: 12.75pt;" height="17">
+      <td class="xl22" style="height: 12.75pt;" height="17">00000010</td>
+      <td class="xl22">33</td>
+      <td class="xl22">BA</td>
+      <td class="xl22">6C</td>
+      <td class="xl22">E7</td>
+      <td class="xl22">00</td>
+      <td class="xl22">00</td>
+      <td class="xl22">00</td>
+      <td class="xl22">00</td>
+      <td class="xl22">00</td>
+      <td class="xl22">00</td>
+      <td class="xl22">00</td>
+      <td class="xl22">00</td>
+      <td class="xl22">00</td>
+      <td class="xl22">00</td>
+      <td class="xl22">00</td>
+      <td class="xl22">00</td>
+      <td class="xl22">3&ordm;l&ccedil;............</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><a
+ name="fix"></a>FIXING A BROKEN SERIAL EEPROM:</big><br>
+<br>
+<big style="font-weight: bold;">How Can I Fix My Broken EEPROM?</big><br>
+First, try EVERYTHING else before you mess with your EEPROM. You can
+permanently ruin your xbox if you make a mistake. Now then... The
+following procedure was used to recover a retail xbox after using the
+XDK recovery disc on it. so it is possible hat you can get it to work
+on yours... Using an XDK Recovery disk BLANKS the EEPROM, so On to it:<br>
+<br>
+You need to get a valid eeprom.bin for your xbox. You should have
+backed up your xbox eeprom already, but I know how some of you are, so
+there is another option. However, if your hard drive is locked, you
+must have the hard drive unlock key from your xbox EEPROM. There is NO
+other way. Additionally, if you have a 1.6 xbox with a locked hard
+drive, I do not know any method of creating a usable bios with embedded
+eeprom. You will have to wait.. Sorry! You can try to use the method
+described below to boot your xbox (the hard drive key portion of your
+eeprom could still be undamaged, but first chance you get, you need to
+unlock your hard drive, before flashing the eeprom), but there are no
+guarantees.&nbsp; If your HDD was unlocked, then you can breathe a
+little easier.<br>
+<br>
+Yoshiro made a great debug bios. It is bootable on all versions of xbox
+and has a valid embedded eeprom... This is the key to making this fix
+easy... Thanks Yoshihiro!<br>
+<br>
+<big style="font-weight: bold;">Make Your Own Working EEPROM</big><br>
+Here is what you need to make a working EEPROM file:<br>
+<br>
+&nbsp;&nbsp; 1. LiveInfo Beta2 from TeamAssembly<br>
+&nbsp;&nbsp; 2. bunnie's eeprom, or a blank eeprom as provided with
+LiveInfo<br>
+<br>
+This part is rather simple. Open your chosen eeprom file with LiveInfo.
+Make sure that the xbox version is set correctly:<br>
+1.0 = 1.0 xbox 1.1 = 1.1-1.6 xbox.<br>
+Enter the serial number of your xbox (on the sticker on the bottom of
+the xbox).<br>
+Enter an MAC address for your ethernet connection. This has to be
+different than other MAC addresses on your network. This is bunnie's
+MAC address: 00-50-F2-4F-65-52.<br>
+Set your video/XBE region.<br>
+You don't have to put an Online Key, unless you know it from your
+backup eeprom.<br>
+The DVD Kit Zone can be set to 00.<br>
+<br>
+I am not sure what the confounder does exactly, but I used bunnie's
+before with no problems: 00000000A0F31300.<br>
+And the Unique Harddrive key. This must be the same as your previous
+eeprom if your hard drive has been locked. Otherwise, you may not be
+able to use the hard drive anymore.<br>
+<br>
+Now save the the eeprom.bin file from the edits you just made.<br>
+<br>
+<big><span style="font-weight: bold;">Making Your Own Bios With An
+Embedded EEPROM</span></big><br>
+You will need the following:<br>
+<br>
+&nbsp;&nbsp; 1. Xecuter2 4981 bios (just use the .06 version for now)<br>
+&nbsp;&nbsp; 2. xbtool by nghtshd. (xbtool website)<br>
+&nbsp;&nbsp; 3. your eeprom.bin file. (with working hard drive unlock
+code if your hard drive has been locked)<br>
+<br>
+Extract the xbtool rar archive to a folder on your computer. Open the
+Xecuter2 4981 bios with xbtool. There are several things you can edit,
+but we are only concerned with the embedded eeprom. You have to place
+the eeprom file, named "eeprom.bin" in the "Patch Data" folder. then
+make sure the "Embed Eeprom" box is checked, then save your bios. (also
+select what size you need the bios to be for you hack...)<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;">Flashing Your EEPROM</span><br>
+Now you are ready to flash the xbox eeprom:<br>
+<br>
+What you need:<br>
+<br>
+&nbsp;&nbsp; 1. Xbox with a modchip (if you have a softmod, or tsop
+hack, then you will have to find a way to boot something to
+flash/install a new bios...)<br>
+&nbsp;&nbsp; 2. Yoshihiro debug bios 256k Kernel 2005 (This is on
+xbins) or your own bios with embedded EEPROM as created above.<br>
+&nbsp;&nbsp; 3. a working eeprom... either a backup or your xbox eeprom
+(as you should have backed everything up) or you can use bunnie's
+eeprom as described above.<br>
+&nbsp;&nbsp; 4. EEpromer (This is on xbins)<br>
+&nbsp;&nbsp; 5. If you have no replacement dash on your xbox, you need
+Slayer's Auto Installer, or other bootable disc with ftp server
+support. (You can make your own! See My Evox Install Guide on
+instruction to make your own bootable evox disc.)<br>
+<br>
+In the Yoshihiro debug bios 256k Kernel 2005 pack on xbins, there are
+two bios files. One is for 1.6 xboxes, the other for 1.0-1.5 xboxes.
+Use the correct version for your xbox. You need to flash this bios to
+your modchip (or have it load by other means. If you cannot get the
+xbox to boot at all, then the modchip is really your only option). and
+start it up... It should look like a normal bios, except the background
+is white behind the large X logo. NOTE: THIS IS A SPECIAL TYPE OF BIOS!
+DO NOT USE IT NORMALLY ON YOUR XBOX AFTER REPAIRING THE EEPROM!<br>
+<br>
+If you have a dash installed on your xbox, it should boot up. If not,
+then try booting Slayer's or another dash disc. You HAVE to get a
+launcher to load because you need FTP. Your backup EEPROM file should
+be named eeprom.bin and transferred to the C:\ directory on your xbox.
+This is where eepromer will look for the new EEPROM file to flash to
+your xbox.<br>
+<br>
+Before going on, make sure your xbox hard drive is unlocked. If it is
+locked, you may not be able to unlock it unless you are restoring the
+same eeprom that is currently on your xbox.<br>
+<br>
+You can either install a dash to your xbox (if you don't have one
+installed already) or you can make a bootable xbox disc with eepromer
+on it. Start up your xbox with the debug bios and run eepromer. You
+will have to press A to continue, then A again. It will make a backup
+of the current eeprom, and save it as C:\backupeeprom.bin. To continue,
+press A again, then it will attempt to flash the xbox eeprom. When it
+is done, it will give a status message, press A, then press X to shut
+down your xbox. Your eeprom has now been flashed! now reflash the
+modchip to a normal hacked bios like Xecuter2 4981, 4983, or EvoxM8plus
+and you xbox should boot up. If you xbox is still showing signs of an
+eeprom problem, then you may not have edited the bios correctly
+beforehand.<br>
+</span><br>
+<span style="color: rgb(255, 255, 255);"><br>
+<br>
+<br>
+</span>&nbsp;&nbsp; 00&nbsp;&nbsp;&nbsp; 00&nbsp;&nbsp;&nbsp;
+00&nbsp;&nbsp;&nbsp; 00&nbsp;&nbsp;&nbsp; ................<br>
+<br>
+</body>
+</html>

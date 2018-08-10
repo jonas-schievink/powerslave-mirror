@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Select TSOP Bank V1.0 Xbox</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><big>SELECTING
+TSOP BANK FOR XBOX 1.0</big></big><br>
+<br>
+The TSOP in the V1.0 xbox has four banks, it is a 1MB Bios.&nbsp; Here
+is how to select between all four of those banks with two switches.<br>
+<br>
+<big style="font-weight: bold;">BACK OF MAIN-BOARD</big><br>
+<img alt="" src="graphics/10back.jpg"
+ style="width: 351px; height: 447px;"><br>
+The switch leads will</span><span style="color: rgb(255, 255, 255);"
+ class="font"> on back of the motherboard on solder points a18 and a19
+and to any one of the ground points:<br>
+<img alt="" src="graphics/10tsopswitch.jpg"
+ style="width: 351px; height: 185px;"><br>
+<br>
+When both switches off (no switches are grounded) the Xbox reads the
+4th quad of the bios, bios 4, by default.<br>
+<br>
+</span>
+<p style="color: rgb(255, 255, 255);"><strong>Switch 1 = a(18)<br>
+Switch 2 = a(19)<br>
+*ON MEANS GROUNDED*</strong></p>
+<table style="color: rgb(255, 255, 255);" class="font" align="center"
+ border="1" width="95%">
+  <tbody>
+    <tr>
+      <td>
+      <div align="center"><strong>Switch</strong></div>
+      </td>
+      <td>
+      <div align="center"><strong>Position</strong></div>
+      </td>
+      <td>
+      <div align="center"><strong>Bios booted</strong></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div align="center">1 and 2</div>
+      </td>
+      <td>
+      <div align="center">ON</div>
+      </td>
+      <td>
+      <div align="center">1st</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div align="center">2</div>
+      </td>
+      <td>
+      <div align="center">ON</div>
+      </td>
+      <td>
+      <div align="center">2nd</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div align="center">1</div>
+      </td>
+      <td>
+      <div align="center">ON</div>
+      </td>
+      <td>
+      <div align="center">3rd</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div align="center">Either 1 or 2</div>
+      </td>
+      <td>
+      <div align="center">OFF</div>
+      </td>
+      <td>
+      <div align="center">4th(default)</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<small style="color: rgb(255, 255, 255);"><span class="font"> Switch on
+A18 -&gt; <strong>OFF</strong>= boots 4th bios ; Switch <strong>ON </strong>=
+boots 3rd bios.<br>
+Switch on A19 -&gt; switch <strong>OFF</strong> = boots 4th bios ;
+Switch <strong>ON</strong> = boots 2nd bios.<br>
+Switch on A18 and A19 -&gt; both switches <strong>OFF</strong>= boots
+4th bios ; both switches<strong> ON</strong> boots 1st bios ;
+combination of one off and one on yields the above results.</span></small><br>
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);" class="font"> When flashing
+the TSOP make sure that both switches are <strong>OFF</strong> (NOT
+GROUNDED). IF they&#8217;re not, the TSOP flashing will fail because the TSOP
+cannot be wholly reached, SO MAKE SURE THE SWITCHES ARE OFF!!!<br>
+<br>
+The bios has to be flashed WHOLE, as a 1MB bios, so you would have to
+combine the FOUR 256K files into one file. You can do it from a dos
+prompt, something like this:<small style="color: rgb(255, 255, 255);"> </small></span><small
+ style="color: rgb(255, 255, 255);"><span class="font"><strong>copy /b
+EVOX 25.bin+x2 4973.bin+x2 4972.bin+Original 4034.bin Multi Bios.bin<br>
+<br style="color: rgb(255, 255, 255);">
+</strong></span></small><span style="color: rgb(255, 255, 255);"
+ class="font">After doing this you have a multi bios. Next you boot up
+EVOX, ftp the Multi Bios, turn all switches <strong>OFF</strong>, and
+flash!!<br>
+</span><span style="color: rgb(255, 255, 255);">MultiBios.bin is the
+combined file of all four files copied into it.<br>
+<br>
+Flashing the TSOP is risky all the time, so fi you do not know what you
+are doing, then do not attempt it.&nbsp; ALSO, the TSOP must be WRITE
+ENABLED.&nbsp; How to do that is also at this site.<br>
+<br>
+</span>
+</body>
+</html>

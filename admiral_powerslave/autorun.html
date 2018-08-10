@@ -1,0 +1,79 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="{USER_FIRSTNAME} {USER_LASTNAME}">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Win98; U) [Netscape]">
+   <title>Autorun.inf Security Breach</title>
+</head>
+<body>
+COMMAND
+<p>autorun.inf [contains information on what is run when a CD or DISK is
+placed into the system]
+<p>SYSTEMS AFFECTED
+<p>Win 95, 98, NT(?)
+<p><b>PROBLEM</b>
+<br>It was found&nbsp; that&nbsp; autorun&nbsp; runs&nbsp; even&nbsp; when&nbsp;&nbsp;
+passworded screensavers are active.&nbsp; Scenario is following.&nbsp;
+Burn a CD-ROM with whatever program you&nbsp; want to run&nbsp; on the
+passworded&nbsp; machine, put it in autorun.inf,&nbsp; and just put&nbsp;
+it in the&nbsp; machine, this can&nbsp; be used to&nbsp; run and&nbsp;
+do just&nbsp; about anything.&nbsp;&nbsp; Windows NT&nbsp; will&nbsp; not
+perform the AutoRun function while the screen saver is active.
+<p>This is actually&nbsp; not an exploit,&nbsp; but it's exploitable&nbsp;
+on 80% of the machines running Windows since not a whole lot of people&nbsp;
+turn autorun off,&nbsp; a few&nbsp; friends had&nbsp; a great&nbsp; time
+going to wal-mart, popping&nbsp; the&nbsp; CD&nbsp; in,&nbsp; removing&nbsp;
+the&nbsp; screen savers and a password utility they had&nbsp; on there,
+then&nbsp; having full access.&nbsp;&nbsp; This could easily be used to
+walk over to&nbsp; a machine, pop a disk in drive&nbsp; A, have it&nbsp;
+autorun a&nbsp; batch file&nbsp; on the&nbsp; CD to&nbsp; copy say, Turbo
+Tax documents, Quicken, (you get the idea).
+<p>Most of the time the screen saver&nbsp; password is&nbsp; identical&nbsp;
+to&nbsp; the&nbsp; login&nbsp; password&nbsp; to&nbsp; the machine and
+other services.
+<p><b>SOLUTION</b>
+<br>Disable autorun feature&nbsp; that is somewhere&nbsp; in registry.&nbsp;&nbsp;
+You may use WinHacker utility&nbsp; for download Tweak&nbsp; UI from microsoft&nbsp;
+site that&nbsp; among&nbsp; the&nbsp; other&nbsp; options&nbsp; gives&nbsp;
+you&nbsp; this&nbsp; one.&nbsp;&nbsp; Another approach:
+<p>1) Get to the "System" Control panel.&nbsp; This is accessible by right
+clicking on the "My&nbsp; Computer" icon and selecting&nbsp; "Properties"
+or by selecting "System" from the control panel.
+<p>2) Choose the "Device Manager" tab in the System Properties window&nbsp;
+and Expand the "CDROM" branch by clicking on the + next to&nbsp; it. This
+will display all CD-ROM devices attached to your computer.
+<p>3) Select a CD-ROM drive,&nbsp; then click on the "Properties"&nbsp;
+button. This&nbsp; brings&nbsp; up&nbsp; the&nbsp; "CD-ROM&nbsp; Properties"
+window.&nbsp; Select the "Settings" Tab.
+<p>4) The Checkbox labeled "AutoInsert Notification" is what controls AutoRun.
+Make sure it is&nbsp; unchecked, then click OK, then&nbsp; Click OK again
+in&nbsp; the System Properties&nbsp; window.&nbsp; When&nbsp; you restart,
+your CD-ROM Should not AutoRun anymore.
+<p>For NT simply set
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Cdrom\Autorun
+<p>to 0 to disable autorun on NT.
+<br>
+<hr WIDTH="100%">
+<br><b>Vulnerable systems:</b>
+<br>Microsoft Windows 98
+<br>Microsoft Windows 95
+<br>Microsoft Windows NT 4.0
+<p>The 'autorun' feature was designed to activate an action when the removable
+drive is inserted. Upon insertion, the icon of that drive is displayed,
+and the executable is automatically executed. This feature also applies
+to fixed and networked drives, making it very easy to abuse. Any user with
+write access to the root of a logical drive can install an executable and
+specify it in an autorun.inf file. Whenever that drive is accessed, the
+code will run with the privileges of the currently logged in user. This
+could be used in privilege escalation attacks.
+<p>Note that this is an issue with removable drives as well, but being
+able to specify code to run automatically via any local drive makes it
+much easier to exploit.<b></b>
+<p><b>Workarounds:</b>
+<br>&nbsp;* Disable Autorun via the registry
+<br>&nbsp;* Use ACLs to restrict write access to drive roots to only Administrators.
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

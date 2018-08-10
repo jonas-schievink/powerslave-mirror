@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Upgrade HDD With Softmod</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big
+ style="font-family: tahoma;"><big><span style="font-weight: bold;">UPGRADING
+TO A LARGER SOFTMODDED HDD</span></big></big><br>
+</span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><a href="xboxhdm.htm"><big
+ style="font-weight: bold;">USING XBOXHDM</big></a> - Complete
+instructions (From Xbox Scene)<br>
+</span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><br>
+Taken from another web site, can't verify it's Validity, but it seems
+like it will work.<br>
+<br>
+<big style="font-weight: bold;">You need :</big><br>
+- Your retail xbox hdd (with the softhack)<br>
+- A new, Lockable HDD (Plugged in your PC) - No more than 137GB<br>
+- HddLock&nbsp; (On a bootable floppy disk)<br>
+- A floppy boot disk (format a: /s , to do it )<br>
+- Xbox Hdd Driver (For the PC)<br>
+- Liveinfo<br>
+- Winhex (cracked)<br>
+- How to do the HDD hot swap trick<br>
+<br>
+<br>
+1- Boot your Sofmodded Xbox to EvoX dashboard, and run the backup option<br>
+2- Connect to your Xbox with flashfxp, or other FTP client, and
+download the backup Folder on C:<br>
+3- Open Liveinfo, click on Load EEPROM and select the eeprom.bin from
+your backup folder<br>
+4- Select your new drive in IDE Device (make sure you have the correct
+one!)<br>
+6- Note on a paper, or print the Password given in "Calculated Password"<br>
+7- Do the Hot Swap Trick with the Xbox HDD<br>
+8- Once its done, open HDD Driver and backup your drive to the PC. Name
+it backup.bin<br>
+<br>
+<br>
+********* ~1 hour later **********<br>
+9- Ok, now you can unplug the xbox hdd from your pc<br>
+10- Open Winhex and Open your new disk in it<br>
+11- Go to offset 0x600 and write BRFR (at the right), so HDD Driver
+will think that is a real Xbox HDD<br>
+12- Open HDD Driver, It should be detect your new drive as an Xbox HDD<br>
+13- Click on Tools &gt; Restore and restore the Entire Drive with the
+backup.bin image<br>
+<br>
+******** Only 5-7 mins later *********<br>
+14- Shutdown your pc , and plug your new HDD in the primary master
+cable and set the jumper as "Cable Select". (Your O/S Hd drive is
+unplug but its not important)<br>
+15- Boot your computer with a Floppy boot disk<br>
+16- Once it's done, put the Floppy disk with hddlock in the floppy drive<br>
+17- Open it<br>
+18- Select your drive # in the list (should be only one)<br>
+19- Write the password that LiveINfo gaves you (be careful, dont make
+mistakes!) - Verify!!<br>
+20- If your drive is lockable, Hddlock should says : Done - If not,
+drive can't be used.<br>
+21- It's Over! Plug your new HDD in your Xbox and boot it ! <br>
+</span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><big style="font-weight: bold;">Another
+Method:</big><br>
+<br>
+<span style="font-weight: bold;">What you need:</span><br>
+<br>
+1) xboxhdm 1.9 (Found at xbins&#8217; in the directory: /XBOX/Operating
+Systems/linux/distributions)<br>
+2) Torx 10 And Torx 20 Screwdrivers - To Open XBOX<br>
+3) A Spare/Blank PC Hardrive<br>
+4) FTP Program (AceFTP, SmartFTP etc.)<br>
+5) A blank CD-R/W and A CD Burner<br>
+<br>
+Steps:<br>
+<br>
+1. On your xbox's evox dashboard go to system utils and select backup.
+While your waiting for that to finish, extract all files in xboxhdm 1.9
+to your PC'S hard drive and open up the folder 'linux'. In that folder
+is a folder called 'eeprom'. Once the backup is complete, on your PC
+run the desired FTP program and access your xbox. Go to E:\
+backup_linux\ and download a file called 'eeprom.bin' to the
+xboxhdm\linux\eeprom folder of on your PC&#8217;s hard drive. Then go to the
+root of your xbox and download the full folders of C:\ and E:\ to your
+PC's hard drive to the xboxhdm\linux folder and overwrite the ones
+already there.<br>
+<br>
+2. Now in the root of xboxhdm is a file named 'make-iso-win'. You must
+run make-iso-win and wait for it to finish once it has finished. Now
+burn the .iso which was created to a blank cd-r/w using nero or
+alcohol, dvddecrypter etc. When burning is finished shutdown pc.<br>
+<br>
+3. Take out all other hard drives and put in the hard drive you wish to
+make an xbox hard drive and set it to be the primary master. Boot up
+your PC and as it is loading press whatever button to enter your BIOS
+setup and set your PC to boot from CD. Now reset your PC and put the
+cd-r/w with the .iso you created on it, in the cd/dvd drive. You should
+be given a list of options.<br>
+<br>
+4. Choose Option 1 (by typing &#8216;1&#8217;) and press enter to boot VGA console
+with xbox-drive utilities (default). Type &#8216;xboxhd&#8217; when it asks you for
+a login. Another list of options will show up, choose option 1 again
+(the one that says &#8216;Build a new Xbox HD from scratch&#8217;) and it will
+begin to format and write the partition table etc. If you put your C:\
+and E:\ onto the CD then when it asks you about them type yes and when
+it asks you if you would like an F select yes, it is all pretty self
+explanatory. Now quit and reboot your PC. If this worked you now have a
+brand new nearly-usable xbox hard drive.<br>
+<br>
+5. Now for locking the hard drive. When it boot from the cd again, this
+time type &#8216;3&#8217; and hit enter to boot linux with locking/unlocking
+utilities. Next, type in &#8216;lockhd -a&#8217;. It will now search for the eeprom
+on the CD and will automatically lock the hard drive. Now turn off the
+PC and take out the hard drive when it has finished locking.<br>
+<br>
+Now put it back in your Xbox and load up and have fun!<br>
+<br>
+FOUND ON TWO DIFFERENT SITES<br>
+<br>
+It also said something about if you have a 137+Gb Hard Disk to use the
+UnleashX Dashboard to do a format to get the extra space.&nbsp;&nbsp;
+That tells me that if your bios doesn't have the LBA48 hack, you can
+use it?&nbsp; I am looking into that.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</span>
+</body>
+</html>

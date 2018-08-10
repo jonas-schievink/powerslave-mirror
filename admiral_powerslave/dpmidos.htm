@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>DPMI (DOS Protected Mode Interface)</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<B><FONT SIZE=4><P ALIGN="CENTER">DPMI (DOS Protected Mode Interface)</P>
+</B></FONT><P>DPMI (DOS Protected Mode Interface) is a program interface that allows an application program running under the Disk Operating System (DOS), to take advantage of a DOS extender. This lets the program address a larger range of random access memory (RAM) than the 640 kilobytes to which PC programs are basically constrained. To use the extender, the program must be in "protected mode," a mode that ensures that program requests are not allowed to access certain portions of "protected" memory. (Programs running in the alternative "real mode" have access to all portions of memory, including system data.) The first widely-distributed operating system for personal computers, DOS was designed to run on the Intel 8088 microprocessor. The 8088 provided a megabyte of RAM that could be addressed by a program instruction (that is, the total span of storage for storing and getting data back and forth between the microprocessor and RAM was a million bytes).</P>
+<P>Because certain space had to be reserved for "system" use (keeping track of applications, system status, and so forth), only 640 kilobytes was available for an application program. These bytes were contiguous in storage (that is, continuously adjacent to each other and not divided into different parts of RAM) and application programs were required to run and keep their data within this 640 kilobyte space. In fact, an instruction that violated the 640 kilobyte space would not be executed (thus protecting the system space in RAM). A program that ran in "real mode" could address the entire 1 megabyte of RAM including system data, but at the risk of writing data to the wrong place. </P>
+<P>As new microprocessors such as the 80286 followed the 8088, DOS continued to preserve the 640 kilobyte addressing limitation so that newly-written application programs could continue to run on both the old as well as new microprocessors. The DOS extender program allowed application programs written for DOS to be freed from the 640K constraint by inserting memory management code into the application. Microsoft developed the DPMI for use on Windows 3.0 (which was itself a DOS application) and later gave the standard to an industry organization, the DPMI Committee. </P>
+<P>Today's personal computers, using microprocessors that succeeded the 8088, typically contain eight or more megabytes of RAM. Today's operating systems (including the latest DOS versions) come with extended memory management that frees the programmer from the original addressing constraints. </P>
+<P>Besides the DPMI standard interface, two other standard extended/expamded memory management interfaces exist. Extended Memory Specification (XMS) is a program added to more recent versions of DOS and Windows when the system is loaded; It's called HIMEM.SYS. The Expanded memory manager is called EMM386.EXE.  Another extended memory manager is the Virtual Control Program Interface (VCPI).</P>
+<B><FONT FACE="Tahoma"><P>Here is an example of an ERROR that will occur under Win95 for programs that use a DOS extender, and one is not in use, or is out-dated.</P>
+</B></FONT><U><P>Windows 95 Err Msg</U>: This Application  Has Performed an Illegal...</P>
+<P>When you try to run an MS-DOS-based application, Windows 95 reports the following error message: </P>
+<P>&nbsp;</P>
+<P>        This application has performed an illegal operation and will be<BR>
+        terminated. Quit all applications and then restart your computer.</P>
+<P>        The application attempted to execute an invalid instruction.<BR>
+        Fault location: 2067:0127.</P>
+<P>Some MS-DOS-based applications load a DOS extender to provide access to memory above the 1-Megabyte (MB) range for executable code. Older MS-DOS- based applications may load incompatible versions of DOS extenders and cause the above error. </P>
+<P>&nbsp;</P>
+<P>Contact the manufacturer of your application to obtain an updated DOS extender.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></BODY>
+</HTML>

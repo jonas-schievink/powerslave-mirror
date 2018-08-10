@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>How The Xbox Works</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big
+ style="font-family: tahoma;"><big><span style="font-weight: bold;"><img
+ alt="" src="graphics/blue_topbar.gif"
+ style="width: 764px; height: 26px;"><br>
+<img alt="" src="graphics/blue_sidebar.jpg"
+ style="width: 74px; height: 4747px;" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+XBOX
+SYSTEM OVERVIEW<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [<a
+ style="color: rgb(255, 102, 102);" href="inside_xbox.htm"><small>TAKE
+A LOOK INSIDE</small></a>]<br>
+</span></big></big><big><span style="font-weight: bold;">How the system
+works:</span></big><br>
+<br style="color: rgb(255, 255, 255);">
+&nbsp;The Xbox system software will have these components:</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">* The Xbox read-only memory
+(ROM) </span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">* The Xbox Dashboard </span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">* The Xbox Title Libraries <br>
+<br style="color: rgb(255, 255, 255);">
+</span><big><b style="color: rgb(255, 255, 255);">Xbox Game System ROM</b><span
+ style="color: rgb(255, 255, 255);"> </span></big><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">The ROM of the motherboard on
+the Xbox console will provide the following system-software services: </span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">* Hardware Abstraction Layer
+(HAL)&nbsp; </span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">* Driver model&nbsp; </span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">* Hard disk driver&nbsp; </span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">* DVD driver&nbsp; </span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">* FATX file system&nbsp; </span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">* UDFS file system&nbsp; </span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">* Copy-protection
+support&nbsp; </span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">* Certificate/signature
+validation&nbsp; <br>
+<br style="color: rgb(255, 255, 255);">
+</span><b style="color: rgb(255, 255, 255);"><big>Software System Kernel</big>
+<br>
+</b><span style="color: rgb(255, 255, 255);">The kernel is based on
+Microsoft&reg; Windows&reg; 2000. Many features of Windows 2000 are not
+included in the Xbox system software, including those related to
+running on multiple hardware platforms or running multiple processes at
+once. For more information about unsupported Microsoft&reg; Win32&reg;
+application programming interfaces (APIs), see Win32 API (below).&nbsp;
+</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">There will be no support for
+code running in user mode (Ring 3) on the Xbox game system. All code
+will execute in kernel mode (Ring 0). Only one process runs at a time,
+and that process will support multiple threads. There is no Windows
+2000 desktop user interface; the user interface is provided by the
+individual Xbox games or the Xbox Dashboard if no game is running. <br>
+<br>
+<big style="font-weight: bold;">Power Up</big><br>
+When the user turns on the console, the system software is decompressed
+out of read-only memory (ROM) into random access memory (RAM). Once in
+RAM, the system software initializes the hardware (DVD, audio, video,
+and so on).<br>
+<br>
+After the hardware has been initialized, the system software will
+display the boot graphic and play the startup sound. Because there are
+no video or audio drivers in the kernel, this is done by poking the
+registers of the sound and video card directly. This graphic and sound
+will play approximately 1 second from the time the machine is turned on.<br>
+<br>
+<big><br style="font-weight: bold;">
+<span style="font-weight: bold;">Media Detection</span></big><br>
+Upon power up and during the display of the startup graphic (known as
+the flubber screen) and the playing of sound, the system software
+attempts to determine what type of media is in the DVD drive. If it
+determines that the media is a game, it loads the game into RAM, checks
+the signature of the game to verify that it is an authentic copy, then
+starts playing the game. If the media is not a game, the Xbox Dashboard
+is run as follows:<br>
+<br>
+* Movies are played by the Xbox Dashboard video player (With DVD
+Playback Kit). <br>
+* Audio CDs are played by the Xbox Dashboard audio player. <br>
+* If unsupported media is present, an invalid content message is shown
+and the Xbox Dashboard game-system-configuration user interface runs. <br>
+* If no media is present, the Xbox Dashboard game-system-configuration
+user interface runs. <br>
+<br>
+For more information, see Xbox Dashboard (below).<br>
+<br>
+Supported media are CD, DVD, CD-RW, or DVD-R. There is no CD-R support.<br>
+<br>
+<big style="font-weight: bold;">Game Launch</big><br>
+Once the system software has determined that the media contains an Xbox
+game, it loads the game developer bitmaps, publisher bitmaps, license
+bitmaps, and so on. These will be stored in a predetermined location on
+the DVD, will contain no executable code, and will be identified with a
+predefined schema. The system software will display these bitmaps
+sequentially, after the boot graphic and sound have appeared, while the
+game itself is being streamed from the DVD into RAM. As the game image
+is streamed into memory, the system software checks the signatures of
+each section of the image on the fly.<br>
+<br>
+Once the game image is in memory, the system software will start the
+game. At this point, the kernel is acting in conjunction with the Xbox
+Title Libraries to provide all of the basic services for the game
+itself.<br>
+<br>
+The Xbox game image format is not compatible with other executable
+systems, such as Windows 2000 executable format. The Xbox game image
+must be loaded by the Xbox system software application, loading
+utilities directly into RAM in 64-megabyte (MB) blocks. Unlike standard
+Windows 2000 applications, there are no dynamic-link library (DLL)
+loads, no fixups, and so on.<br>
+<br>
+<big style="font-weight: bold;">Xbox Title Libraries</big><br>
+The Xbox Title Libraries define the programming model used to develop
+software for the Xbox game system. They consist of all APIs provided
+with the Xbox Development Kit, which are linked into every title
+written for the Xbox game system, including:<br>
+<br>
+* Subset of the Microsoft Win32 APIs <br>
+* Subset of the Microsoft&reg; DirectX&reg; 8.0 APIs <br>
+* Xbox video driver <br>
+* Xbox audio driver <br>
+* Xbox universal serial bus (USB) driver <br>
+* Xbox modem driver <br>
+* Xbox memory unit support <br>
+* Xbox network stack: media access control (MAC), Network Driver
+Interface Specification (NDIS), Transmission Control Protocol/Internet
+Protocol (TCP/IP), Winsock <br>
+<br>
+The primary programming model for the Xbox game system will be defined
+by the Xbox Title Libraries. Because the Xbox Title Libraries are
+partitioned into distinct libraries (modular), game developers can pick
+and choose which libraries are appropriate for their title. For
+example, if a game will support online play, they include the Xbox
+networking library with their game. If no online play support is
+planned, they do not include the Xbox networking library. While some
+support is implemented in the kernel of the system software in the Xbox
+game system ROM (for example, file system support, threading, memory
+management), the APIs to access these features are exposed through the
+Xbox Title Libraries.<br>
+<br>
+Note All Xbox-compatible code runs at Ring 0 on the Xbox game system,
+which means the Xbox Title Libraries are implemented in kernel mode and
+all games run in kernel mode. However, all Xbox Title Libraries will be
+signature-compatible with their user-mode implementation. From a
+developer's perspective, the Xbox Title Libraries function as they
+would in user mode. Kernel mode results in faster performance at run
+time.<br>
+<br>
+For more information about the components of the Xbox Title Libraries,
+see the following topics:<br>
+* Win32 API <br>
+* Graphics <br>
+* Input <br>
+* Audio <br>
+* Video <br>
+* Networking <br>
+* New Xbox Services <br>
+<big style="font-weight: bold;"><br>
+Win32 API</big><br>
+A subset of the Win32 APIs is supported by the Xbox system software. We
+are currently doing analysis to determine exactly which APIs will be
+needed. Some omissions from the standard Win32 environment will include
+portions of the User, Graphics Device Interface (GDI), OLE, or the
+Services interfaces. Any APIs from User and GDI that are essential will
+be included as needed.<br>
+<br>
+Services from Windows 2000 not available in the Xbox system software
+include:<br>
+* Services <br>
+* Plug and play <br>
+* Additional hardware enumeration <br>
+* Hot docking <br>
+* All unsupported drivers <br>
+* Power management <br>
+* Virtual memory (paging) <br>
+* Multiple-process support <br>
+* Multiple-processor support <br>
+* Windows NT File System (NTFS) <br>
+<br>
+<big style="font-weight: bold;">Graphics</big><br>
+Microsoft&reg; Direct3D&reg; will be the primary graphics API for the
+Xbox game system. Direct3D for the Xbox game system will be based on
+DirectX 8.0, and implemented using a custom driver specific to the
+final NVIDIA chipset and video adapter. The graphics API for the Xbox
+game system is compatible with DirectX at the API layer, while
+providing the thinnest, fastest-possible access to the video hardware.
+The Direct3D driver is combined with the HAL to create a completely
+monolithic driver implementation.<br>
+<br>
+The drivers support both National Television System Committee (NTSC)
+and Phase Alternating Line (PAL) TV output. Moving Picture Experts
+Group (MPEG) video is supported.<br>
+Input<br>
+<br>
+The Xbox controller connections and external peripheral connection are
+USB ports with an Xbox proprietary connector. The Xbox game system
+implements USB drivers for any possible peripherals connected to the
+Xbox console. Only full-speed USB is supported.<br>
+<br>
+An API specific to the Xbox game system, based on Microsoft&reg;
+DirectInput&reg;, is used for development with most Xbox controllers.
+Xbox-licensed game systems should work without an additional driver.
+This assumes that Xbox consoles do not introduce any new axis or
+capability not covered by the standard Xbox game system API.<br>
+<big style="font-weight: bold;"><br>
+Audio</big><br>
+The audio APIs for the Xbox game system are based on subsets of
+Microsoft&reg; DirectSound&reg; and Microsoft&reg; DirectMusic&reg;,
+from DirectX 8.0. Audio streaming will not be based on Microsoft&reg;
+DirectShow&reg;, however. Instead, an Xbox-specific audio streaming API
+will be implemented for high quality CD playback without skipping, and
+without undue CPU utilization. The following features are supported by
+the Xbox audio APIs: <br>
+* WAV files <br>
+* MIDI playback <br>
+* Interactive music <br>
+* Microsoft Windows Media&#8482; (WMA) files <br>
+* 3D sound <br>
+<br>
+There is no support for Redbook audio or random instruments.<br>
+<big><br style="font-weight: bold;">
+<span style="font-weight: bold;">Video</span></big><br>
+Like audio streaming, the video streaming API for the Xbox game system
+will not be based on DirectShow. Instead, an Xbox-specific video
+streaming API will be implemented.<br>
+<br>
+<big><span style="font-weight: bold;">Networking</span></big><br>
+Xbox hardware includes two devices for online connectivity:<br>
+* Built-in Ethernet card for broadband: cable modems, digital
+subscriber line (DSL) or local network <br>
+* Optional 56-kilobits per second (Kbps) modem peripheral for dial-up,
+with a USB modem driver and dialer included in the Xbox Title Libraries
+<br>
+<br>
+The Xbox Title Libraries include networking services for online
+capabilities. Included with these will be TCP/IP and Winsock support.
+If online connectivity is not wanted for a game, the Xbox networking
+libraries should not be linked and included with the game title.<br>
+<br>
+The API to access networking services is based on a subset of
+Microsoft&reg; DirectPlay&reg; from DirectX 8.0. DirectPlay lobby or
+voice features will not be supported, however.<br>
+<big style="font-weight: bold;"><br>
+New Xbox Services</big><br>
+The Xbox system software will include new services specific to the Xbox
+game sytem and not based on any existing Win32 or DirectX APIs. New
+services provided by the Xbox Title Libraries include:<br>
+* High-score publishing, including a common format to be shared online.
+<br>
+* Virtual keyboard support for simplified text entry and game-specific
+skins. <br>
+* User identity that associates names, preferences, and statistics to
+be shared online. <br>
+* Hard disk management to allow usage of the Xbox hard disk by game
+titles for configuration stores, cache space, and so on. <br>
+<big><br style="font-weight: bold;">
+<span style="font-weight: bold;">Xbox Dashboard</span></big><br>
+The Xbox Dashboard is an application installed on the Xbox hard disk,
+which essentially is the user interface when a game is not running in
+the Xbox game system. The Xbox Dashboard provides the following
+services:<br>
+* DVD player <br>
+* CD player <br>
+* System configuration utilities for the Xbox game system <br>
+* Multiplayer and online connectivity utilities <br>
+* Saved game management <br>
+* Error handling <br>
+Initially, the user interface of the Xbox Dashboard offers the
+following choices to the user:<br>
+* Play <br>
+* Configure <br>
+* Go online <br>
+* Manage games <br>
+<br>
+<big><span style="font-weight: bold;">DVD Player</span></big><br>
+This can be configured for AutoPlay (so that a DVD video will play
+simply by inserting into the Xbox console and powering up) or for
+manual control, which presents controls for pause, skip, and so on.<br>
+<big><br style="font-weight: bold;">
+<span style="font-weight: bold;">CD Player</span></big><br>
+This can be configured for AutoPlay (so that an audio CD will play
+simply by inserting into the Xbox console and powering up) or for
+manual control, which presents controls for pause, skip, playlist
+management, and so on.<br>
+<big style="font-weight: bold;"><br>
+Xbox Game System Configuration</big><br>
+This presents the user interface for all preferences and settings for
+the Xbox game system, including the following:<br>
+* Video configuration <br>
+* Audio configuration <br>
+* Parental control <br>
+* Date and time <br>
+<big style="font-weight: bold;"><br>
+Multiplayer and Online</big><br>
+This presents the user interface for all online connectivity, including
+the following:<br>
+* Lobby browser <br>
+* Lobby favorites <br>
+* High score browser <br>
+* Xbox Zone browser <br>
+* Online sign-up and configuration <br>
+<br>
+<big><span style="font-weight: bold;">Saved Game Management</span></big><br>
+This presents the user interface for hard disk management, including
+saving, deleting, and copying games between the Xbox hard disk and the
+Xbox Zone (online).<br>
+<br>
+<big><span style="font-weight: bold;">Error Handling</span></big><br>
+Errors that occur during system-boot execution of the Xbox Dashboard
+will be handled by the Xbox Dashboard. However, hardware errors (for
+example, hard disk failure) will be handled by the Xbox system
+software. Game errors also are not handled by the Xbox Dashboard, but
+by the game software itself. <br>
+</span><img alt="" src="graphics/blue_bottombar.gif"
+ style="width: 764px; height: 26px;"><br>
+<br>
+<span style="color: rgb(255, 255, 255);">The Xbox does not have a CMOS
+clock or Battery to keep memory.&nbsp; What does it have?&nbsp; There
+is a 1 Farad 2.5V Aerogel Capacitor at location C7G10.&nbsp; The
+capacitor holds 2.5 couloumbs of charge when fully charged. At a
+discharge rate of 0.14 mC/s, the capacitor should last about 5 hours to
+zero, although the clock probably stops working around 1.3V, so this
+confirms xboxmagic's 2-3 hour number.&nbsp; Aerogels are relatively
+new, that's the first people have seen an aerogel in a consumer
+electronics product, besides a VCR, or other product that can keep
+clock memory for quick power outages.<br>
+<br>
+So in the end, the answer is: MSFT cut cost by not putting a long-life
+real time clock part on the XBOX, and instead integrated it into the
+MCPX; because of this, the current draw was high and they were forced
+to use a supercap which charges while powered on, becuase if they
+didn't by the time the box was shipped to the customer, the battery
+would be mostly dead.<br>
+<br>
+Could Cg be ported to the Xbox? Absolutely. The Xbox uses the same core
+GPU as the GeForce 3, putting it in the compatible spectrum of GPUs.<br>
+<br>
+Microsoft's XBox includes built-in booby traps intended to prevent
+software not authorized by the manufacturer from running on the
+machine. These provisions have frustrated hackers who wish to run
+alternative operating systems--such as NetBSD or Linux--on Microsoft's
+heavily discounted hardware. They are also used to implement DRM
+(digital rights management, AKA copy protection) and to provide each
+XBox with a unique, trackable serial number.<br>
+<br>
+Microsoft's bag of tricks includes RC-4 encryption, non-working decoy
+code in the system's Flash ROM, and a "secret boot block" hidden within
+one of the system's application-specific integrated circuits (ASICs).
+But none of these measures deterred the indefatigable Andrew "bunnie"
+Huang, who built hardware to intercept communications between the
+device's northbridge and southbridge chips, exposing Microsoft's
+decryption key and the contents of the boot code as it traveled between
+two two chips on the XBox motherboard.<br>
+</span>
+</body>
+</html>

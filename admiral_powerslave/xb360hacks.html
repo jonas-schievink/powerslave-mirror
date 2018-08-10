@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Hacking at the Xbox 360 - Xbox 360 Hacking</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><big>XBOX
+360 HACKING INFORMATION</big></big><br>
+<br>
+<a style="color: rgb(255, 204, 102);" href="#old">OLD HACKING - AND
+THEORIES</a><br style="color: rgb(255, 204, 102);">
+<br>
+<a href="#flash">FLASHING YOUR DRIVE</a><br>
+<br style="color: rgb(255, 204, 102);">
+<a style="color: rgb(255, 204, 102);" href="#ss">EXTRACTING SECURITY
+SECTOR &amp; INFORMATION ON IT</a><br style="color: rgb(255, 204, 102);">
+<a style="color: rgb(255, 204, 102);" href="#dmi"><br>
+</a></span><a style="color: rgb(255, 204, 102);" href="#dmi"><font
+ style="color: rgb(255, 255, 255);" class="content"><big>EXTRACTING DMI</big></font></a><br
+ style="color: rgb(255, 204, 102);">
+<br style="color: rgb(255, 204, 102);">
+<a style="color: rgb(255, 204, 102);" href="#backup1">CREATING A GAME
+BACKUP</a><br style="color: rgb(255, 204, 102);">
+<br style="color: rgb(255, 204, 102);">
+<a style="color: rgb(255, 204, 102);" href="#0800off">TURN OFF 0800 MODE</a><br>
+<br>
+<br>
+<span style="color: rgb(255, 255, 255);"><br>
+<br>
+<br style="color: rgb(255, 255, 255);">
+</span><font style="color: rgb(255, 255, 255);" class="content"><a
+ name="old"></a>Much of
+the hacking is going to stem from the discovery of an all-media
+bootable kiosk demo disk.
+Many hackers will instantly recognize the value of this, but it&#8217;s still
+interesting to reflect on the significance of this find. Like the
+original Xbox, the Xbox360 uses a media flag on its executables. The
+media flag tells the OS what type of media it should be on; typically,
+games are released with the flag set to Microsoft&#8217;s proprietary secure
+Xbox DVD format (which is in itself not that secure&#8230;). Significantly,
+only the executable is signed for a game; the data sections typically
+are not signed (presumably for performance reasons). Thus, one has the
+ability to fuzz the executable by corrupting the data sections,
+potentially invoking a buffer overrun or some other unintentional
+behavior&#8211;if one could effectively modify the data sections. Remember
+that this is normally not possible, since modifying the data segment
+requires making a copy to a writeable media, and this contradicts the
+signed media flag.<br>
+<br>
+Microsoft was in such a hurry to get the demo nachines out that they
+forgot to set the media protection on the kiosk demo discs. This leaves
+hackers with the posibility to hack around with this disc,
+and it will load from a normal DVD backup! Team Pi also noted that the
+all datafiles on this disc are not signed in any way, and will allow
+for extensive modification for producing exploits to further their
+efforts to hack the 360.&nbsp; Playable (hackable) games on the Kiosk
+Demo disc: Call of Duty 2, Hexic, Kameo, King Kong. It also includes
+lots of game and accessory demos in video format. Nothing ripped, just
+foreign videos were downsampled to fit onto a single layer
+DVD.&nbsp;&nbsp; All you have to do is find, and burn the ISO to a
+DVD-R and it will play in the 360 without any modifications.<br>
+<br>
+THIS was fixed with the first or second update through Microsoft.&nbsp;
+Kisok discs will not work in any xbox that took the update, or ant
+newly MFGed Xbox's.&nbsp; If you have an Xbox that was made before Marh
+06, and have never been on live, EVER, then the Kiosk disc will
+probablt work.&nbsp; <br>
+<br>
+If you manually downloaded and made the disc for Backward Compatibility
+issues, they may have slid the update in there as well.&nbsp; You need
+a VIRGIN xbox, made before March of 2006.<br>
+<br>
+<big style="font-weight: bold;"><a name="flash"></a>Flashing your drive</big><br>
+---------------------------<br>
+You must obtain the propery items, of course.<br>
+<br>
+For ms28 firmware versions of drive you will need to use the Vcc method
+or the VIA SATA 10 sec method to read/write flash. Refer to <a
+ href="http://forums.xbox-scene.com/index.php?showtopic=535222">http://forums.xbox-scene.com/index.php?showtopic=535222</a><br>
+<br>
+Advisable to make a backup of your dvd drive firmware first.("mtkflash
+r /m orig.bin")<br>
+<br>
+In Windows, copy orig.bin to same directory as this release (same
+directory as xtrem42a.bin/Xtreme42b.bin and X360SAM.exe)<br>
+<br>
+Double click "Make X42a.bin" or "Make X42b.bin" to create x42a.bin
+(Xtreme4.2A firmware with your key from orig.bin) or x42b.bin
+(Xtreme4.2B firmware with your key from orig.bin). Thanks to eXOBeX for
+X360SAM.EXE<br>
+<br>
+Copy x42a.bin or x42b.bin to boot disk<br>
+<br>
+Power off PC<br>
+<br>
+Plug SATA cable from DVD drive to PC. Power cable drive still connected
+to Xbox 360<br>
+Power on Xbox 360<br>
+Power on PC<br>
+Boot with standard dos boot disk with included mtkflash utility<br>
+<br>
+Run "mtkflash w /m x42a.bin" or "mtkflash w /m x42b.bin" <br>
+<br>
+<br>
+<big style="font-weight: bold;"><a name="ss"></a>Extracting Security
+Sector</big><br>
+---------------------------------------<br>
+<br>
+Ensure SATA cable is plugged from drive to PC.<br>
+(This is very important as may be possible in future for console to
+detect modified firmware due to Inquiry routine enabled for Windows)<br>
+<br>
+Power on Xbox 360.<br>
+Insert Enable0800 DVD into drive. Wait 5 or so seconds then remove the
+Enable0800 DVD. Drive now in 0800 mode.<br>
+Turn on PC and wait for Windows to boot<br>
+Insert original game disk into drive and wait for windows to detect
+disk change<br>
+Run DVDinfoPro<br>
+Enter the following four custom cdb commands:<br>
+<br>
+AD 00 FF 02 FD FF FE 00 08 00 01 C0<br>
+AD 00 FF 02 FD FF FE 00 08 00 03 C0<br>
+AD 00 FF 02 FD FF FE 00 08 00 05 C0<br>
+AD 00 FF 02 FD FF FE 00 08 00 07 C0<br>
+<br>
+Then save hexadecimal display as bin file as SS.bin, the average being
+about 2048 bytes in length, some may vary.<br>
+<br>
+Here is something you need to know about the SS, and that is each game
+has a different one.&nbsp; What is also good to know, is that every
+game of that title will have the same SS for that Region.&nbsp; What
+that means is, every Oblivion in Region 1 has the same Security
+Sector.&nbsp; So, someone who already has done a backup of Oblivion,
+could give you the SS.BIN file from their Oblivion, and it will work
+for your backup of Oblivion.&nbsp; <br>
+<br>
+<big><span style="font-weight: bold;">Extracting PFI (Physical Format
+Information) Sector</span></big><br>
+-------------------------------------------------------------------<br>
+Run DVDinfoPro<br>
+From Advanced Commands pull down menu choose Send Custom Command<br>
+From Preset Commands pull down menu choose "00h Physical Format
+Information" from under the Read DVD Struct Commands heading<br>
+Click Send<br>
+Then save hexadecimal display as bin file as PFI.bin<br>
+<br>
+<br>
+<big style="font-weight: bold;"><a name="dmi"></a>Extracting DMI (Disk
+Manufacturing Information) Sector</big><br>
+-------------------------------------------------------------------<br>
+Run DVDinfoPro<br>
+From Advanced Commands pull down menu choose "04h Disc Manufacturing
+Info"<br>
+Click OK on Read DVD Structure Option window<br>
+Then save hexadecimal display as bin file as DMI.bin<br>
+<br>
+<big style="font-weight: bold;"><a name="backup1"></a>Creating a game
+backup</big><br>
+-----------------------------------<br>
+Drive is still in 0800 mode.<br>
+Extract Isobuilder.rar<br>
+Insert original game disk into drive and wait for windows to detect
+disk change<br>
+Run DVDinfoPro<br>
+Enter the following custom cdb command to unlock drive: (game data
+visable)<br>
+<br>
+FF 08 01 01 05 01 03 00 04 07 (new in MS28)<br>
+<br>
+Run Isobuster<br>
+Right click on DVD and select Extract From-To<br>
+Click Length and enter number of LBAs as follows:<br>
+<br>
+Xbox 1 Original Number of LBA to read 3431264 decimal -or- Xbox 360
+Original Number of LBA to read 3567872 decimal<br>
+Select User Data (2048 bytes/block)<br>
+Click Start Extraction<br>
+Enter filename as game.iso and click Save<br>
+Upon read error dialogue box choose fill with blank zeros for sector
+and select use this selection for all errors<br>
+Copy game.iso, ss.bin, PFI.bin and DMI.bin to the relevent isobuilder
+directory (Depending on Xbox 360 or Xbox 1 game)<br>
+Run build360.bat (Xbox 360 game) or build.bat (xbox 1 game).<br>
+These batch files now expect PFI and DMI bin files<br>
+Burn with CloneCd and choose the image.dvd file<br>
+<br>
+<big style="font-weight: bold;"><a name="0800off"></a>Turning off 0800
+mode of firmware</big><br>
+------------------------------------------------<br>
+<br>
+Either insert game backup (Xbox 360 or Xbox 1) or DVD movie. This
+de-activates 0800 part of firmware or turn off console.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+</font>
+</body>
+</html>

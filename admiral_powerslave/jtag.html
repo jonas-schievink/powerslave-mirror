@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Jtag Pins For Xbox</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<big style="font-weight: bold;"><big><span
+ style="color: rgb(255, 255, 255);">JTAG FOR XBOX</span></big></big><br>
+<br>
+<strong style="color: rgb(255, 255, 255);">JTAG</strong><span
+ style="color: rgb(255, 255, 255);">, an acronym for </span><strong
+ style="color: rgb(255, 255, 255);">Joint Test Action Group</strong><span
+ style="color: rgb(255, 255, 255);">, is the usual name used for the </span><span
+ style="color: rgb(255, 255, 255);">IEEE</span><span
+ style="color: rgb(255, 255, 255);"> 1149.1 standard for Test Access
+Port and </span><span style="color: rgb(255, 255, 255);">Boundary Scan</span><span
+ style="color: rgb(255, 255, 255);">, primarily used for testing </span><span
+ style="color: rgb(255, 255, 255);">integrated circuits</span><span
+ style="color: rgb(255, 255, 255);">, but also useful as a mechanism
+for </span><span style="color: rgb(255, 255, 255);">debugging</span><span
+ style="color: rgb(255, 255, 255);"> </span><span
+ style="color: rgb(255, 255, 255);">embedded systems</span><span
+ style="color: rgb(255, 255, 255);">.</span>
+<p style="color: rgb(255, 255, 255);">A JTAG interface is a special
+four-pin (data in, data out, TCK, TMS)
+interface added to a chip, designed so that multiple chips on a board
+can have their JTAG lines daisy-chained together, and a test probe need
+only connect to a single "JTAG port" to have access to all chips on a
+circuit board.</p>
+<p style="color: rgb(255, 255, 255);">Since only the one data line is
+available, the protocol is necessarily serial. The clock input is at
+the TCK pin. Configuration is performed by manipulating a state machine
+one bit at a time through a TMS pin. One bit of data is transferred in
+and out per TCK clock pulse at the TDI and TDO pins, respectively.
+Different instruction modes can be loaded to read the chip ID, sample
+input pins, drive (or float) output pins, manipulate chip functions, or
+bypass (pipe TDI to TDO to logically shorten chains of multiple chips).
+The operating frequency of TCK varies depending on the chip, but it is
+typically 10-100MHz (10-100ns per bit).<br>
+</p>
+<><big style="font-weight: bold; color: rgb(255, 255, 255);">JTAG
+LOCATIONS FOR XBOX</big><br>
+<img alt="" src="diagrams/jtag.jpg" style="width: 703px; height: 611px;"><br>
+<br style="color: rgb(255, 255, 255);">
+</><span style="color: rgb(255, 255, 255);">The image shows the key
+JTAG pins
+broken out to a set of resistors near the processor. Unfortuneately,
+the TRST# signal is permanently tied to ground, at least on the
+board tested.&nbsp; I'm not too familiar with the JTAG spec, but this
+"optional" pin seems to cause the JTAG state machine to go into its
+reset state. It needs to be pulsed low on power-on, but pulling it
+permanently low (as it is on the Xbox) should permantently disable
+the JTAG bus. Perhaps this was intentional? Who knows.<br>
+<br>
+This is for experimental purposes only, I do not know if a JTAG will
+even work with the Xbox.&nbsp;&nbsp; I know about JTAG ports for
+Satellite and Cable Receivers, but nothing on the Xbox.<br>
+<br>
+</span>
+</body>
+</html>

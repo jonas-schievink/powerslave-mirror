@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Xbox File Structure</title>
+  <meta content="{USER_FIRSTNAME} {USER_LASTNAME}" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: windowtext;"
+ alink="#ee0000" link="#0000ee" vlink="#000000">
+<span style="color: rgb(255, 255, 255);"><big><big
+ style="font-weight: bold;"><big><span
+ style="color: rgb(255, 255, 255);"><img alt=""
+ src="graphics/blue_topbar.gif" style="width: 764px; height: 26px;"><img
+ alt="" src="graphics/blue_sidebar.jpg"
+ style="width: 74px; height: 42px;" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+XBOX FILE STRUCTURE &amp; TYPE<br>
+<img alt="" src="graphics/blue_bottombar.gif"
+ style="width: 764px; height: 26px;"><br>
+<br style="color: rgb(255, 255, 255);">
+</span></big></big></big><img alt="" src="graphics/orange_topbar.jpg"
+ style="width: 764px; height: 28px;"><br style="font-weight: bold;">
+<span style="font-weight: bold;"><img alt=""
+ src="graphics/orange_sidebar.gif" style="width: 74px; height: 923px;"
+ align="left">COMPLETE INFORMATION:</span><br
+ style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);"
+ href="http://www.xbox-linux.org/docs/xberh.html#IHS">http://www.xbox-linux.org/docs/xberh.html#IHS</a><br>
+<br>
+<span style="color: rgb(255, 255, 255);">That document is supposed to
+be the most precise "</span>.XBE" documentation out there (other than
+official Microsoft documentation). <br>
+<br>
+I do not want to copy that information VERBATIM, and post it here, so
+take a look.<br>
+<br>
+XBE files are similar to .EXE files.&nbsp; There is a program that
+converts .EXE to .XBE somewhere out there so you can run your own
+programs in Xbox.<br>
+<br>
+<a href="http://www.xbox-linux.org/docs/filetypes.html">http://www.xbox-linux.org/docs/filetypes.html</a><br>
+<big><big style="font-weight: bold;">*.xbe</big></big><br>
+XBE files are signed Xbox executables. Their format is similar to the
+Win32 PE format.<br>
+<a href="pdf/xbefileformat.pdf">XBE STRUCTURE PDF FILE</a><br>
+<br>
+<big style="font-weight: bold;"><big>*.xtf</big></big><br>
+It is unknown what the XTF files contain. The hard disk contains two of
+them (Xbox Book.xtf and Xbox.xtf, about 15 MB each). They start with
+"XTF0 \0\0\0" followed by its file name without extension and compress
+down to less than 6 MB. They might contain image data, because every
+fourth byte is 0.<br>
+<br>
+<big style="font-weight: bold;"><big>*.xip</big></big><br>
+XIP files (Xbox ZIP?) are uncompressed archives containing several
+files, usually of the types xm, xap and xbx.<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;">Offset &nbsp;&nbsp;&nbsp; Size
+&nbsp;&nbsp;&nbsp;&nbsp; Description</span><br>
+0&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+4 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; String "XIP0"&nbsp;&nbsp; <br>
+4 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 4
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; Beginning of data in file<br>
+8 &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 2
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; some 16 bit value?<br>
+10 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; 1 &nbsp;&nbsp;
+&nbsp; &nbsp;&nbsp; always same as at position 8?<br>
+12 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; 4 &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp; Total size of data<br>
+16 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; 4
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Zero<br>
+20 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; 4
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Size of first file<br>
+24 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; 8 &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp; Zero<br>
+32 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ...
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ...<br>
+<br>
+<big style="font-weight: bold;"><big>*.xm</big></big><br>
+XM files (Xbox Mesh) contain mesh data for 3D objects. They start with
+"XPR0".<br>
+<br>
+<big style="font-weight: bold;"><big>*.xap</big></big><br>
+XAP files (Xbox Application) are JavaScript executables that get
+interpreted by the dashboard, xboxdash.xbe. They control the Dashboard
+menus.<br>
+<br>
+<big style="font-weight: bold;"><big>*.xbx</big></big><br>
+XBX files are deflate-compressed (zlib) images.<br>
+<img alt="" src="graphics/orange_botbar.jpg"
+ style="width: 764px; height: 28px;"><br>
+<br>
+<br style="color: rgb(255, 255, 255);">
+</span><span style="color: rgb(255, 255, 255);"><br>
+</span>
+</body>
+</html>

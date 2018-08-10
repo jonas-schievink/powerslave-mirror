@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>XboxHDM Sample Instructions</title>
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#551a8b">
+<span style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><big><big>XboxHDM
+V1.9 INSTRUCTIONS</big></big></big><br>
+<br>
+This simple script will let you build a working xbox harddrive from </span><span
+ style="color: rgb(255, 255, 255);">scratch. This is possible due to
+the simple way an xbox HD is recognized </span><span
+ style="color: rgb(255, 255, 255);">by the xbox - the partition table
+is simply hardcoded in the xbox kernel.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">By writing "magic" words to
+certain locations on a HD we can therefore </span><span
+ style="color: rgb(255, 255, 255);">"trick" the xbox and an
+xbox-enabled linux kernel into thinking we have an </span><span
+ style="color: rgb(255, 255, 255);">xbox Hd attached to our PC. The
+mkfs.fatx utility from the xboxdumper package </span><span
+ style="color: rgb(255, 255, 255);">at xbox-linux.sourceforge.net lets
+us format fatx partitions.</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="color: rgb(255, 0, 0);"><big><big>&nbsp; <small>WARNING</small></big></big></big><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">This automated xbox HD builder
+will only work if you attach the xbox&nbsp; </span><span
+ style="color: rgb(255, 255, 255);">or blank HD on your <span
+ style="font-weight: bold;">PRIMARY MASTER</span>. I also recommend to
+disconnect all&nbsp; </span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">other harddrives. Then you
+will not accidently destroy your current drives </span><span
+ style="color: rgb(255, 255, 255);">You must still have at least one
+CDROM-drive attached.&nbsp; </span><span
+ style="color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);"><span
+ style="font-weight: bold;">This distro uses the following notation
+:&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Primary&nbsp;&nbsp; Master :
+/dev/hda&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Primary&nbsp;&nbsp;
+Slave&nbsp; :
+/dev/hdb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Secondary Master :
+/dev/hdc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Secondary Slave&nbsp; :
+/dev/hdd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">First of all - if you intend
+to use this tool to make an xbox HD for an </span><span
+ style="color: rgb(255, 255, 255);">soft- or un-modded xbox you need to
+be able to lock the drive after it </span><span
+ style="color: rgb(255, 255, 255);">has been generated. </span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">You therefore need either your
+hdd passwd (obtained from Evox or </span><span
+ style="color: rgb(255, 255, 255);">ConfigMagic) or your xbox eeprom.
+With the eeprom you can generate the </span><span
+ style="color: rgb(255, 255, 255);">unique passwd with the Liveinfo
+tool from Team
+Assembly.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">IF YOU DONT HAVE YOUR HD KEY
+OR EEPROM DO NOT CHOOSE OPTION (4) </span><span
+ style="color: rgb(255, 255, 255);">THIS WILL WIPE YOUR FATX PARTITION
+AND REBOOT THE MACHINE.&nbsp; </span><span
+ style="color: rgb(255, 255, 255);">IF YOU HOTSWAPPED YOUR STOCK HD
+THEN IT WILL BE RELOCKED UPON REBOOTING </span><span
+ style="color: rgb(255, 255, 255);">AND SINCE AT THIS STAGE IT IS NOT
+FUNCTIONAL IN YOUR XBOX YOU CANNOT&nbsp; </span><span
+ style="color: rgb(255, 255, 255);">HOTSWAP AGAIN. BASICALLY YOU'VE GOT
+YOURSELF A PAPERWEIGHT...</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255); font-weight: bold;">WHAT YOU
+NEED :</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">1) Read the above warning on
+hdd passwd or eeprom</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">2) This linux distro.
+Hopefully obtainable from xbins.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">3) For the freshly formatted
+fatx HD to be of any use you need to supply the </span><span
+ style="color: rgb(255, 255, 255);">xboxhd tool with the xbox
+system-files (C-drive) and optionally your game save</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">(E-drive). You can get these
+files from FTP'ing to your xbox and copy </span><span
+ style="color: rgb(255, 255, 255);">the files over to your PC. If you
+don't have these files you can obtain them</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">from Slayers Evox
+Autoinstaller. This is an xiso that you can extract with </span><span
+ style="color: rgb(255, 255, 255);">tools like XISO or Qwix. The
+system-files is located in CD-DRIVE:/SYSTEM/ALL/c</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">You can now either </span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">- burn a seperate CDROM with
+two folders containing the </span><span
+ style="color: rgb(255, 255, 255);">&nbsp; xbox C-, and E-drive
+respectively, or</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">- Put the xbox C- and E-drive
+files in the C and E folders </span><span
+ style="color: rgb(255, 255, 255);">in this directory before making the
+burnable iso.</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">For information on howto make
+the iso read the HOWTO.txt the main directory </span><span
+ style="color: rgb(255, 255, 255);">of this package.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">In the current version of
+xboxhd you can :</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">1) Build a working HD from
+scratch. This is two-step procedure. First we </span><span
+ style="color: rgb(255, 255, 255);">write the parition table.&nbsp;
+Afterwards we can continue formatting </span><span
+ style="color: rgb(255, 255, 255);">the partition.</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">2) Rebuild C-drive. This will
+format the xbox HD's C-partition and&nbsp;</span><span
+ style="color: rgb(255, 255, 255);"> rebuild it - bringing it back to a
+virgin state.</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">3) Cloning an existing xbox HD
+onto a blank drive. Again hotwapping is OK.</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">4) Install an F-drive if you
+HDD is large enough - this is checked! </span><span
+ style="color: rgb(255, 255, 255);">Note that the also get this option
+when building a HDD from scratch&nbsp;</span><span
+ style="color: rgb(255, 255, 255);"> using option 1).</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">5) Wipe an existing xbox fatx
+partition table. Intended for corrupted xbox </span><span
+ style="color: rgb(255, 255, 255);">HD's that the user wants to rebuild
+from scratch.</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">6) Generate the unique hdd
+password needed to lock drives for the xbox.</span><span
+ style="color: rgb(255, 255, 255);">&nbsp; Requires the eeprom.bin to
+be on the CD.</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">7) Make DOS floppy with HDD
+locking/unlocking tools</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">To start the tool type
+'xboxhd' on the command-line. Hopefully the tool itself </span><span
+ style="color: rgb(255, 255, 255);">is more or less self-explanatory.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Good luck !<br>
+<br>
+</span>
+</body>
+</html>

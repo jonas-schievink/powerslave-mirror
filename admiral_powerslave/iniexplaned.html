@@ -1,0 +1,860 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>EvolutionX EvoX INI File Explained</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big><big
+ style="font-weight: bold;">EVOX COMMANDS USED IN THE INI FILE</big></big><br>
+<span style="font-weight: bold;">EDITING THE INI FILE -From <a
+ href="http://www.how2xbox.com/">http://www.how2xbox.com/</a></span><br>
+<br style="font-weight: bold; color: rgb(255, 255, 255);">
+You can edit the evox.ini file found in Xbox's C:, or download the file
+to your pc from the xbox and open it using text editor (Notepad if your
+using windows)</span>
+<h2 style="color: rgb(255, 255, 102);"><a name="Top"></a>Table of
+Contents</h2>
+<ul style="color: rgb(255, 255, 255);">
+  <li><a href="#intro">The Evox.ini</a></li>
+  <li><a href="#breakdown">Breakdown of Evox.ini</a></li>
+  <ul>
+    <li><a href="#misc">[MISC]</a></li>
+    <li><a href="#IGR">[IGR]</a></li>
+    <li><a href="#network">[NETWORK]</a></li>
+    <li><a href="#clock">[CLOCK]</a></li>
+    <li><a href="#ftp">[FTP]</a></li>
+    <li><a href="#telnet">[Telnet]</a></li>
+    <li><a href="#rdtools">[RDTOOLS]</a></li>
+    <li><a href="#bios">[BIOS]</a></li>
+    <li><a href="#skinoriginal">[SKIN_Original]</a></li>
+    <li><a href="#at">@ Commands</a></li>
+    <li><a href="#action">[ACTION xx]</a><br>
+    </li>
+    <li><a href="#id">ID Command List</a><br>
+    </li>
+  </ul>
+  <li><a href="#menu">The Menu</a></li>
+  <ul>
+    <li><a href="#Structure">Structure</a></li>
+    <li><a href="#Submenus">Submenus</a></li>
+    <li><a href="#mitm">Items</a></li>
+    <ul>
+      <li><a href="#misp">Special Items</a><br>
+&nbsp;</li>
+    </ul>
+  </ul>
+</ul>
+<a style="color: rgb(255, 255, 255);" name="intro">
+<h2>The Evox.ini:</h2>
+</a><span style="color: rgb(255, 255, 255);"> The evox.ini is where all
+of EvolutionX's settings are held.&nbsp; The EvolutionX dashboard is
+very customizable.&nbsp; This is a complete guide for setting up the
+dashboard.&nbsp; This explains options to be used by most users in a
+very easy, plain-english form.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" name="about"></a><a
+ style="color: rgb(255, 255, 255);" name="breakdown">
+<h2>Breakdown of the evox.ini:</h2>
+</a><span style="color: rgb(255, 255, 255);"> This is a breakdown of
+the evox.ini that comes with the Evox +3921 dash.</span><br
+ style="color: rgb(255, 255, 255);">
+<table style="color: rgb(255, 255, 255);" class="font" id="table18"
+ border="1" bordercolor="#c0c0c0" cellpadding="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><big style="font-weight: bold;">Quick
+Note:</big><br>
+The pound key (#) comments out a line.&nbsp; Meaning, if the # sign is
+there, it is as if the line wasn't there at all.&nbsp; This is useful
+for putting notes to help you remember things in your INI.&nbsp; You
+old BASIC programmers know what REM is?&nbsp; Well, this is the same. .
+.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><big style="font-weight: bold;">Concerning
+IGR:</big><br>
+Prior to versions of Evox before +3921, IGR was considered very
+troubling.&nbsp; These issues have apparently been fixed, however, I
+still recommend the X2 bios IGR if available to you.<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" name="misc"><tt><big><b>[Misc]</b></big></tt></a><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">
+AutoLaunchGames&nbsp;&nbsp; &nbsp;= No</tt></big><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">This setting, autolaunchgames,
+instructs evox to boot a game when it is inserted in the tray.&nbsp;
+Setting it to Yes enables it.&nbsp; Setting it to no prevents it, and
+you will still stay at the evox screen.&nbsp; Please note that this
+does not affect if your xbox boots to evox when the disc is in the tray
+when you turn it on.</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">AutoLaunchDVD&nbsp;&nbsp;
+&nbsp;= No</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Same as AutoLaunchGames
+setting, for DVD movie discs.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">DVDPlayer&nbsp;&nbsp;
+&nbsp;= "f:\apps\dvd2.0\default.xbe"</tt></big><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">This is where the location of
+your dvd player.&nbsp; You can set this to C:\xboxdash.xbe if you would
+like to use the xbox dashboard to play dvds, or change the location to
+an alternate player, such as dvdx2.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">AutoLaunchAudio&nbsp;&nbsp;
+&nbsp;= No</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">This is similar to the
+AutoLaunchGames setting, although this enables the automatic launching
+of Audio CDs.</span><br style="color: rgb(255, 255, 255);">
+<br>
+<span style="color: rgb(255, 255, 255);" name="intelliTxt"
+ id="intelliTxt"><big><span style="font-weight: bold;">ConfigSector</span></big>
+= [path] - Used when formatting partitions, and should be used when
+installing
+brand new drive, if you intend to use it with an original bios.</span><br>
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">AudioPlayer&nbsp;&nbsp;
+&nbsp;= "c:\xboxdash.xbe"</tt></big><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">This is similar to the
+DVDPlayer setting, although this contains the location of your AudioCD
+player.&nbsp; When commented out with the pound (#) key, it defaults to
+xboxdash.xbe .</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">MSDashBoard&nbsp;&nbsp;
+&nbsp;= "c:\xboxdash.xbe"</tt></big><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">This is the location of the
+Microsoft dashboard.&nbsp; If your evox dash is named evoxdash.xbe and
+your xbox boots with the chip disabled, keep this setting as is.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">UseFDrive&nbsp;&nbsp;
+&nbsp;= Yes</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">This option enables the use of
+the F drive.&nbsp; Please note that the F drive will only function
+properly on larger formatted hard drives, or on Seagate Hard Drives
+where F has been formatted.&nbsp; Instructions on formatting F on the
+seagate hard drives can be found here:
+http://xbox-scene.com/articles/formatf.php</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">UseGDrive&nbsp;&nbsp;
+&nbsp;= Yes</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">This option enables the use of
+the G drive.&nbsp; Please note that the G drive will only function
+properly on larger (137gb+) G formatted hard drives, where LBA48 G
+drive is supported in the bios.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">SkinName&nbsp;&nbsp;
+&nbsp;= Original</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Infomation about what skin
+will be used.&nbsp; I suggest you leave this alone, and select the skin
+via the skin select in evox.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">IGR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;= Yes</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">This is IGR, or In Game
+Reset.&nbsp; This causes problems with many games, so I suggest you set
+it to no.&nbsp; There is a much more reliable IGR in the x2.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">UseItems&nbsp;&nbsp;
+&nbsp;= Yes<br>
+</tt></big><span style="color: rgb(255, 255, 255);">Allows for use of
+custom settings in items.txt file</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">ScreenSaver&nbsp;&nbsp;
+&nbsp;= 5</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Amount of time in minutes, for
+it takes to the screensaver (dimmed screen) to activate.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"><big>SkinName</big><big
+ style="font-weight: bold;">&nbsp;</big>&nbsp; &nbsp;=
+RuDeDuDe2</tt><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Not used.&nbsp; Its commented
+out.&nbsp; Ignore this.</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big><tt style="color: rgb(255, 255, 255); font-weight: bold;">Fahrenheit&nbsp;&nbsp;
+&nbsp;= No</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">When this is set to No,
+temperatures in settings and in skins that support temperatures are
+read in Celcius.&nbsp; When set to Yes, they appear in Farenheit.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">ShadeLevel&nbsp;&nbsp;
+&nbsp;= 90</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">This is the shade level of the
+dimmed screen in the screen saver.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">EnableSMART&nbsp;&nbsp;&nbsp;
+= Yes</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">This option enables reading of
+HDD temperature for use in Skins.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">HDD_Temp_ID&nbsp;&nbsp;&nbsp;
+= 194</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Attribute number for
+temperature. Should be 194 for most (if not all) drives.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">DebugTSR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= No</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Used for dumping Trainer
+memory info.&nbsp; Leave this set to No, it's only needed by hardcore
+devs.</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);"><big
+ style="font-weight: bold;">ChameleonLed = 15 </big><br>
+</span><span style="color: rgb(255, 255, 255);">0=Off 1=On 2-100
+Blink.&nbsp; Chameleon modchip only.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);"><big
+ style="font-weight: bold;">GameRegion&nbsp;&nbsp; = 0</big><br>
+</span><span style="color: rgb(255, 255, 255);">Adjust Game Region in
+Evox settings (leave this alone).</span><br
+ style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);"><br>
+</span><a style="color: rgb(255, 255, 255);" name="IGR"><tt><big><b>[IGR]
+(In Game Reset)</b></big></tt></a><tt style="color: rgb(255, 255, 255);"><br>
+<br>
+Start_Button&nbsp;&nbsp; &nbsp;= Yes<br>
+Back_Button&nbsp;&nbsp; &nbsp;= Yes<br>
+L_Trig&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= Yes<br>
+R_Trig&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= Yes<br>
+White_Button&nbsp;&nbsp; &nbsp;= No<br>
+Black_Button&nbsp;&nbsp; &nbsp;= No<br>
+A_Button&nbsp;&nbsp; &nbsp;= No<br>
+B_Button&nbsp;&nbsp; &nbsp;= No<br>
+X_Button&nbsp;&nbsp; &nbsp;= No<br>
+Y_Button&nbsp;&nbsp; &nbsp;= No<br>
+<br>
+</tt><span style="color: rgb(255, 255, 255);"> This section is for use
+with the IGR.&nbsp; Buttons set to Yes, <a
+ style="color: rgb(204, 204, 204);" href="graphics/igr_combo.jpg">all
+must be held at once to
+activate
+IGR</a>.&nbsp; Once again, I strongly advise against the evox IGR, and
+using the X2 igr.</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"><a name="network"><big><b>[Network]</b></big></a><br>
+<br>
+SetupNetwork&nbsp;&nbsp; &nbsp;= Yes<br>
+</tt><span style="color: rgb(255, 255, 255);">Setting to Yes enables
+the network to be setup in evox.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">StaticIP&nbsp;&nbsp; &nbsp;= No</tt><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Setting this to Yes uses the
+values given below for the network.&nbsp; Setting to No uses dhcp (from
+your router) to obtain IP Settings.&nbsp; </span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">
+Ip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= 192.168.0.2<br>
+Subnetmask&nbsp;&nbsp; &nbsp;= 255.255.255.0<br>
+Defaultgateway&nbsp;&nbsp; &nbsp;= 192.168.0.1<br>
+DNS1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= 0.0.0.0<br>
+DNS2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= 0.0.0.0<br>
+SkipIfNoLink&nbsp;&nbsp; &nbsp;= No<br>
+SetupDelay&nbsp;&nbsp; &nbsp;= 10<br>
+<br>
+<a href="#Top">Go to top</a><br>
+<br>
+<a name="clock"><big><b>[Clock]</b></big></a><br>
+<br>
+<big style="font-weight: bold;"> JumpToMsDash&nbsp;&nbsp; &nbsp;= No</big><br>
+</tt> <span style="color: rgb(255, 255, 255);">If set to No, the
+dashboard gets the time from the time server.&nbsp; If Yes, it jumps to
+the MS_Dash.&nbsp; IF<br>
+XBox has been unplgged for sever hours, with this set to yes, it will
+jump to the M$D so you can<br>
+set the time.<br>
+<br style="color: rgb(255, 255, 255);">
+</span><big style="font-weight: bold;"><tt
+ style="color: rgb(255, 255, 255);">JumpIfNoLink&nbsp;&nbsp;
+&nbsp;= Yes</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">If set to Yes, Evox will get
+the time from the MS dash if the connection to the time server fails.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><tt style="color: rgb(255, 255, 255);">Use24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;= Yes</tt></big><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">If set to Yes, the 24 hour
+time format is used.&nbsp; When set to No, it uses the 12 hour time
+format.</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"><big style="font-weight: bold;">SwapDate&nbsp;&nbsp;
+&nbsp;= No</big><br>
+</tt> <span style="color: rgb(255, 255, 255);">If set to Yes, European
+date style (day/month) is used.&nbsp; If set to No, the </span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"><big style="font-weight: bold;">SNTP_Server&nbsp;&nbsp;
+&nbsp;= 216.244.192.3</big><br>
+</tt> <span style="color: rgb(255, 255, 255);">Sets the time sync
+server.</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"><a name="ftp"><big><b>[FTP]</b></big></a><br>
+<br>
+<big style="font-weight: bold;">
+Enable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= Yes</big><br>
+</tt><span style="color: rgb(255, 255, 255);">When set to Yes, FTP
+access to the xbox is enabled.&nbsp; When set to no, it isn't.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"><big style="font-weight: bold;">Password&nbsp;&nbsp;
+&nbsp;= xbox</big><br>
+</tt><span style="color: rgb(255, 255, 255);">Set this to the password
+you would like to use for ftp access.&nbsp; Please note that the
+username is fixed at xbox.</span><br style="color: rgb(255, 255, 255);">
+<big style="font-weight: bold;"><br style="color: rgb(255, 255, 255);">
+<code style="color: rgb(255, 255, 255);">IGR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= No</code></big>
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Once again, IGR.&nbsp; Refer
+to the other parts about IGR for info.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" name="telnet"><tt><big><b>[Telnet]</b></big></tt></a><tt
+ style="color: rgb(255, 255, 255);"><br>
+<br>
+<big style="font-weight: bold;">
+Enable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= Yes</big><br>
+</tt> <span style="color: rgb(255, 255, 255);">When set to Yes, Telnet
+access to the xbox is enabled.&nbsp; When set to No, it is disabled.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"><a name="rdtools"><big><b>[RDTOOLS]</b></big></a><br>
+<br>
+<big style="font-weight: bold;">
+Enable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= Yes<br>
+Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= XBOX_V1.1</big><br>
+</tt><span style="color: rgb(255, 255, 255);">The RDTOOLS section is
+development related.&nbsp; It is best to leave this as set.&nbsp; Is
+known as Research &amp; Development tools. You need a Debug Bios for
+this to be of any use. </span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"></tt><span
+ style="color: rgb(255, 255, 255);"></span><br
+ style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"><a name="bios"><big><b>[BIOS]</b></big></a><br>
+<br>
+#<br>
+ROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= "EvoX
+2.0",0x76fd88337b8d8c1f116f85f3984b98b6<br>
+ROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= "EvoX
+2.1",0x99487615bb30670cb65993388fcf2a63<br>
+ROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= "EvoX
+2.2",0x220ade778785cfc3c98bb5ea8bbd8608<br>
+ROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= "EvoX
+2.3",0xd79bc87c2caa1a50dcc7016adf2ccc0a<br>
+ROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= "EvoX
+2.4",0xe3ce66b99957a92fdac40af951c3f1fd<br>
+ROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= "EvoX
+2.6",0xdd3de3542bff7b36cdb0dbe078c27fbe<br>
+ROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;=
+"EvoX 3.6",0xcb73b4914bb6c70b66e21377989726a0 &nbsp;<br>
+ROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;= "EvoX 3.6ef",0xf754767b388ce7a08bf57304e24c9ae9 &nbsp;<br>
+ROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;= "EvoX D.6",0xc349c2b047a3d6c2de2e1c10185ecf86 &nbsp;<br>
+ROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;= "EvoX D.6ef",0x74c6235497f474bf88b54b3fc52a20b2<br>
+#<br>
+Flash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= 0x01d5,"AMD -
+Am29F080B",0x100000<br>
+Flash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= 0x04d5,"FUJITSU -
+MBM29F080A",0x100000<br>
+Flash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= 0xadd5,"Hynix -
+HY29F080",0x100000<br>
+Flash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= 0x20f1,"ST -
+M29F080A",0x100000<br>
+Flash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= 0xbf61,"SST -
+49LF020",0x40000<br>
+Flash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= 0x015b,"AMD -
+Am29LV800B",0x100000<br>
+Flash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= 0x01da,"AMD -
+Am29LV800B",0x100000<br>
+#Flash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= 0x89a6,"SHARP -
+LH28F008SCT",0x100000,0x20,0xd0,0x10<br>
+#Flash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;= 0x378c,"AMIC -
+A29002",0x40000<br>
+Current&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;=
+0x5aec431e5fefb8cf420dfb29fa0b1ddb<br>
+<br>
+</tt><span style="color: rgb(255, 255, 255);"> The above bios section
+is a list of chips, with flashing info, and a list of hash values of
+bios for identification purposes.&nbsp; This helps the flashing portion
+of EvoX to identify the type of chip used for flashing.&nbsp; It helps
+make sure the chip is properly flashed.<br>
+</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"> <a name="skinoriginal"><big><b>[Skin_Original]</b></big></a><br>
+<br>
+#<br>
+# &lt;Time&gt;&nbsp;&nbsp; =<br>
+# &lt;IP&gt;&nbsp;&nbsp;&nbsp;&nbsp; =<br>
+# &lt;Name&gt;<br>
+# &lt;Version&gt;<br>
+# &lt;CD&gt;<br>
+# &lt;BIOSVer&gt;<br>
+# &lt;KernelVer&gt;<br>
+# &lt;RDName&gt;<br>
+# &lt;Temp1&gt;<br>
+# &lt;Temp2&gt;<br>
+# &lt;SpaceC&gt;<br>
+# &lt;SpaceE&gt;<br>
+# &lt;SpaceF&gt;<br>
+# &lt;SpaceX&gt;<br>
+# &lt;SpaceY&gt;<br>
+# &lt;SpaceZ&gt;<br>
+#<br>
+Text&nbsp;&nbsp; &nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+30,37,0.5,0x000000,0,"&lt;Time&gt;&lt;CrLf&gt;MB Temp
+&lt;Temp1&gt;&lt;CrLf&gt;CPU &lt;Temp2&gt;"<br>
+Text&nbsp;&nbsp; &nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+28,39,0.5,0x808080,0,"&lt;Time&gt;&lt;CrLf&gt;MB Temp
+&lt;Temp1&gt;&lt;CrLf&gt;CPU &lt;Temp2&gt;"<br>
+Text&nbsp;&nbsp; &nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+620,420,0.5,0x000000,1,"&lt;Name&gt; V&lt;Version&gt;"<br>
+Text&nbsp;&nbsp; &nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+618,422,0.5,0x808080,1,"&lt;Name&gt; V&lt;Version&gt;"<br>
+Text&nbsp;&nbsp; &nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+620,37,0.5,0x000000,1,"&lt;CD&gt;"<br>
+Text&nbsp;&nbsp; &nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+618,39,0.5,0x808080,1,"&lt;CD&gt;"<br>
+Text&nbsp;&nbsp; &nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+30,420,0.5,0x000000,0,"RD Name : &lt;RDName&gt;"<br>
+Text&nbsp;&nbsp; &nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+28,422,0.5,0x808080,0,"RD Name : &lt;RDName&gt;"<br>
+LogoType=&nbsp;&nbsp; &nbsp;0<br>
+<br>
+</tt><span style="color: rgb(255, 255, 255);"> This is skin info about
+the default skin.&nbsp; I reccomend you do not change this.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" name="menu">
+<h2>The Menu:</h2>
+</a><span style="color: rgb(255, 255, 255);"> At last, the menu.&nbsp;
+I think this deserves a section of its own, because it is very
+involved.&nbsp; Here is the default menu.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" name="mstr">
+<h4><a name="Structure"></a><big><big>Structure</big></big></h4>
+</a><tt style="color: rgb(255, 255, 255);"> <big><b>[Menu]</b></big><br>
+<br>
+Section "Root"<br>
+{<br>
+&nbsp;&nbsp; &nbsp;Item "Launch DVD",ID_Launch_DVD<br>
+&nbsp;&nbsp; &nbsp;Item "MS Dashboard",ID_MS_Dash<br>
+&nbsp;&nbsp; &nbsp;Item "Reboot",ID_Quick_Reboot<br>
+&nbsp;&nbsp; &nbsp;Item "Power Off",ID_Power_Off<br>
+#&nbsp;&nbsp; &nbsp;Item "Flash Evox
+BIOS","c:\bios\d6.bin",ID_Flash_Bios_File<br>
+<br>
+&nbsp;&nbsp; &nbsp;Section "System Utils"<br>
+&nbsp;&nbsp; &nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Item "Settings",ID_Settings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Item "Flash
+BIOS",ID_Flash_Bios<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Item "Backup",ID_Backup<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Item "Skins",ID_Skins<br>
+&nbsp;&nbsp; &nbsp;}<br>
+&nbsp;&nbsp; &nbsp;Section&nbsp; "Launch Menu"<br>
+&nbsp;&nbsp; &nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Section "Games"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;AutoAddItem "e:\games\"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;AutoAddItem "f:\games\"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;SortAll<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Section "Apps"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;AutoAddItem "e:\apps\"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;AutoAddItem "f:\apps\"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;SortAll<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;}<br>
+&nbsp;&nbsp; &nbsp;}<br>
+}<br>
+<br>
+<br>
+</tt><span style="color: rgb(255, 255, 255);"> Notice that the root of
+the menu is held in a section called Root.&nbsp; This brings up the
+first part of the menu.&nbsp; All things are divided into
+sections.&nbsp; </span><br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" name="msub">
+<h4><a name="Submenus"></a><big><big>Submenus</big></big></h4>
+</a><span style="color: rgb(255, 255, 255);"> A section is structured
+in this matter:</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"> Section "Root"<br>
+{<br>
+}<br>
+<br>
+</tt><span style="color: rgb(255, 255, 255);"> Between the two
+brackets, { and }, there is more information.&nbsp; Here is where you
+can add other sections, which function as "folders".&nbsp; When you
+click on them with the A button, they display information contained
+within them.&nbsp; Heres an example of using other sections.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">Section "Root"<br>
+{<br>
+&nbsp;&nbsp; &nbsp;Section "My Games"<br>
+&nbsp;&nbsp; &nbsp;{<br>
+&nbsp;&nbsp; &nbsp;}<br>
+&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp; &nbsp;Section "My Applications"<br>
+&nbsp;&nbsp; &nbsp;{<br>
+&nbsp;&nbsp; &nbsp;}<br>
+}<br>
+<br>
+</tt><span style="color: rgb(255, 255, 255);"> It is very important
+that every { has a corresponding }.&nbsp; Also note that I indented the
+menus.&nbsp; This is not needed, but I like to do this for organization.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<big><big><a style="color: rgb(255, 255, 255);" name="mitm">
+<h4>Items</h4>
+</a></big></big><span style="color: rgb(255, 255, 255);"> Now that you
+know how to make different sections, you need to put things in that
+section.&nbsp; There are several ways this can be acheived.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);"> First, you can either AutoAdd
+items, or manually add them.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);"> The AutoAddItem function
+automaticly searches immediate subdirectories for a default.xbe file,
+and adds it to the menu.&nbsp; For most people this is a very good
+thing.&nbsp; Here's an example of the use of AutoAddItem.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"> Section "Root"<br>
+{<br>
+&nbsp;&nbsp; &nbsp;Section "My Games"<br>
+&nbsp;&nbsp; &nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;AutoAddItem "f:\games"<br>
+&nbsp;&nbsp; &nbsp;}<br>
+&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp; &nbsp;Section "My Applications"<br>
+&nbsp;&nbsp; &nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;AutoAddItem "f:\apps"<br>
+&nbsp;&nbsp; &nbsp;}<br>
+}<br>
+<br>
+</tt><span style="color: rgb(255, 255, 255);"> You can also manually
+add these items.&nbsp; Use the Item tag to add them.&nbsp; Heres an
+example:</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"> Section "Root"<br>
+{<br>
+&nbsp;&nbsp; &nbsp;Section "My Games"<br>
+&nbsp;&nbsp; &nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Item "NHL Hitz
+2003","f:\games\nhl2k3\default.xbe"<br>
+&nbsp;&nbsp; &nbsp;}<br>
+&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp; &nbsp;Section "My Applications"<br>
+&nbsp;&nbsp; &nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Item
+"Boxplorer","f:\boxplorer\default.xbe"<br>
+&nbsp;&nbsp; &nbsp;}<br>
+}<br>
+<br>
+</tt>
+<br style="color: rgb(255, 255, 255);">
+<a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br
+ style="color: rgb(255, 255, 255);">
+<big><big><a style="color: rgb(255, 255, 255);" name="misp">
+<h4>Special Items</h4>
+</a></big><span style="color: rgb(255, 255, 255); font-weight: bold;">
+Commandline parameters option:</span></big><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255); font-weight: bold;"> SYNTAX:</span><br
+ style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">Item
+"NAME","PATH",ID_CMD,"PARAMETER"</tt><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);"> Example: (Loads MAME, and
+Runs DEFENDER)</span><br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">Item
+"Defender","e:\Mame\mame.xbe",ID_CMD,"\roms\defender.rom"</tt><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);"> Desc. of syntax-</span><br
+ style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">Name</tt><span
+ style="color: rgb(255, 255, 255);"> - Display name </span><br
+ style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">PATH</tt><span
+ style="color: rgb(255, 255, 255);"> - Path to XBE of app/game.</span><br
+ style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">ID_CMD</tt><span
+ style="color: rgb(255, 255, 255);"> - additional options desc. below.</span><br
+ style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">PARAMETER</tt><span
+ style="color: rgb(255, 255, 255);"> - App-specific. Parameters will
+only work with certain apps. Check the documentation or try it. No
+guarantees.</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255); font-weight: bold;"> ID_CMD
+explanations</span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">ID_Reg_NA&nbsp;&nbsp;
+: force region to NTSC US for that XBE</span><br
+ style="font-family: monospace; color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">ID_Reg_J&nbsp;&nbsp;&nbsp;
+: force region to NTSC-J for that XBE</span><br
+ style="font-family: monospace; color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">ID_Reg_ROW&nbsp;
+: force region to PAL for that XBE</span><br
+ style="font-family: monospace; color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">ID_No_D_Mount</tt><span
+ style="color: rgb(255, 255, 255);">.&nbsp; This is used to mount the
+D:\ drive when launching a default.xbe from the hard drive.&nbsp; This
+is especially useful for trainers.
+</span><br style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">ID_SwapStick</tt><span
+ style="color: rgb(255, 255, 255);"> - Swaps Movement and Button Press*</span><br
+ style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">ID_SwapStick_Move</tt><span
+ style="color: rgb(255, 255, 255);"> - Swaps only Movement*</span><br
+ style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);">ID_SwapStick_Press</tt><span
+ style="color: rgb(255, 255, 255);"> - Swaps only Button Press*</span><br
+ style="color: rgb(255, 255, 255);">
+<small style="color: rgb(255, 255, 255);">*I haven't played around with
+these, you will most likely have to have TSR_TYPE = 1 and you might
+have to have IGR on.
+</small><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);"> There are many other
+functions that you can perform, such as the Reboot and Shutdown.&nbsp; </span><br
+ style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"> &nbsp;&nbsp; &nbsp;Item "Launch
+DVD",ID_Launch_DVD<br>
+&nbsp;&nbsp; &nbsp;Item "MS Dashboard",ID_MS_Dash<br>
+&nbsp;&nbsp; &nbsp;Item "Reboot",ID_Quick_Reboot<br>
+&nbsp;&nbsp; &nbsp;Item "Power Off",ID_Power_Off<br>
+&nbsp;&nbsp; &nbsp;Item "Settings",ID_Settings<br>
+&nbsp;&nbsp; &nbsp;Item "Flash BIOS",ID_Flash_Bios<br>
+&nbsp;&nbsp; &nbsp;Item "Backup",ID_Backup<br>
+&nbsp;&nbsp; &nbsp;Item "Skins",ID_Skins<br>
+&nbsp;&nbsp;&nbsp; Item "Power Cycle",ID_Full_Reboot<br>
+&nbsp;&nbsp;&nbsp; Item "Trainers",ID_Trainer </tt><small
+ style="color: rgb(255, 255, 255);"> New in +3925</small><br
+ style="color: rgb(255, 255, 255);">
+<tt style="color: rgb(255, 255, 255);"><br>
+</tt><span style="color: rgb(255, 255, 255);">In addition, lines can be
+added, which cannot be selected, and are just scrolled past.&nbsp; This
+format of the line is:</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<code style="color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp; Line "text
+if line",<span style="font-style: italic;">n</span><br>
+</code><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);"> Where </span><span
+ style="font-style: italic; color: rgb(255, 255, 255);">n</span><span
+ style="color: rgb(255, 255, 255);"> is nonexistent for a line the
+color of the skin text, 1 for a red line, and 2 for a green line.&nbsp;
+So, for example, </span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+Line "------------",1</span><span style="color: rgb(255, 255, 255);"> -
+Creates a red line</span><br style="color: rgb(255, 255, 255);">
+<span style="font-family: monospace; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+Line "------------"</span><span style="color: rgb(255, 255, 255);"> -
+Creates a line of the skin color of the text.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<h4 style="color: rgb(255, 255, 255);"><big><big>Sorting</big></big></h4>
+<span style="color: rgb(255, 255, 255);"> Any way you have these items,
+you need to sort these items in Alphabetical order.&nbsp; Add SortAll
+to the end of the section if you want to do this.</span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<tt><span style="color: rgb(255, 255, 255);"> Section "Root"</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);"> {</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp; &nbsp;Section "My
+Games"</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp; &nbsp;{</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;AutoAddItem "f:\games"</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;SortAll</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp; &nbsp;}</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp; &nbsp;</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp; &nbsp;Section "My
+Applications"</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp; &nbsp;{</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;AutoAddItem "f:\apps"</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;SortAll</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">&nbsp;&nbsp; &nbsp;}</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);"> }</span><br>
+</tt><a style="color: rgb(255, 255, 255);" href="#Top">Go to top</a><br>
+<span style="color: rgb(255, 255, 255);"><br>
+<big style="font-weight: bold;"><big><a name="at"></a>@ COMMANDS</big></big><br>
+<br>
+@1= Flash the BIOS</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@2= User Actions as in @210 to
+do [Action 10]</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@3= Launch the Original
+Dashboard </span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@4= LaunchMenu</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@5= Reboot Xbox</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@6= Network</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@7= Harddisk info</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@8= Launch</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@9= Go to the EvoX Dashboard
+Settings</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@10= Turn the Power Off</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@11= Backup the settings to
+C:\Backup on the Xbox</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@12= (undefined to my
+knowledge)</span><br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@13= Skins</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">@14= (undefined to my
+knowledge)<br>
+<br>
+</span><a style="color: rgb(255, 255, 255);" href="iniexplaned.html#Top">Go
+to top</a><br>
+<br>
+<br>
+<span style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><big><a
+ name="action"></a>ACTION</big></big></span><br>
+<span style="color: rgb(255, 255, 255);"><br>
+Used with <span style="font-style: italic;">Item "Menu Option"@2XX</span><br>
+<br>
+<big style="font-weight: bold;">Example:</big><br>
+<span style="font-style: italic;">Add to the Main Menu or System Utils
+Menu:</span><br>
+Item "Format F Partition",@2<span
+ style="font-weight: bold; font-style: italic;">15</span><br>
+<br>
+<big><span style="font-weight: bold;">Add at the bottom of the ini
+file, or afer other ACTION:</span></big><br>
+[Action <span style="font-weight: bold; font-style: italic;">15</span>]<br>
+Info "Format F Partition"<br>
+Warning "This will not format all drives, Only the F Partition."<br>
+Warning "Make sure you have a backup of C &amp; E anyway."<br>
+Progress "Formatting drive"<br>
+ConfigSector "\backup\disk.bin"<br>
+Format f:<br>
+<br>
+When you choose "Format F Partition" at the menu, it jumps to this
+routine, then returns to the menu.<br>
+<br>
+</span><a style="color: rgb(255, 255, 255);" href="iniexplaned.html#Top">Go
+to top</a><br>
+<br>
+<span style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><big><a
+ name="id"></a>ID_COMMANDS</big></big><br>
+Old @ numbers have been replaced with more meaningfull commands (Old
+ones still work)</span><br style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">ID_Launch_DVD</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">ID_Flash_Bios</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">ID_MS_Dash</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">ID_Quick_Reboot</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">ID_Power_Off</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">ID_Flash_Bios_File</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">ID_Settings</span><br
+ style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">ID_Backup<br>
+<br>
+</span><a style="color: rgb(255, 255, 255);" href="iniexplaned.html#Top">Go
+to top</a><br>
+<span style="color: rgb(255, 255, 255);" name="intelliTxt"
+ id="intelliTxt"><big><span style="font-weight: bold;"></span></big><br>
+<br>
+<br>
+</span><span style="color: rgb(255, 255, 255);"><br>
+</span>ID_Skins<br>
+</body>
+</html>

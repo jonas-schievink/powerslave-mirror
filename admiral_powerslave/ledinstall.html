@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Xbox Xbox360 - installing LEDs</title>
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#551a8b">
+<span style="color: rgb(255, 255, 255);"><big
+ style="font-weight: bold; font-family: tahoma;"><big>INSTALLING LEDs</big></big><br>
+<br>
+You can add external lighting to the Xbox.&nbsp; The following
+information is a generlization.&nbsp; You may have to do more research
+for specific applciations.<br>
+<br>
+<span style="font-weight: bold;"><big>LED:</big>&nbsp;</span> LED's are
+special diodes that emit light when connected in a circuit. They are
+frequently used as "pilot" lights in electronic appliances to indicate
+whether the circuit is closed or not. A a clear (or often colored)
+epoxy case enclosed the heart of an LED, the semi-conductor chip.<br>
+<br>
+<big style="font-weight: bold;">POLARITY:</big> The two leads extending
+below the LED epoxy enclosure, or the "bulb", indicate how the LED
+should be connected into a circuit. The negative side of an LED lead is
+indicated in two ways: 1) by the flat side of the bulb, and 2) by the
+shorter of the two leads extending from the LED. The negative lead
+should be connected to the negative terminal of a battery. LED's
+operate at relative low voltages between about 1 and 4 volts, and draw
+of current is between about 10 and 40 milliamperes (mA). Voltages and
+currents substantially above these values can melt a LED chip. <br>
+<br>
+<big><span style="font-weight: bold;">CURRENT LIMIT RESISTOR:&nbsp;</span></big>
+You need a resistor attached to the negative side of the LED so that it
+will not pull more current than is required to light the LED.&nbsp;
+LEDs have a negative temperature coefficient of resistance.&nbsp; This
+means as the LED heats up, its resistance decreases, and it will pull
+more current.&nbsp; Unless the flow of current is restricted in some
+way (such as by a current limiting resistor) the LED may simply keep
+drawing more and more current until it self-destructs.&nbsp; The
+resistor helps in assuring the curent draw is not more than the LED can
+handle.&nbsp; It also helps so assure the Xbox power supply is not
+being taxed when using multiple LEDs in a curcuit.<br>
+<br>
+<big style="font-weight: bold;">CALCULATING THE RESISTOR:&nbsp;</big>
+Calculating the proper resistance of a current limiting resistor is
+actually quite easy.&nbsp; To calculate the resistance, you will need
+to know three things.&nbsp; 1. Supply voltage (Vs),&nbsp; 2. Operating
+voltage of the LED (Vf), and 3. Operating current of the LED
+(If).&nbsp; Once these three variables are known, they can be plugged
+into the following formula to find the proper resistance value:<br>
+<br>
+<big><big>R = Vs - Vf / If</big></big><br>
+<br>
+Example #1: Red LED (1.8 Vf and 0.020 If) operating from 5 VDC supply:
+R = (5V &#8211; 1.8V)/0.020 A = 160 Ohms.<br>
+<br>
+Example #2: Blue LED (3.4 Vf and 0.020 If) operating from 12 VDC
+supply:&nbsp; R = (12V &#8211; 3.4V)/0.020 A = 430 Ohms (470 Ohms could be
+substituted)<br>
+<br>
+Ok, so now we know the resistance value of the current limiting
+resistor but what about its power rating?&nbsp; Here is how to
+determine the power rating.<br>
+<br>
+Example #3: Blue LED (3.4 Vf and 0.020 If) operating from 12 VDC
+supply: Voltage drop across resistor = (12V &#8211; 3.4V) = 8.6V<br>
+Power in watts = I x E = 0.020A x 8.6V = 0.172 watts<br>
+<br>
+BLUE and WHITE LEDs require more voltage than Red, Green, and Yellow
+(Most white LEDs are actually blue LEDs that contain a phosphor coating
+that absorbs blue light, and emits a broad-spectrum white light).<br>
+<br>
+So in this example, and just about any you are going to use for your
+Xbox, a 1/4 watt resistor would do fine.&nbsp; (1/4 watt = 0.250 watt)<br>
+<br style="color: rgb(255, 255, 102);">
+<span style="font-weight: bold; color: rgb(255, 255, 102);">Using more
+than one LED in Parellel:&nbsp;</span> Each LED gets its own
+resistor!&nbsp; One voltage supply to the positive sides of all the
+LEDs, then each individual negative side with resistor, then to ground
+(-).&nbsp; Remember, your Xbox power supply is rated at so many
+watts!&nbsp; Total up the number of LEDs you want to use, say 10.&nbsp;
+Each LED uses 20mA (If), that's going to be 200mA of current.&nbsp;
+Doesn't seem like much, but the Xbox's power supply does have its
+imits.&nbsp; I doubt you would be able to use enough LEDs to kill the
+power supply, but it's the 5V you do not want to over-step its
+output.&nbsp; <br>
+<br>
+<span style="font-weight: bold; color: rgb(255, 255, 153);">Using more
+than one LED in SERIES:</span><span style="color: rgb(255, 255, 153);">&nbsp;</span>
+This is different then when in Parellel&nbsp; If you have Six red LEDs
+wired in series and operating from 12 VDC supply:&nbsp; (1.8V + 1.8V +
+1.8V + 1.8V + 1.8V + 1.8V) = 10.8V total.&nbsp; R = (12V &#8211;
+10.8V)/0.020A = 60 Ohms.&nbsp; This resistor is placed on the last LED
+in the chain, on its negative side, then the resistor to ground
+(-).&nbsp; </span><span style="color: rgb(255, 255, 255);">You
+normally do not want to
+wire in series, because if one LED blows they all go out!&nbsp; Then,
+finding the bad LED will be next to impossible.</span><br>
+<span style="color: rgb(255, 255, 255);"><br>
+<big style="font-weight: bold;">INSTALLING THE RESISTOR:&nbsp;</big> Of
+course, you are going to need to drill the hole(s) for the LED(s), and
+make sure there is room behind it.&nbsp; You can bend the leads
+down/up, or cut them as needed, just remember the polarity!&nbsp;
+Assure fitment before soldering your wires on to the LED.&nbsp; The
+current limiting resistor can go on anywhere in the circuit, as long as
+it is on the NEGATIVE side of the LED.&nbsp;&nbsp; <br>
+<br>
+<big style="font-weight: bold;">POWER SUPPLY FOR LED:&nbsp;</big> You
+can use a "Y" adapter for the Hard Disk power cable.&nbsp; You would
+cut the oher end off and use the power from the RED (5V) or YELLOW
+(12V) wires.&nbsp; The blacks are ground.&nbsp; Make sure all exposed
+wires are coverfed or capped so they do not short out anywhere inside
+the Xbox case!&nbsp; It is a lot easier than you think, just make sure
+you know what you are doing!&nbsp; <br>
+<br>
+So, have fun with your lighting.<br>
+</span>
+</body>
+</html>

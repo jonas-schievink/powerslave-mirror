@@ -1,0 +1,713 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Generator" CONTENT="Microsoft Word 97">
+   <META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Office\html.dot">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE>FatalExeptions&amp;more</TITLE>
+</HEAD>
+<BODY LINK="#0000FF" VLINK="#800080">
+<A NAME="TOP"></A><B><FONT FACE="Tahoma">The following
+information was obtained from Microsoft documents. This is the most commonly
+asked questions, about the windows plagued operating system, and how you
+might be able to fix it.</FONT></B>
+
+<P><B><FONT FACE="Tahoma">After reading some of this, you'll wonder how
+they could have released a product without letting anyone know it's hidden
+secrets, thus making our troubleshooting lives mush easier. I have added
+some more items and notes to their original document.</FONT></B>
+
+<P><B><FONT FACE="Tahoma">Although WinNT is much more Stable than Win95,
+or even 98, DOS programs are worse for compatibility with WinNT.</FONT></B>
+
+<P><B><U><FONT FACE="FederationDS9Title"><FONT SIZE=+2>This section covers:</FONT></FONT></U></B>
+
+<P><A HREF="#RandomF">Random Fatal Exception Errors</A>
+<BR><A HREF="#WhatAre">What are Fatal Exception Errors</A>
+<BR><A HREF="#CausesOf">Causes of General Protection Faults</A>
+<BR><A HREF="#Vmm06">Fatal Exception 0E: in VMM(06)</A>
+<BR><A HREF="#Re95">Reinstalling Win95 (Microsoft's way)</A>
+<BR><A HREF="#IDE95">Win95 Support for S.M.A.R.T., DMA Hard Disks, and
+ATAPI Tape Drives</A>
+<BR><A HREF="#Parity">Parity Errors usually indicate bad, or mismatched
+memory</A><B></B>
+
+<P><B>There is a registry saved in your Windows directory called "SYSTEM.1ST"
+which is identical to the registry created with the first successful installation
+of Win95. Check it out </B><A HREF="#First">here!</A>
+<CENTER></CENTER>
+
+<CENTER>
+<HR ALIGN="RIGHT"></CENTER>
+
+
+<P><A NAME="RandomF"></A><B><FONT SIZE=+3>Random Fatal Exception Errors
+While Running Windows 95</FONT></B>
+
+<P><FONT SIZE=-1>Microsoft Windows 95</FONT>
+<BR><FONT SIZE=-1>Microsoft Windows 98</FONT>
+
+<P><B><U>SYMPTOMS</U></B>
+
+<P><FONT SIZE=-1>Windows reports random "Fatal Exception Error 0x:xxxxxxxx"
+error messages even though your previous version of Windows or Windows
+for Workgroups did not.</FONT>
+
+<P><B><U>CAUSE</U></B>
+
+<P><FONT SIZE=-1>A common cause for these error messages is faulty physical
+memory (RAM) on the computer. The following are reasons why your previous
+version of Windows may appear to run smoothly while Windows may report
+random "Fatal Exception Error 0x:xxxxxxxx" error messages:</FONT>
+
+<P><FONT SIZE=-1>* All operating systems use memory differently. In Windows
+3.1, the "bad" memory may be used for holding rarely used data. In Windows
+the "bad" memory is used for holding frequently run program information.</FONT>
+
+<P><FONT SIZE=-1>* Windows 3.1 contains comparatively little 32-bit code.
+Windows uses much more 32-bit code. Furthermore, there are subtle differences
+between the way memory is accessed if it is being accessed for code or
+if it being accessed for data. Because Windows runs much more 32-bit code,
+these subtle errors show up more often.</FONT>
+
+<P><FONT SIZE=-1>In particular, all the 32-bit code in Windows 3.1 resides
+in one place: at the low-end of physical memory. If the first 4 megabytes
+(MB) of memory can handle 32-bit code, Windows 3.1 works without errors.
+This is true even if the topmost physical memory cannot run 32-bit code
+because Windows 3.1 does not run 32-bit code outside the first 4 MB of
+RAM.</FONT>
+
+<P><FONT SIZE=-1>Windows runs 32-bit code in all portions of memory. Therefore,
+when Windows runs 32-bit code in a section of RAM that cannot run 32-bit
+code well, you may receive "Fatal Exception Error 0x:xxxxxxxx" error messages.</FONT>
+
+<P><FONT SIZE=-1>* Windows interacts with hardware differently than previous
+versions of Windows. This is due partly to Plug and Play and partly to
+new drivers that take advantage of the additional capabilities of interface
+adapters. These features may uncover anomalies in the hardware that never
+appeared in previous versions of Windows because earlier versions did not
+attempt to exploit these features.</FONT>
+
+<P><FONT SIZE=-1>* Many new computers do not have memory chips that perform
+parity checking; therefore, you may have been encountering parity errors
+in Windows 3.1 without realizing it because the errors were in relatively
+harmless sections of memory. For example, in a Microsoft Word for Windows
+document, the word "the" is changed to "tie."</FONT>
+
+<P><B><U>RESOLUTION</U></B>
+
+<P><FONT SIZE=-1>To resolve these errors, it is often necessary to replace
+the RAM and/or system board (motherboard). In some circumstances it may
+be possible to alter CMOS settings, such as Memory Wait States, to run
+Windows successfully. In other cases, disabling the motherboard L2 cache
+allows Windows to run. For information about how to edit CMOS settings,
+please view your computer documentation or contact your hardware manufacturer.</FONT>
+
+<P><FONT SIZE=-1>Note that you may want to restart Windows in Safe mode
+to see if the errors persist. If they do not, the problem may be a software
+or driver problem, in which case the information above may not apply</FONT>
+
+<P><B><FONT SIZE=-1>MORE INFORMATION</FONT></B>
+
+<P><FONT SIZE=-1>Fatal exception errors are similar to EMM386 exception
+errors. For example, fatal exception error 0C is generally equivalent to
+EMM386 exception error 12 or a stack fault.</FONT>
+
+<P><A NAME="WhatAre"></A><B><FONT SIZE=+3>What Are Windows Fatal Exception
+Errors</FONT></B>
+
+<P><FONT SIZE=-1>Microsoft Windows 98</FONT>
+<BR><FONT SIZE=-1>Microsoft Windows 95</FONT>
+
+<P><FONT SIZE=-1>SUMMARY</FONT>
+
+<P><FONT SIZE=-1>When you attempt to start Windows or an application inside
+of Windows, you may encounter errors similar to the following: A fatal
+exception &lt;XY> has occurred at xxxx:xxxxxxxx</FONT>
+
+<P><FONT SIZE=-1>Fatal exception errors are codes returned by a program
+in the following cases:</FONT>
+<BR><FONT SIZE=-1>- Access to an illegal instruction has been encountered</FONT>
+<BR><FONT SIZE=-1>- Invalid data or code has been accessed</FONT>
+<BR><FONT SIZE=-1>- The privilege level of an operation is invalid</FONT>
+
+<P><FONT SIZE=-1>When any of these occur, the processor returns an exception
+to the operating system, which in turn is handled as a Fatal Exception
+Error. In many cases the exception is non-recoverable and the system must
+either be restarted or shutdown, depending upon the severity of the error.</FONT>
+
+<P><FONT SIZE=-1>In the following example of a Fatal Exception error A
+fatal exception &lt;XY> has occurred at xxxx:xxxxxxxx - the &lt;XY> represents
+the actual processor exception from 00 to 0F. The xxxx:xxxxxxxx represents
+the enhanced instruction pointer to the code segment and the 8-bit address
+is the actual address where the exception occurred.</FONT>
+
+<P><FONT SIZE=-1>Windows does not cause these errors, but has the exception
+handling routine for that particular processor exception, which displays
+the above message.</FONT>
+
+<P><FONT SIZE=-1>The following article details the processor exceptions
+and their meaning.</FONT>
+
+<P><B><FONT SIZE=-1>MORE INFORMATION</FONT></B>
+
+<P><FONT SIZE=-1>The following are the processor exceptions and their definitions:</FONT>
+
+<P><FONT SIZE=-1>00: Divide Fault - The processor returns this exception
+when it encounters a divide fault. A divide fault occurs if division by
+zero is attempted or if the result of the operation does not fit in the
+destination operand.</FONT>
+
+<P><FONT SIZE=-1>02: NMI (non maskable interrupt) - Interrupt 2 is reserved
+for the hardware Non-Maskable-Interrupt condition. No exceptions trap through
+interrupt 2.</FONT>
+
+<P><FONT SIZE=-1>04: Overflow trap - The overflow trap occurs after an
+INTO instruction has executed and the 0F bit is set to 1.</FONT>
+
+<P><FONT SIZE=-1>05: Bounds Check Fault - The BOUND instruction compares
+the array index with an upper and lower bound. If the index is out of range,
+then the processor traps to interrupt 05.</FONT>
+
+<P><FONT SIZE=-1>06: Invalid Opcode fault - This error is returned if any
+one of the following conditions are true:</FONT>
+
+<P><FONT SIZE=-1>- The processor tries to decode a bit pattern that does
+not correspond to any legal computer instruction</FONT>
+<BR><FONT SIZE=-1>- The processor attempts to execute an instruction that
+contains invalid operands</FONT>
+<BR><FONT SIZE=-1>- The processor attempts to execute a protected-mode
+instruction while running in virtual 8086 mode.</FONT>
+<BR><FONT SIZE=-1>- The processor tries to execute a LOCK prefix with an
+instruction that cannot be locked.</FONT>
+
+<P><FONT SIZE=-1>&nbsp;07: Coprocessor not available fault - This error
+occurs if the computer does not have a math coprocessor and the EM bit
+of register CR0 is set indicating that Numeric Data Processor emulation
+is being used. Each time a floating point operation is executed, an interrupt
+07 occurs.</FONT>
+
+<P><FONT SIZE=-1>This error also occurs when a math coprocessor is used
+and a task switch is executed. Interrupt 07 tells the processor that the
+current state of the coprocessor needs to be saved so that it can be used
+by another task.</FONT>
+
+<P><FONT SIZE=-1>08: Double Fault - Processing an exception sometimes triggers
+a second exception. In the event that this occurs, the processor will issue
+a interrupt 08 for a double fault.</FONT>
+
+<P><FONT SIZE=-1>09: Coprocessor Segment Overrun - This error occurs when
+a floating point instruction causes a memory access that runs beyond the
+end of the segment. If the starting address of the floating point operand
+is outside the segment, then a General Protection Fault occurs (interrupt
+0D).</FONT>
+
+<P><FONT SIZE=-1>10 (0Ah): Invalid Task State Segment Fault - Because the
+Task State Segment contains a number of descriptors, any number of conditions
+may cause exception 0A. Typically, the processor can gather enough information
+from the Task State Segment to issue another fault pointing to the actual
+problem. See "Microsoft's Programming the 80386/80486 Guide" for more information.</FONT>
+
+<P><FONT SIZE=-1>11 (0Bh): Not Present Fault - The Not present interrupt
+allows the operating system to implement virtual memory through the segmentation
+mechanism. When a segment is marked as "not present", the segment is swapped
+out to disk. The interrupt 0B fault is triggered when an application needs
+access to the segment.</FONT>
+
+<P><FONT SIZE=-1>12 (0Ch): Stack Fault - A Stack Fault occurs with error
+code 0 if an instruction refers to memory beyond the limit of the stack
+segment. If the operating system supports expand-down segments, increasing
+the size of the stack should alleviate the problem. Loading the Stack Segment
+with invalid descriptors will result in a general protection fault.</FONT>
+
+<P><FONT SIZE=-1>13 (0Dh): General Protection Fault - Any condition which
+is not covered by any of the other processor exceptions will result in
+a general protection fault. The exception indicates that this program has
+been corrupted in memory usually resulting in immediate termination of
+the application.</FONT>
+
+<P><FONT SIZE=-1>14 (0Eh): Page Fault - The Page Fault interrupt allows
+the operating system to implement virtual memory on a demand-paged basis.
+An interrupt 14 usually is issued whenever an access to a page directory
+entry or page table with the present bit set to 0 (Not present) occurs.
+The operating system makes the page present (usually retrieves the page
+from virtual memory) and re-issues the faulting instruction, which then
+can access the segment. A page fault also occurs when a paging protection
+rule is violated (when the retrieve fails, or data retrieved is invalid,
+or the code that issued the fault broke the protection rule for the processor).
+In these cases the operating system takes over for the appropriate action.</FONT>
+
+<P><FONT SIZE=-1>16 (10h): Coprocessor error Fault - This interrupt occurs
+when an unmasked floating-point exception has been signaled a previous
+instruction. (Because the 80386 does not have access to the Floating Point
+Unit, it checks the ERROR\ pin to test for this condition). This is also
+triggered by a WAIT instruction if the Emulate Math Coprocessor bit at
+CR0 is set.</FONT>
+
+<P><FONT SIZE=-1>17 (11h): Alignment Check Fault - This interrupt is only
+used on the 80486 CPUs. An interrupt 17 is issued when code executing at
+ring privilege 3 attempts to access a word operand that is not on an even-address
+boundary, a double-word operand that is not divisible by four, or a long
+real or temp real whose address is not divisible by eight. Alignment checking
+is disabled when the CPU is first powered up and is only enabled in protected
+mode.</FONT>
+
+<P><A NAME="CausesOf"></A><B><FONT SIZE=+3>Causes of General Protection
+Faults</FONT></B>
+
+<P><FONT SIZE=-1>Microsoft Windows operating system versions 3.1, 3.11</FONT>
+<BR><FONT SIZE=-1>Microsoft Windows 95</FONT>
+<BR><FONT SIZE=-1>Microsoft Windows 98</FONT>
+
+<P><FONT SIZE=-1>SUMMARY</FONT>
+
+<P><FONT SIZE=-1>Intel 80286, 80386, and 80486 CPUs can detect when a program
+does something wrong. The most common problems are stack faults, invalid
+instructions, divide errors (divide by zero), and general protection faults.
+These generally indicate nonstandard code in an application.</FONT>
+
+<P><FONT SIZE=-1>MORE INFORMATION</FONT>
+
+<P><FONT SIZE=-1>The following faults can occur in a Windows application,
+in Windows itself, or in a Windows device driver (for example, a video
+display driver).</FONT>
+
+<P><FONT SIZE=-1>STACK FAULT (INTERRUPT 12) Reasons for a stack fault are:</FONT>
+<BR><FONT SIZE=-1>* An instruction tries to access memory beyond the limits
+of the Stack segment (POP, PUSH, ENTER, LEAVE, or a stack relative access:
+MOV AX, [BP+6]).</FONT>
+
+<P><FONT SIZE=-1>* Loading SS with a selector marked not present, but otherwise
+valid (shouldn't happen under Windows). Stack faults are always fatal to
+the current application in Windows.</FONT>
+
+<P><FONT SIZE=-1>INVALID INSTRUCTION (INTERRUPT 6)</FONT>
+<BR><FONT SIZE=-1>The CPU detects most invalid instructions, and generates
+an Interrupt * This is always fatal to the application. This should never
+happen, and is usually caused by executing data instead of code.</FONT>
+
+<P><FONT SIZE=-1>DIVIDE ERROR (INTERRUPT 0)</FONT>
+<BR><FONT SIZE=-1>This is caused when the destination register cannot hold
+the result of a divide operation. It could be divide by zero, or divide
+overflow.</FONT>
+
+<P><FONT SIZE=-1>GENERAL PROTECTION FAULT (INTERRUPT 13)</FONT>
+<BR><FONT SIZE=-1>All protection violations that do not cause another exception
+cause a general protection exception. This includes, but is not limited
+to:</FONT>
+
+<P><FONT SIZE=-1>* Exceeding the segment limit when using the CS, DS, ES,
+FS, GS segments. This is a very common bug in programs, usually caused
+by miscalculating how much memory is required in an allocation.</FONT>
+
+<P><FONT SIZE=-1>* Transferring execution to a segment that is not executable
+(for example, jumping to a location that contains garbage).</FONT>
+
+<P><FONT SIZE=-1>* Writing to a read-only or a code segment.</FONT>
+
+<P><FONT SIZE=-1>* Loading a bad value into a segment register.</FONT>
+
+<P><FONT SIZE=-1>* Using a NULL pointer. A value of 0 is defined as a null
+pointer. In protected mode, it is always invalid to use a segment register
+that contains 0.</FONT>
+
+<P><FONT SIZE=-1>&nbsp;</FONT>
+
+<P><A NAME="Vmm06"></A><B><FONT SIZE=+3>Fatal Exception in VMM(06) Caused
+by Damaged Registry</FONT></B>
+
+<P><FONT SIZE=-1>Microsoft Windows 95</FONT>
+
+<P><B><FONT SIZE=-1>SYMPTOMS</FONT></B>
+
+<P><FONT SIZE=-1>You may receive either of the following error messages
+in Windows 95: Windows Networking The following error occurred while loading
+the device driver Vnetsup. Error 6107: Could Not Setup Instance Data</FONT>
+
+<P><FONT SIZE=-1>A fatal exception 0E has occurred at 0028:xxxxxxxx in
+VxD VMM(06) + xxxxxxxx - While the exception number may vary, 0E is the
+most common.</FONT>
+
+<P><B><FONT SIZE=-1>CAUSE</FONT></B>
+
+<P><FONT SIZE=-1>This error message can occur when Windows 95 encounters
+a problem while processing the system registry. If this error message occurs,
+the registry may be damaged.</FONT>
+
+<P><B><FONT SIZE=-1>RESOLUTION</FONT></B>
+
+<P><FONT SIZE=-1>Microsoft Windows 95</FONT>
+
+<P><FONT SIZE=-1>IMPORTANT: This article contains information about editing
+the registry. Before you edit the registry, you should first make a backup
+copy of the registry files</FONT>
+
+<P><FONT SIZE=-1>(System.dat and User.dat). Both are hidden files in the
+Windows folder.</FONT>
+
+<P><B><FONT SIZE=-1>SYMPTOMS</FONT></B>
+
+<P><FONT SIZE=-1>When you start Windows 95, you may receive one of the
+following error messages: There is not enough memory to load the registry.
+Windows has encountered an error accessing the system registry. You should
+restore the registry now and restart the computer. If you ignore this error
+and shut down your system, you may lose data.</FONT>
+
+<P><FONT SIZE=-1>Restoring the registry replaces the faulty registry with
+a known good backup copy. However, this backup copy may not contain all
+the information recently added to your system.</FONT>
+
+<P><FONT SIZE=-1>NOTE: If you click the Restore From Backup And Restart
+button, you receive the error message again as Windows 95 restarts.</FONT>
+
+<P><B><FONT SIZE=-1>CAUSE</FONT></B>
+
+<P><FONT SIZE=-1>These error messages may occur if the registry is damaged.</FONT>
+
+<P><B><FONT SIZE=-1>RESOLUTION</FONT></B>
+
+<P><FONT SIZE=-1>WARNING: Using Registry Editor incorrectly can cause serious
+problems that may require you to reinstall Windows 95. Microsoft cannot
+guarantee that problems resulting from the incorrect use of Registry Editor
+can be solved. Use Registry Editor at your own risk.</FONT>
+
+<P><FONT SIZE=-1>NOTE: For information about how to edit the registry,
+view the Changing Keys And Values online Help topic in Registry Editor
+(Regedit.exe). Note that you should make a backup copy of the registry
+files (System.dat and User.dat) before you edit the registry.</FONT>
+
+<P><FONT SIZE=-1>Perform the steps outlined in each method below (as needed)
+to restore a damaged registry.</FONT>
+
+<P><FONT SIZE=-1>Using Real-Mode Registry Editor</FONT>
+
+<P><FONT SIZE=-1>Use Registry Editor in real mode to export, then import,
+the registry file. To do so, follow these steps:</FONT>
+
+<P><FONT SIZE=-1>1.Restart the computer. When you see the "Starting Windows
+95" message, press the F8 key, then choose "Safe mode command prompt only"
+from the Startup menu.</FONT>
+
+<P><FONT SIZE=-1>2.Type the following line to export the registry: regedit
+/l:&lt;path1> /e &lt;path2>system.txt</FONT>
+
+<P><FONT SIZE=-1>where &lt;path1> is the path to the System.dat file and
+&lt;path2> is the path to the destination file. For example, if Windows
+95 is installed in the Windows folder on drive C, type the following line:</FONT>
+
+<P><FONT SIZE=-1>regedit /l:c:\windows\system.dat /e c:\system.txt</FONT>
+
+<P><FONT SIZE=-1>3.Type the following lines, pressing ENTER after each
+line:</FONT>
+<BR><FONT SIZE=-1>cd\windows</FONT>
+<BR><FONT SIZE=-1>attrib -s -h -r system.dat</FONT>
+
+<P><FONT SIZE=-1>4.Type the following line to rename the current registry
+file: ren system.dat system.old</FONT>
+
+<P><FONT SIZE=-1>5.Type the following line to import the System.dat portion
+of the registry: regedit /l:&lt;path1> /c &lt;path2>system.txt</FONT>
+
+<P><FONT SIZE=-1>where &lt;path1> is the path to the System.dat file and
+&lt;path2> is the path containing the file to import. For example, if Windows
+95 is installed in the Windows folder on drive C and you want to import
+the System.txt file from the root folder of drive C, type:</FONT>
+
+<P><FONT SIZE=-1>regedit /l:c:\windows\system.dat /c c:\system.txt</FONT>
+
+<P><FONT SIZE=-1>NOTE: If an "Unable to open registry" or "Error accessing
+the registry" error message is displayed when you attempt to import the
+System.dat portion of the registry, there ma be keys that are too long,
+or resides on a bad sector of the hard disk.</FONT>
+
+<P><FONT SIZE=-1>6.Restart Windows 95 normally. If the error continues
+to occur, follow these steps:</FONT>
+
+<P><FONT SIZE=-1>1.Restart the computer. When you see the "Starting Windows
+95" message, press the F8 key, and then choose "Safe mode command prompt
+only" from the Startup menu.</FONT>
+
+<P><FONT SIZE=-1>2.Type the following line to export the User.dat portion
+of the registry: regedit /r:&lt;path1> /e &lt;path2>user.txt</FONT>
+<BR><FONT SIZE=-1>where &lt;path1> is the path to the User.dat file and
+&lt;path2> is the path to the destination file. For example, if Windows
+95 is installed in the Windows folder on drive C, type the following line:
+regedit /r:c:\windows\user.dat /e c:\user.txt</FONT>
+
+<P><FONT SIZE=-1>3.Type the following lines, pressing ENTER after each
+line:</FONT>
+<BR><FONT SIZE=-1>cd\windows</FONT>
+<BR><FONT SIZE=-1>attrib -s -h -r user.dat</FONT>
+
+<P><FONT SIZE=-1>4.Type the following line to rename the User.dat file:
+ren user.dat user.old</FONT>
+
+<P><FONT SIZE=-1>5.Type the following line to import the User.dat portion
+of the registry: regedit /r:&lt;path1> /c &lt;path2>user.txt</FONT>
+
+<P><FONT SIZE=-1>where &lt;path1> is the path to the User.dat file and
+&lt;path2> is the path containing the file to import. For example, if Windows
+95 is installed in the Windows folder on drive C and you want to import
+the User.txt file from the root folder of drive C, type: regedit /r:c:\windows\user.dat
+/c c:\user.txt</FONT>
+
+<P><FONT SIZE=-1>NOTE: If an "Unable to open registry" or "Error accessing
+the registry" error message is displayed when you attempt to import the
+User.dat portion of the registry, please see the following article in the
+Microsoft Knowledge Base: ARTICLE-ID: Q132064</FONT>
+
+<P><B><FONT SIZE=+2>Using Registry Editor in Real Mode</FONT></B>
+
+<P><FONT SIZE=-1>&nbsp;If the error continues to occur after you follow
+the steps in this section, please see the next section.</FONT>
+
+<P><B><FONT SIZE=-1>Using System.da0</FONT></B>
+
+<P><FONT SIZE=-1>Restore the registry to its state when you last successfully
+started Windows 95. To do so, follow these steps:</FONT>
+
+<P><FONT SIZE=-1>1.Restart the computer. When you see the "Starting Windows
+95" message, press the F8 key, then choose "Safe mode command prompt only"
+from the Startup menu.</FONT>
+
+<P><FONT SIZE=-1>2.Type the following command to move to the Windows folder:
+cd \&lt;windows></FONT>
+
+<P><FONT SIZE=-1>where &lt;windows> is the Windows 95 folder. For example,
+if Windows 95 is installed in the Windows folder, type the following line:
+cd \windows</FONT>
+
+<P><FONT SIZE=-1>3.Type the following line: attrib -s -h -r system.dat</FONT>
+
+<P><FONT SIZE=-1>4.Type the following line: ren system.dat system.bad</FONT>
+
+<P><FONT SIZE=-1>5.Restart your computer. Windows 95 uses the System.da0
+file when it cannot find the System.dat file. If this file works, Windows
+95 renames it to System.dat. If the error continues to occur after you
+follow the steps in this section, please see the next section.</FONT>
+<BR>&nbsp;
+
+<P><A NAME="First"></A><B><FONT SIZE=+3>Using System.1st</FONT></B>
+
+<P><FONT SIZE=-1>Restore the registry to its state when you first started
+Windows 95 successfully. To do so, follow these steps:</FONT>
+
+<P><FONT SIZE=-1>1.Restart the computer. When you see the "Starting Windows
+95" message, press the F8 key, then choose "Safe mode command prompt only"
+from the Startup menu.</FONT>
+
+<P><FONT SIZE=-1>2.Type the following command to move to the Windows folder:
+cd \&lt;windows></FONT>
+
+<P><FONT SIZE=-1>where &lt;windows> is the Windows 95 folder. For example,
+if Windows 95 is installed in the Windows folder, type the following line:
+cd \windows</FONT>
+
+<P><FONT SIZE=-1>3.Type the following line: attrib -s -h -r system.dat</FONT>
+
+<P><FONT SIZE=-1>4.Type the following line: ren system.dat system.xxx</FONT>
+
+<P><FONT SIZE=-1>5.Type the following line: cd \</FONT>
+
+<P><FONT SIZE=-1>6.Type the following line: attrib -s -h -r system.1st</FONT>
+
+<P><FONT SIZE=-1>7.Type the following line: copy system.1st c:\&lt;windows>\system.dat</FONT>
+<BR><FONT SIZE=-1>where &lt;windows> is your Windows 95 folder.</FONT>
+
+<P><FONT SIZE=-1>8.Type the following line: attrib +s +h +r system.1st</FONT>
+
+<P><FONT SIZE=-1>9.Restart your computer.</FONT>
+
+<P><FONT SIZE=-1>If the error continues to occur after you follow the steps
+in this section, please see the next section.</FONT>
+
+<P><FONT SIZE=-1>NOTE: You may find that your TrueType fonts are missing
+from the Fonts folder or in programs after you follow the above steps,
+youcan reinstall them in the control pannel.</FONT>
+
+<P><A NAME="Re95"></A><B><FONT SIZE=+3>Reinstalling Windows 95</FONT></B>
+
+<P><FONT SIZE=-1>Re-create the registry files by reinstalling Windows 95.</FONT>
+
+<P><FONT SIZE=-1>To do this, perform the following steps.</FONT>
+
+<P><FONT SIZE=-1>NOTE: If you cannot access the CD-ROM drive from the command
+prompt, consult the CD-ROM drive's documentation or manufacturer for assistance
+with loading the real-mode drivers for the CD-ROM drive. Copying the WIN95
+directory from the CDROM, to a local hard disk (if you can, while in Win95),
+will also allow you to install Win95 again.</FONT>
+
+<P><FONT SIZE=-1>1.Restart the computer. When you see the "Starting Windows
+95" message, press the F8 key, then choose Command Prompt Only from the
+Startup menu.</FONT>
+
+<P><FONT SIZE=-1>2.Type the following line and then press ENTER to remove
+all user profiles: deltree c:\windows\profiles</FONT>
+
+<P><FONT SIZE=-1>3.Rename the existing registry files by typing the following
+lines. Press ENTER after each line: cd \windows</FONT>
+<BR><FONT SIZE=-1>attrib -s -h -r system.dat</FONT>
+<BR><FONT SIZE=-1>ren system.dat system.xxx</FONT>
+<BR><FONT SIZE=-1>attrib -s -h -r user.dat</FONT>
+<BR><FONT SIZE=-1>ren user.dat user.xxx</FONT>
+<BR><FONT SIZE=-1>attrib -s -h -r system.da0</FONT>
+<BR><FONT SIZE=-1>ren system.da0 system.yyy</FONT>
+<BR><FONT SIZE=-1>attrib -s -h -r user.da0</FONT>
+<BR><FONT SIZE=-1>ren user.da0 user.yyy</FONT>
+<BR><FONT SIZE=-1>cd \</FONT>
+<BR><FONT SIZE=-1>attrib -s -h -r system.1st</FONT>
+<BR><FONT SIZE=-1>ren system.1st system.zzz</FONT>
+
+<P><FONT SIZE=-1>4.Run Windows 95 Setup.</FONT>
+
+<P><A NAME="IDE95"></A><B><FONT SIZE=+3>Windows 95 IDE Support for S.M.A.R.T.,
+DMA Hard Drives, and ATAPI Tape Drives</FONT></B>
+
+<P><FONT SIZE=-1>Microsoft Windows 95 (Windows 98 has the latest driver
+files)</FONT>
+
+<P><FONT SIZE=-1>SYMPTOMS</FONT>
+
+<P><FONT SIZE=-1>The ATAPI IDE driver in Windows 95 (Esdi_506.pdr) does
+not include functionality for the following features: SMART support (the
+ability for certain programs to predict whether a hard disk failure may
+occur)</FONT>
+
+<P><FONT SIZE=-1>DMA support for ATAPI devices (this is why some COMPAQ
+PCs lock-up during I/O, because the DMA function is being used in the systrm
+properties, and is not supported with the version of Win95 installed (95,
+95a, and sometimes 95b)</FONT>
+
+<P><FONT SIZE=-1>ATAPI tape drive support</FONT>
+
+<P><FONT SIZE=-1>CAUSE</FONT>
+
+<P><FONT SIZE=-1>The functionality for these features is not built into
+the Windows 95 IDE driver. However, Microsoft has released an updated Esdi_506.pdr
+file that supports these features as follows:</FONT>
+
+<P><FONT SIZE=-1>SMART provides support for SMART programs, which will
+be able to predict some hard disk failures. The updated driver itself does
+not provide this functionality, but provides the support for SMART programs
+to implement this functionality.</FONT>
+
+<P><FONT SIZE=-1>DMA (also called bus mastering) reduces CPU overhead by
+providing a mechanism for data transfers that do not have to be monitored
+by the CPU. Transfer rate for a particular transfer will not noticeably
+increase, but the CPU overhead should be significantly reduced in DMA mode.
+(For example, a 10 percent CPU overhead may be observed for DMA transfers
+versus a 30 percent CPU overhead for PIO transfers, in typical ATAPI CD-ROM
+transfers.)</FONT>
+
+<P><FONT SIZE=-1>ATAPI tape drive support is included in the IDE driver,
+which will allow a backup program that supports ATAPI tape to be used.</FONT>
+
+<P><FONT SIZE=-1>STATUS</FONT>
+
+<P><FONT SIZE=-1>Microsoft has confirmed this to be a problem in Microsoft
+Windows 95. An update to address this problem is now available, but is
+not fully regression-tested and should be applied only to systems experiencing
+this specific problem. Unless you are severely impacted by this specific
+problem, Microsoft does not recommend implementing this update at this
+time.</FONT>
+
+<P><FONT SIZE=-1>This issue is resolved by the following updated file for
+Windows 95: ESDI_506.PDR version 4.00.951 (dated 12/6/95) and later</FONT>
+
+<P><FONT SIZE=-1>To install this update, follow these steps:</FONT>
+
+<P><FONT SIZE=-1>1.Download the REMIDEUP.EXE file from Microsoft</FONT>
+<BR><FONT SIZE=-1>2.In My Computer or Windows Explorer, double-click the
+REMIDEUP.EXE file you downloaded in step 1.</FONT>
+<BR><FONT SIZE=-1>3.Follow the instructions on the screen.</FONT>
+
+<P><FONT SIZE=-1>The following file(s) are available for download from
+the Microsoft Software Library: ~ remideup.exe (size: 147096 bytes)</FONT>
+
+<P><FONT SIZE=-1>The following files are installed by remideup.exe:</FONT>
+
+<P><FONT SIZE=-1>File name Version Date/Time Size Destination folder</FONT>
+<BR><FONT SIZE=-1>------------------------------------------------------------------------</FONT>
+<BR><FONT SIZE=-1>ESDI_506.PDR 4.00.1116 8/25/97 11:16a 24,426 Windows\SYSTEM\IOSUBSYS</FONT>
+<BR><FONT SIZE=-1>VOLTRACK.VXD 4.00.954 3/6/96 9:54a 18,518 Windows\SYSTEM\IOSUBSYS</FONT>
+
+<P>NOTE: The Voltrack.vxd file is installed on Windows 95 (not OSR2 or
+later) only.
+
+<P><A NAME="Parity"></A><B><FONT SIZE=+3>Parity Error Messages May Indicate
+Bad Memory</FONT></B>
+
+<P><FONT SIZE=-2>Microsoft Windows 95</FONT>
+
+<P><FONT SIZE=-2>SYMPTOMS</FONT>
+
+<P><FONT SIZE=-2>When you are running Windows 95, you may receive frequent
+(every 10 or 20 minutes) "Parity Error" messages on a blue screen. When
+you receive such a message, you must restart the computer.</FONT>
+
+<P><FONT SIZE=-2>CAUSE</FONT>
+
+<P><FONT SIZE=-2>Parity errors are usually caused by defective memory chips
+in the computer. Parity errors can also be caused by:</FONT>
+
+<P><FONT SIZE=-2>Mismatched RAM. That is, mixing different types of SIMMs
+(such as parity and non-parity RAM) on the motherboard.</FONT>
+<BR><FONT SIZE=-2>Incorrect RAM for the motherboard. For example, non-parity
+RAM on a motherboard requiring parity RAM.</FONT>
+<BR><FONT SIZE=-2>Non-proprietary RAM on a motherboard that required proprietary
+RAM (Compaq ring a bell?)</FONT>
+
+<P><FONT SIZE=-2>RESOLUTION</FONT>
+
+<P><FONT SIZE=-2>There are two methods you can use to identify whether
+defective memory chips are causing the problem:</FONT>
+
+<P><FONT SIZE=-2>Remove or replace memory chips in the computer to see
+if the problem is resolved.</FONT>
+<BR><FONT SIZE=-2>Try limiting the amount of memory that Windows 95 uses.
+To do so, follow these steps:</FONT>
+
+<P><FONT SIZE=-2>1. Use any text editor (such as Notepad) to edit the System.ini
+file.</FONT>
+
+<P><FONT SIZE=-2>2. Add the following line in the [386Enh] section of the
+file: MaxPhysPage=&lt;nnn> where &lt;nnn> determines the amount of memory
+you want Windows 95 to use.</FONT>
+
+<P><FONT SIZE=-2>To limit Windows 95 to the first 16 MB of memory, add
+the following line: MaxPhysPage=FFF</FONT>
+
+<P><FONT SIZE=-2>To limit Windows 95 to the first 8 MB of memory, add the
+following line: MaxPhysPage=7FF</FONT>
+
+<P><FONT SIZE=-2>To limit Windows 95 to the first 4 MB of memory, add the
+following line: MaxPhysPage=3FF</FONT>
+
+<P><FONT SIZE=-2>3. Save and then close the System.ini file.</FONT>
+
+<P><FONT SIZE=-2>4. Restart your computer.</FONT>
+
+<P><FONT SIZE=-2>MORE INFORMATION</FONT>
+
+<P><FONT SIZE=-2>Defective memory chips may not be detected by memory checking
+tools. Some memory checking programs are not adequate tests because they
+do not test RAM in the same way that Windows uses RAM. Most memory checkers
+use read/write cycles when scanning memory. Since Windows is executing
+code from memory, it uses execute cycles. Execute cycles are different
+from read/write cycles and are more vulnerable to parity errors. It is
+possible for memory checking programs to find parity errors if the memory
+is extremely faulty. Bad memory chips can also cause the following situations:</FONT>
+
+<P><FONT SIZE=-1>Fatal Exception errors</FONT>
+<BR><FONT SIZE=-1>Himem.sys load failures in normal or Safe mode</FONT>
+<BR><FONT SIZE=-1>Random lockups</FONT>
+<BR><FONT SIZE=-1>The computer may stop responding (hang) as soon as you
+turn it on</FONT>
+
+<P><FONT SIZE=-1>&nbsp;</FONT>
+<CENTER></CENTER>
+
+<CENTER><B><FONT SIZE=+3><A HREF="#TOP">TOP</A></FONT></B></CENTER>
+
+</BODY>
+</HTML>

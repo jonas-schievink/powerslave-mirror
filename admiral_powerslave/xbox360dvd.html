@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>XBox360 DVD Drive Information</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><big>XBOX
+360 DVD DRIVE HACKING</big></big><br>
+&nbsp;<br>
+<big style="font-weight: bold;">WHICH DRIVE TO YOU HAVE:</big><br>
+<img alt="" src="graphics/360dvddrives.jpg"
+ style="width: 615px; height: 415px;"><br>
+<br>
+<big style="font-weight: bold;">MEMORY DUMPS:</big><br>
+These ATAPI commands are being exchanged between 360 and its drive,
+without a disc being in the 360's drive:<br>
+<br>
+1200 0000 24c0 0000 0000 0000<br>
+5500 0000 0000 0000 3a00 0000<br>
+0300 0000 1200 0000 0000 0000<br>
+5500 0000 0000 0000 3a00 0000<br>
+5a00 3b00 0000 0000 3a00 0000<br>
+0000 0000 0000 0000 0000 0000<br>
+0300 0000 1200 0000 0000 0000<br>
+0000 0000 0000 0000 0000 0000<br>
+0300 0000 1200 0000 0000 0000<br>
+0000 0000 0000 0000 0000 0000<br>
+0300 0000 1200 0000 0000 0000<br>
+0000 0000 0000 0000 0000 0000<br>
+0300 0000 1200 0000 0000 0000<br>
+0000 0000 0000 0000 0000 0000<br>
+0300 0000 1200 0000 0000 0000<br>
+0000 0000 0000 0000 0000 0000<br>
+0300 0000 1200 0000 0000 0000<br>
+0000 0000 0000 0000 0000 0000<br>
+0300 0000 1200 0000 0000 0000<br>
+0000 0000 0000 0000 0000 0000<br>
+0300 0000 1200 0000 0000 0000<br>
+0000 0000 0000 0000 0000 0000<br>
+<br>
+You'll see 55= mode select, 5a = mode sense, 03 = request sense, 12 =
+inquiry<br>
+<br>
+The data itself was not completely correct (was some data missing) and
+besides, it all seems to be encrypted.<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;">MORE:</span><br>
+1200 0000 24c0 0000 0000 0000<br>
+5500 0000 0000 0000 3a00 0000<br>
+0300 0000 1200 0000 0000 0000<br>
+5500 0000 0000 0000 3a00 0000<br>
+5a00 3b00 0000 0000 3a00 0000<br>
+<br>
+This is the interesting part. First mode select returns 'ERR'. Second
+mode select probably sends a random data block to the drive to encrypt.
+Drive encrypts this block, sends it back to the xbox, via mode sense
+(page code 3B), xbox checks if the block was correctly encrypted. If
+so, it knows that the drive has the same key as the xbox has. Then it
+starts looping 03/00 commands to see if a disc is inserted. This will
+keep looping till a disc is inserted. If a disc is inserted, xbox sends
+a mode sense with pagecode 3E (= authentication) and will start the
+authentication process, pretty much the same as we saw in the original
+xbox.<br>
+<br>
+</span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><br
+ style="color: rgb(255, 255, 255);">
+</span>
+<p style="color: rgb(255, 255, 255);" align="left"><span
+ class="style111"><big style="font-weight: bold;"><big>Three methods of
+getting the DVD-drive recognized by your PC</big></big><br>
+<br>
+</span>We
+need to tell the DVD-drive to enter a mode known as 'Mode B' or the PC
+will not be able to see the drive and we need the PC to see it before
+we can do any firmware updates. Three methods are available to
+accomplish the task, choose your method and read how it's done. </p>
+<ol style="color: rgb(255, 255, 255);">
+  <li>Slax CD if your SATA chipset is compatible (click <a
+ style="color: rgb(255, 255, 102);" href="#satacomp">HERE</a> to check
+known compatibility) <br>
+Click <a href="http://www.biline.ca/360_slax.htm">Here</a> for
+instructions (If link is down - sorry, can't correct)<br>
+  </li>
+  <li>Crossed Wires Method requires adding some wires to the DVD-drive <br>
+Click <a href="http://www.biline.ca/360_xwire.htm">Here</a> for
+instructions (If link is down - sorry, can't correct)<br>
+  </li>
+  <li>Xecuter Connectivity Kit needs to be purchased for around $30
+online <br>
+Click <a href="http://www.biline.ca/360_adapter.htm">Here</a> for
+instructions (If link is down - sorry, can's correct)<br>
+  </li>
+</ol>
+<p style="color: rgb(255, 255, 255);" class="style111"><big><span
+ style="font-weight: bold;">My DVD-Drive has been sucessfully flashed
+now what?</span> </big></p>
+<p style="color: rgb(255, 255, 255);">We
+need to obtain the sector sectors of the Xbox title we wish to create a
+back-up for. Only the Toshiba-Samsung DVD-drives are currently able to
+perform this function. and it requires flashing a different firmware to
+the drive to enable this particular function to work. users with the
+other drive types will have no choice to obtain .iso images that are
+'Xtreme' firmware ready meaning the security sectors have been injected
+correctly into the back-up by someone else. You can also find the
+current sectors for most games available as a download if you look
+around. Remember the Xbox 360 requires you use the correct version so
+if you have a NTSC Xbox look for a NTSC version and of course PAL users
+need a PAL version.</p>
+<p style="color: rgb(255, 255, 255);">For users who wish to read the
+security sectors for now you'll have to look around for instructions.<br>
+<br>
+Try these resources:</p>
+<blockquote style="color: rgb(255, 255, 255);">
+  <blockquote>
+    <ul>
+      <li><a href="http://www.xbox-scene.com/" target="_blank">www.xbox-scene.com</a></li>
+      <li><a href="http://www.xboxhacker.net/" target="_blank">www.xboxhacker.net</a></li>
+      <li><a href="http://www.eurasia.nu/" target="_blank">www.eurasia.nu</a></li>
+    </ul>
+  </blockquote>
+</blockquote>
+<br style="color: rgb(255, 255, 255);">
+<hr style="width: 100%; height: 2px;"><a name="satacomp"></a><big
+ style="font-weight: bold; color: rgb(255, 255, 255);"><span
+ class="style30">Known SATA Chipset Compatibility and Issues:<br>
+</span></big><span style="color: rgb(255, 255, 255);">If your Chipset
+is listed as </span><span style="color: rgb(255, 255, 255);"
+ class="style113">Compatible</span><span
+ style="color: rgb(255, 255, 255);"> you ready to to continue if your
+chipset is not present or marked with </span><span
+ style="color: rgb(255, 255, 255);" class="style115">Does not work</span><span
+ style="color: rgb(255, 255, 255);"> your better to stop now. </span><br
+ style="color: rgb(255, 255, 255);">
+<br style="color: rgb(255, 255, 255);">
+<span style="color: rgb(255, 255, 255);">Note: This list was mostly
+complied using the Samsung DVD-drive so it
+mat not be completely compatible when using the Hitachi or Phillips
+DVD-drive. </span>
+<p style="color: rgb(255, 255, 255);"><span class="style40">PCI SATA:</span></p>
+<ul style="color: rgb(255, 255, 255);">
+  <li>Sil3112 Chipset <span class="style115">Does not work</span></li>
+  <li>Sil3114 <span class="style115">Does not work</span></li>
+  <li>Sil3512 <span class="style115">Does not work</span></li>
+  <li>Maxtor SATA card w Promise chipset <span class="style115">Does
+not work</span></li>
+  <li>VIA VT 8237 <span class="style113">Compatible</span></li>
+</ul>
+<p style="color: rgb(255, 255, 255);"><span class="style40">Onboard
+SATA:</span></p>
+<ul style="color: rgb(255, 255, 255);">
+  <li>MSI k7n2 delta (Promise SATA) - <span class="style115">Does not
+work</span></li>
+  <li>Abit NF7-S2G Nnforce2 SATA (mapped as IDE ports 3+4) - <span
+ class="style113">Compatible</span></li>
+  <li>VIA Chipset - <span class="style113">Compatible</span></li>
+  <li>Intel Chipset (ICH5 / ICH6) <span class="style113">Compatible</span></li>
+  <li>ASUS P5AD2 premium (with ICH6) - <span class="style113">Compatible</span></li>
+  <li>Promise Sata controller on the ASUS P4C800E-Deluxe - <span
+ class="style113">Compatible</span></li>
+  <li>Other chipsets are hit and miss but compatibility is being added
+whenever possible </li>
+</ul>
+<p style="color: rgb(255, 255, 255);"><span class="style40">SATA NOTES:</span></p>
+<ul style="color: rgb(255, 255, 255);">
+  <li>Flash program must have the Xbox 360 Drive on a SATA channel, not
+an ide<br>
+channel so don't use any SATA-to-IDE converters.</li>
+  <li>The Flash program cannot flash via a USB or Firewire connection </li>
+  <li>The Flash program (so far) has the following SATA chipsets
+supported <br>
+    <ul>
+      <li>ICH5, ICH6P, ICH6, ICH6M</li>
+      <li>VIA8237,</li>
+      <li>Sil114</li>
+      <li>SiS964, SiS180, SiS965</li>
+      <li> NV nForce3<br>
+      </li>
+    </ul>
+  </li>
+  <li>Make sure your SATA ports are set to NATIVE/IDE mode NOT RAID in
+the motherboard bios </li>
+  <li>Windows
+XP sometimes will detect the drive and it will appear in device
+manager, but no drive letter would be assigned. To assign one I had to
+do the following steps:
+    <ul>
+      <li>device manager &gt; </li>
+      <li>DVD/CDROM drives &gt; </li>
+      <li>Right click on HL-DT-ST DVD-ROM GDR3120L SCSI CdRom Device
+&gt; </li>
+      <li>Properties &gt; </li>
+      <li>Volumes tab &gt; </li>
+      <li>Populate &gt; </li>
+      <li>OK</li>
+    </ul>
+  </li>
+</ul>
+<p style="color: rgb(255, 255, 255);"><span class="style40">Editing
+MTKFlash to Work With Your SATA Chipset: </span><br>
+(Advanced users only don't attempt if you don't understand it)</p>
+<blockquote style="color: rgb(255, 255, 255);">
+  <p>You will need:</p>
+  <ul>
+    <li><a href="http://www.shareup.com/downloading-18151.html"
+ target="_blank">Hexworkshop</a> (Click <a
+ href="http://www.shareup.com/downloading-18151.html" target="_blank">Here</a>)
+and install it on your PC</li>
+    <li>PCI SATA Controller Card or an Onboard SATA Controller</li>
+  </ul>
+</blockquote>
+<ol>
+  <li style="color: rgb(255, 255, 255);"><span class="style118">Finding
+out What SATA Chipset You Have</span><br>
+If you have a SATA Controller Card it should say on the Box, In the
+Manual or on The<br>
+Chip itself, If you have a Onboard SATA Controller then check your
+mobo/Computer Manufacturers Website<br>
+Example:<br>
+Onboard: VIA KM400 / 8237 = VIA 8237 SATA Chipset<br>
+SATA Controller Card: VIA 6421<br>
+  </li>
+  <li style="color: rgb(255, 255, 255);"><span class="style118">Finding
+The Correct Values</span><br>
+You will need to Open up MSInfo32.exe <br>
+Start&gt;Run, Type 'MSinfo32.exe'<br>
+with MSinfo open Click the + next to 'Components', Click the + next to
+'Storage' Now Click on SCSI You Should See Something That looks Like
+This:<br>
+    <br>
+Name Serial ATA Controller<br>
+Manufacturer<br>
+Status OK<br>
+PNP Device ID<br>
+PCI\VEN_2211&amp;DEV_4433&amp;SUBSYS_31491106&amp;REV_80\3&amp;61AAA01&amp;0&amp;78<br>
+I/O Port 0x00006655-0x00006662<br>
+I/O Port 0x00000000-0x00000003<br>
+I/O Port 0x00008877-0x00008884<br>
+I/O Port 0x00000000-0x00000003<br>
+I/O Port 0x00000000-0x0000000F<br>
+I/O Port 0x00000000-0x000000FF<br>
+IRQ Channel IRQ 20<br>
+Driver c:\windows\system32\drivers\driver.sys (5.1.2600.201, 74.63 KB
+(76,416 bytes),<br>
+5/15/2006 7:00 AM)<br>
+    <br>
+All of that Should Look Different in Your Info, Next to Name it Should
+Say Something<br>
+About 'Serial ATA' if it Doesn't Try Scrolling Down and/or Make Sure
+Your in the<br>
+Right Place. What You Are looking For in This is 8bytes (16
+Numbers/Letters) That MTKFlash Can Identify Your Chipset with, The
+First 4bytes are Found in The 'PNP Device ID'<br>
+(2 Numbers/Letters = one byte) <br>
+    <br>
+PNP Device ID<br>
+PCI\VEN_2211&amp;DEV_4433&amp;SUBSYS_31491106&amp;REV_80\3&amp;61AAA01&amp;0&amp;78<br>
+So From This Example Your Line So Far Should be 11223344 <br>
+    <br>
+The Next 4Bytes are Found in 2 Different Lines of 'I/O Port' Hex
+Values, You Want to Identify The 2 Lines That Have a 7Byte Difference,
+Extract the Last 4 Digits of the First Section of Numbers/Letters from
+Them and Swap the 2 Bytes (As You did with The 'PNP Device ID' Line)<br>
+I/O Port 0x00006655-0x00006662<br>
+I/O Port 0x00008877-0x00008884<br>
+    <br>
+This is Only Known to Work if You Use The 2 'I/O Port' lines With a
+Difference of 7 in order (as Shown Above), As They are Values for The
+Primary Master and Slave SATA Device, So in this Example Your line
+Should be 55667788 Put Together The 4bytes of Hex (8 Numbers/Letters)
+That You Have From The 'PNP Device ID' Line and the 4 You have from The
+'I/O Port' Lines and You Have The Values You Need to Insert in to Your
+MTKFlash.exe File. <br>
+  </li>
+  <li><span style="color: rgb(255, 255, 255);">Now Open up MTKFlash.exe
+in Your Hex Editor (Hex Workshop: Right Click on the </span><span
+ style="color: rgb(255, 255, 255);">file and Click 'Hex Edit using Hex
+Workshop'), Your Hex Editor Should have a Goto </span><span
+ style="color: rgb(255, 255, 255);">Function (Hex Workshop: Ctrl+g).
+Open it and put in B370 in Hex, Make
+Sure You have it 'Start at the Beginning' of the file, Once here you
+should See in the Text part, The Names of ChipSets ICH5,VIA8237,NV
+NForce3,etc. If Your Chipset is in Here that's Good You can compare the
+Actual Hex Value's to the ones "On File" and if There not the Same
+Change What you Need to, The Info for a Chipset is 1byte (2 00's(In
+Hex) Before the Name of That Chipset (in TXT), If Your Chipset is Not
+Here You Can Just Edit one That is (I do Not Recommend Creating a New
+one), For Example Say I Have a VIA8237 Chipset These are The Values
+That I Would Edit (Don't Edit the 00 in RED) see photo below:</span></li>
+</ol>
+<img alt="" src="graphics/satahex.jpg"
+ style="width: 597px; height: 201px;"><br>
+<br>
+<br>
+</body>
+</html>

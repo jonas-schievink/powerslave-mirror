@@ -1,0 +1,321 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Generator" CONTENT="Microsoft Word 97">
+   <META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE>IRQSTUFF</TITLE>
+</HEAD>
+<BODY LINK="#0000FF" VLINK="#800080">
+
+<CENTER>
+<H1>
+Resolving IRQ and COM Port Conflicts<BR>
+<FONT FACE="Comic Sans MS"><FONT SIZE=+2>Updated 2/7/2000</FONT></FONT></H1></CENTER>
+
+<HR WIDTH="80%" SIZE=0>
+<H2>
+What are IRQ's and COM Ports?</H2>
+<B><FONT SIZE=-1>IRQ</FONT> as is the abbreviation for Interrupt Request.
+An IRQ is a request line to the processor to get its attention, letting
+the CPU know that I/O is now routing to the device that requested it. A
+computer system acknowledges 16 IRQS, numbered 0 through 15. To use certain
+devices, the system requires an open IRQ. If two devices try to use the
+same IRQ, the system or one of the devices will likely freeze, but there
+are some instances where two devices can share an IQR, just not at the
+same time. Example, if you have a mouse and a modem on COM1, the mouse
+will stop working when the modem is activated. When the modem is closed,
+mouse control may return, but that is not guarenteed.</B>
+
+<P><B>COM Ports (short for Communication Ports) are the nine or twenty-five
+pin serial channels to the system, requiring the use of an IRQ. A COM Port
+is an extension of an IRQ to a device that is not plugged directly into
+the bus. Examples of devices that utilize COM ports are mice, modems, scanners,
+and serial printers, and barcode scanners. The system will acknowldge up
+to 4 COM Ports: COM1, COM2, COM3, and COM4. Each COM port, when in use,
+requires its own IRQ. You don't need to enable any COM ports technically,
+but typically systems have 2 in use: A serial mouse (usually on COM1) and
+modem (Usually on COM2 or COM4).</B>
+
+<P>
+<HR WIDTH="80%" SIZE=0>
+<H2>
+IRQ Settings</H2>
+<B><FONT SIZE=-2>Since the number of available IRQs are limited, they become
+a valuable resource. Here is a list of the IRQs and their uses</FONT></B><FONT SIZE=-1>.</FONT>
+<DL>
+<DT>
+<B>IRQ 0</B></DT>
+
+<DD>
+System timer interrupt from TIMER-0. No user-definable options.</DD>
+
+<DT>
+<B>IRQ 1</B></DT>
+
+<DD>
+Keyboard</DD>
+
+<DT>
+<B>IRQ 2</B></DT>
+
+<DD>
+Cascade for IRQs 8-15. This is like an overlap IRQ for the higher-numbered
+IRQs. IRQ 2 is often a link from IRQ 9. For example, a SCSI controller
+set to IRQ9 would cascade to IRQ 2.</DD>
+
+<DT>
+<B>IRQ 3</B></DT>
+
+<DD>
+Available. This IRQ should be used for COM2/COM4. Typically, modems work
+well on IRQ 3. Two devices can share the same IRQ if they have different
+COM ports. For example, you can have an internal modem set on COM2/IRQ
+3, and an external radio-modem or scanner on COM4/IRQ 3. You will not encounter
+any IRQ conflict unless you try to operate both devices simultaneously.
+For this reason, do not share the IRQ you use for the mouse, since the
+mouse is used so often.</DD>
+
+<DIR>
+<DT>
+16bit NE2000 &amp; Compatible Network Cards also default to this IRQ.</DT>
+</DIR>
+
+<DT>
+<B>IRQ 4</B></DT>
+
+<DD>
+Available. IRQ 4 usually services COM1/COM3, and provides the standard
+serial mouse connection.</DD>
+
+<DT>
+<B>IRQ 5</B></DT>
+
+<DD>
+Available. This is the most common IRQ for a secondary printer port. This
+is also the default IRQ for many sound cards, including the SoundBlaster
+series. If a network card needs a low IRQ, 5 will usually do. A second
+printer port can share this IRQ, since the printer only requests the port
+when in use.</DD>
+
+<DT>
+<B>IRQ 6</B></DT>
+
+<DD>
+Floppy Drive controller. No user-definable options.</DD>
+
+<DT>
+<B>IRQ 7</B></DT>
+
+<DD>
+Primary parallel (printer) port. Some other Sound Card configurations will
+also use this port, if the primary printer port is set to IRQ5.</DD>
+
+<DT>
+<B>IRQ 8</B></DT>
+
+<DD>
+Real Time Clock. No user-definable options.</DD>
+
+<DT>
+<B>IRQ 9</B></DT>
+
+<DD>
+Available. This IRQ overlaps to 2. IRQ 9 is a good IRQ to use for SCSI
+host adapters, network cards, and sound cards that can't use IRQ5 for some
+reason. SCSI cards should use IRQ 9 or 11. I have had no problems with
+configuring 16bit Network Cards for IRQ5, 300h.</DD>
+
+<DT>
+<B>IRQ 10</B></DT>
+
+<DD>
+Available. This is a good IRQ for a network card, since most devices can't
+use it. However, this is the most common IRQ used for Win95 when installing
+your first Plug-n-Play device, especially P-n-P modems.</DD>
+
+<DIR>
+<DT>
+There is also an instance where some Sound Cards (ESS, and other generics),
+use what is called "Windows Sound System". They use IRQ10, with a 530h
+or 550h address, while SoundBlaster emulation uses IRQ5 while in DOS.</DT>
+</DIR>
+
+<DT>
+<B>IRQ 11</B></DT>
+
+<DD>
+Available. This IRQ is assinged by PCI motherboards for the FIRST slot,
+which the Video Card is plaugged into. I have seen instances where a Network
+Card, PCI SCSI CARD, and a Video Card were all using the same IRQ (Compaq
+DeskPro6000). PCI URQ assignments are done through the system BIOS setup.</DD>
+
+<DT>
+<B>IRQ 12</B></DT>
+
+<DD>
+Available. This IRQ is primarily used for Imbedded PS/2 mouse ports, or
+can be used by another device of you are using a Serial Mouse. If your
+motherboard has in imbedded PS/2 mouse port, the availability of this device
+can be disabled or enabled.</DD>
+
+<DT>
+<B>IRQ 13</B></DT>
+
+<DD>
+Math Coprocessor. No user-definable options, even if one does not exist
+(386SX &amp; 486SX CPUs).</DD>
+
+<DT>
+<B>IRQ 14</B></DT>
+
+<DD>
+Hard disk controller (IDE). Each IDE channel requires its own IRQ. You
+can control 2 IDE devices with 1 IRQ. This also has no user-definable options.</DD>
+
+<DT>
+<B>IRQ 15</B></DT>
+
+
+<P>Secondary IDE channel. If you disable the secondary channel, this becomes
+available. This is also done within the system BIOS for imbedded controllers.</DL>
+<FONT SIZE=-1>The trick is to balance your IRQs so that the do not overlap.
+Prioritize you devices by how picky they are. For instance, a COM port
+will need to use IRQ 3 or 4 (see COM ports below). You can not put a modem
+on IRQ 5, since it requires a COM port; just as your serial mouse does.
+Devices that do not do well on high (above 7) IRQs, eg sound cards, should
+be filled in next. The last things to worry about are devices that have
+their own ROM to store IRQ and base IO addresses, like network and SCSI
+cards. Network and SCSI cards will be able to use the high IRQs with no
+problem. These defaults usually work fine:</FONT>
+<PRE>
+<B>Mouse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COM1&nbsp;&nbsp;&nbsp; IRQ4
+
+Modem/NIC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COM2&nbsp;&nbsp;&nbsp; IRQ3
+
+Sound Card&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no COM&nbsp; IRQ5
+
+Printer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no COM&nbsp; IRQ7
+
+SCSI Card&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no COM&nbsp; IRQ09 (Third PCI Slot Assignment)
+
+P-n-P Device&nbsp;&nbsp;&nbsp; ?? COM&nbsp; IRQ10 (Second PCI Slot Assignment / P-n-P device - ISA Slot)
+
+Video Card&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no COM&nbsp; IRQ11 (First PCI Slot Assignment)
+
+PS/2 Bus Mouse&nbsp; no COM&nbsp; IRQ12
+
+Secondary IDE&nbsp;&nbsp; no COM&nbsp; IRQ15 (Usually a CDROM)</B></PRE>
+<FONT SIZE=-1>This is a very basic list, but it can be helpful. The number
+of possibilities are countless, so you will need to piece your own puzzle
+together. It is easier than you think after you try it.</FONT><FONT SIZE=-1></FONT>
+
+<P><FONT SIZE=-1>Also, on-board AGP video does not require an IRQ, so you
+will have IRQ-10 available for devices.&nbsp; Some BIOSs also give you
+an OPTION</FONT>
+<BR><FONT SIZE=-1>to assign an IRQ to the VGA device.</FONT>
+
+<P><FONT SIZE=-1><B>The best advice I can give for avoiding conflicts is
+to disable or remove that which are not going to use.</B> If you use an
+internal modem, disable COM2 in your BIOS, or on your controller. If you
+use a PS/2 mouse, use COM1 for a modem. If you do not use your 2nd IDE
+channel, disable it. If you only use a printer on your parallel port, use
+it in Standard mode, rather than Enhanced. Enhanced Mode will not let you
+print any faster; it is for parallel devices (ZIP drives, CD-ROMs, LapLink)
+that use a higher bandwidth for communications. If you are careful, you
+should not need to disable unused ports, but it will give you more room
+to maneuver.</FONT>
+
+<P><FONT SIZE=-1>I have also seen COM1 assigned to IRQ10 when using a Plug-n-Play
+modem, if COM1 is disabled in your BIOS.</FONT>
+
+<P><FONT SIZE=-1>It is also not a good idea to place a CDROM on the same
+port as your Primary (boot) hard drive. Hard drives run in true 32bit mode,
+and placing a CDROM in the same cable will reduce the data transfer rate
+of the CDROM. Placing the CDROM as the SECONDARY MASTER will maximize the
+throughput of your CDROM drive. Even your Secondary hard disk will have
+an almost 50% lower transfer rate than the primary.</FONT>
+
+<P>
+<HR WIDTH="80%" SIZE=0>
+<H2>
+COM Port Settings</H2>
+<FONT SIZE=-1>Here are the possible configurations for COM Ports:</FONT>
+<PRE>
+<B>COM&nbsp;&nbsp;&nbsp;&nbsp; Interrupt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Address
+
+---&nbsp;&nbsp;&nbsp;&nbsp; ---------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -------
+
+COM1&nbsp;&nbsp;&nbsp; IRQ4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3f8h
+
+COM2&nbsp;&nbsp;&nbsp; IRQ3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2f8h
+
+COM3&nbsp;&nbsp;&nbsp; IRQ4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3e8h
+
+COM4&nbsp;&nbsp;&nbsp; IRQ3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3f8h</B></PRE>
+<FONT SIZE=-1>Although there are 4 COM ports, there are only 2 IRQs for
+them. In essence, you can have 4 serial devices attached, but use only
+2 at a time. And since your mouse is usually in use, it is not a good idea
+to use anything that shares an IRQ with the mouse. That only leaves us
+with three simple configurations:</FONT>
+<PRE>
+<B>COM1&nbsp;&nbsp;&nbsp; IRQ4
+
+COM2&nbsp;&nbsp;&nbsp; IRQ3
+
+COM4&nbsp;&nbsp;&nbsp; IRQ3</B></PRE>
+<FONT SIZE=-1>If you need more devices, you can use a Bus Mouse to free
+up COM1 / COM3, or buy a Multiport Board (known as a DigiBoard) which can
+handle from 2 to 128 ports, on a different IRQ, and each port has it's
+own 3-digit memory address. External Modems will work fine on any COM port,
+including the DigiBoard ports.</FONT>
+
+<P><FONT SIZE=-1>One good thing to remember is: EVEN com port numbers get
+the ODD IRQ, and the ODD com ports get the EVEN IRQ.</FONT>
+
+<P>
+<HR WIDTH="80%" SIZE=0>
+<H2>
+Parallel Port Settings</H2>
+<FONT SIZE=-1>Parallel port settings are similar to COM port settings.
+A PC can use up to 3 parallel devices. Here are the default settings:</FONT>
+<PRE>
+<B>LPT Port&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IRQ&nbsp;&nbsp;&nbsp;&nbsp; Address
+
+--------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---&nbsp;&nbsp;&nbsp;&nbsp; -------
+
+LPT1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 278h
+
+LPT2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 378h
+
+LPT3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3bch</B></PRE>
+
+<PRE><B></B></PRE>
+
+<PRE><B><FONT FACE="Tahoma"><FONT SIZE=+1>Freeing up extra IQRs for PCI/ISA PnP devices:</FONT></FONT></B></PRE>
+
+<PRE>With the USB port now avaialable, you can free up more IRQs for PCI/ISA use.</PRE>
+
+<PRE><B>USB Mouse:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Frees IRQ-12 (Disable PS/2 Mouse Support In BIOS)
+USB Keyboard:&nbsp;&nbsp;&nbsp;&nbsp; Frees IRQ-1&nbsp; (Enable USB Keyboard Support In BIOS)
+USB MODEMs:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Frees IRQ 3 and/or 4
+USB Printer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Frees IRQ 7 &amp; DMA Channel Associated with it</B>
+</PRE>
+
+<PRE>I have sucessfully placed a PCI SCSI adapter on IRQ-12 by using a USB Mouse.</PRE>
+
+<PRE>IRQ needs will eventually be replaced with USB &amp; Fire-Wire devices.&nbsp; There will ne no
+need to worry about free IRQs with the new devices.</PRE>
+
+<PRE>Remember to make those FREED up IRQs available to PCI slot prioritys that are listed
+in your BIOS setup.</PRE>
+
+<PRE><B>PCI Slot 1 - IRQ12
+PCI Slot 2 - IRQ11
+PCI Slot 3 - IRQ10 or 9</B></PRE>
+
+<PRE>You can then make IRQ1, 3, 4, 5, &amp; 7 available for ISA/PnP devices is using USB devices that
+normally use those IRQs</PRE>
+
+</BODY>
+</HTML>

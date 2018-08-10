@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>SoftModding the Xbox</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<big><big><font color="#ffffff" face="Arial" size="3"><big><big><b><i>ANY
+VERSION XBOX CAN
+BE SOFTMODDED!</i></b></big></big></font></big></big><br>
+<span style="color: rgb(255, 255, 255);"><br>
+</span><font color="#ffffff" face="Arial" size="2"><font size="3">1st
+of all, the hardware Mod, basic function is to bypass the onboard
+Microsoft BIOS through clever wiring to boot an alternate BIOS. This
+allows the XBOX to boot an alternate BIOS located on the modchip such
+as an EvoX, or Xecutor2 BIOS. The softmod uses an exploit to trick the
+XBOX into loading an alternate BIOS.<br>
+</font></font><font color="#ffffff" face="Arial" size="2"><font size="3"><br>
+Using a SoftMod, the end result is <b>EXACTLY</b> the same as if a
+modchip were installed. The only difference is that there isn't support
+for specialized hardware like external LCD screens and such. To the end
+user, the only thing noticeable is that it takes about two seconds
+longer to start the XBOX.<br>
+<br>
+</font></font><font color="#ffffff" face="Arial" size="2"><font size="3">The
+softmod allows for error and is fully <b>END USER</b> reversable, and
+repairable, and uninstallable without a trace. The softmod lets you do
+everything a modchip can, including playing DivX, Realmedia, MOV, MP3,
+backups, emulators and more,&nbsp; and best of all, won't void your
+warranty for opening the unit.<br>
+<br>
+</font></font><font color="#ffffff" face="Arial" size="2"><font size="3">XBOX
+Live can be used fully with the softmod but is not supported. The
+onboard chip mod cannot be used in conjunction with Live. However,
+there are <b>FREE </b>alternatives available and installed on both
+the softmod and onboard chip mod.<br>
+<br>
+You can't install a NEW, LARGER hard disk with a SoftMod.&nbsp; The new
+HDD must be obtained with the SoftMod already installed on it, and the
+drive must be lockable.</font></font><a name="_Toc96394628"><br>
+<big style="color: rgb(255, 255, 255);"><br>
+</big></a>
+<h2 style="color: rgb(255, 255, 255); font-family: tahoma;"><a
+ name="_Toc96394628">Advantages</a> <br>
+</h2>
+<ul
+ style="margin-top: 0in; color: rgb(255, 255, 255); font-family: tahoma;"
+ type="disc">
+  <li class="MsoNormal"><small>A softmod can be performed a lot easier
+and quicker than a modchip installation.</small></li>
+  <li class="MsoNormal"><small>A softmod does not physically void your
+warranty, however the softmod and hacked game save must be removed (and
+the Microsoft Dashboard restored to its original state) for your Xbox
+to be completely void free.</small></li>
+  <li class="MsoNormal"><small>You can boot burned media (games and
+movies) just like a modchip.</small></li>
+  <li class="MsoNormal"><small>You can store information on your Hard
+Drive like more applications or media (pictures, music, and videos).</small></li>
+  <li class="MsoNormal"><small>You can use FTP to communicate with your
+Xbox via your PC.</small></li>
+</ul>
+<ul style="color: rgb(255, 255, 255); font-family: tahoma;">
+  <small>&nbsp;</small>
+</ul>
+<h2 style="color: rgb(255, 255, 255); font-family: tahoma;"><a
+ name="_Toc96394629">Disadvantages</a> <br>
+</h2>
+<ul
+ style="margin-top: 0in; color: rgb(255, 255, 255); font-family: tahoma;"
+ type="disc">
+  <li class="MsoNormal"><small>A softmod can not be turned on or off
+like a modchip, the only way to turn off a softmod is to remove it.</small></li>
+  <li class="MsoNormal"><small>Installation of a larger hard drive
+using Softmodding can be very complicated and time consuming.</small></li>
+</ul>
+<br>
+<font color="#ffffff" face="Arial" size="2"><font size="3"><br>
+<a href="softmod1.html">SOFTMOD OPTIONS</a><br>
+<br>
+<big><br style="font-weight: bold;">
+<span style="font-weight: bold;">Why SoftModding&nbsp; Works? </span><small>[Found
+during a search]</small></big><br>
+Microsoft knows NOW, that a vulnerability within the XBOX dashboard
+that could have serious impact. This is underlined by the fact that the
+dashboard checks most of its files against an internal stored SHA1 hash
+value before it uses them. <br>
+<br>
+The SHA1 check is not performed on the audio (.wav) and font (.xtf)
+files.&nbsp; That means there is an exploitable integer underflow
+vulnerabilitiy within the font file loader which can be exploited with
+a malformed font file. When the XTF header is processed the dashboards
+reads a 4 byte blocksize field from the font file. This is expected to
+represent the size of some datablock including the 4 bytes of the size
+field itself. The blocksize is then allocated and the sizefield is
+copied into the beginning of the buffer. This is already a possible
+overflow bug when the field contains the values 0..3.&nbsp; Due to
+memory alignment this is not exploitable. But then the blocksize is
+decreased by 4 because the dashboard wants to read the rest of the
+block into memory. Obviously values of 0..3 will underflow when
+decreased by 4 and this results in the dashboard wanting to read up to
+~4 gigabytes of data from the font file in a f.e. 3 bytes buffer.<br>
+<br>
+Because the XBOX malloc()/free() implementation is also storing control
+information on inbound data, and is similiar to the Windows 2000/XP
+heap allocators, this bug is exploitable and allows execution of
+arbitrary code. <br>
+<br>
+Also, the dashboard loads the font files directly after the XBOX starts
+animation. This means the exploit does not need any user interaction
+and when the code is executed only part of the dashboard background is
+on screen.<br>
+<br>
+Microsoft was told about this exploit, but has done nothing to correct
+it.<br>
+<big style="font-weight: bold;"><br>
+</big>Other exploits followed such as the "Audio exploit". This was a
+safer way to jump-start Linux without needing a game DVD in the drive,
+but it required the user to punch a special sequence into the XBox hand
+controller, and required that a music CD disc be in the DVD tray.<br>
+<br>
+<big style="font-weight: bold;">Audio Exploit</big><br>
+This Modifications adds software to the XBox hard drive. The exploit
+takes advantage of the XBox's audio playing program. The xbox does not
+verify that the audio playing programs database is "legitimately
+signed" microsoft software. By not doing this, code is implanted inside
+the audio player database so that when the program is run and the
+database is read, it will begin booting "non-legitimate" signed code.
+(This signing is essential to the exploit).&nbsp; When used in
+conjunction with the "Phoenix Bios Loader" tool it will cause the XBox
+to boot the extracted code from a Modification Chip, replacing the
+XBox's onboard bios information until the xbox is powered off.<br>
+<br>
+<br>
+<big style="font-weight: bold;"><br>
+PROBLEMS?</big><br>
+If the Xbox clock becomes corrupted (unplugged for a few hours), the
+Xbox can get stuck in a "reboot loop" whenever it gets powered on. The
+various exploits have attempted to solve this "reboot loop" issue with
+varying degrees of success.&nbsp; None of the font exploits really fix
+the reboot loop issue.<br>
+<br>
+</font></font><span
+ style="color: rgb(255, 255, 255); font-family: tahoma;">The only way
+that I have read that corrects this problem is performing
+the swap trick, renaming the font files back temporarily, and setting
+the clock with the clock utility.</span><br>
+<font color="#ffffff" face="Arial" size="2"><font size="3"><br>
+The audio exploit does not suffer from the reboot loop issue.<br>
+<br>
+</font></font><span
+ style="font-family: tahoma; color: rgb(255, 255, 255);">this clock
+loop business has been solved by a later release of the Xbox font
+exploit files called </span><em
+ style="font-family: tahoma; color: rgb(255, 255, 255);">Bert &amp;
+Ernie Reloaded. </em><span
+ style="font-family: tahoma; color: rgb(255, 255, 255);">
+They resolve this issue by simply hard setting the date of the Xbox
+upon every boot. That way the time utility never starts, and you never
+begin the clock loop in the first place.</span><br>
+<font color="#ffffff" face="Arial" size="2"><font size="3"><br>
+<big>GAMES SOFTMODDING SUPPORTS:</big><br>
+1. James Bond - Agent Under Fire<br>
+2. Splinter Cell<br>
+3. Mech Assult - 1st Release<br>
+</font></font><strong> </strong><span
+ style="color: rgb(255, 255, 255);"><br>
+As a general rule, you can't use the Platinum Edition games, but some
+have claimed they have gotten it to work.<br>
+<br>
+<big style="font-weight: bold;">Does it have to be the 4920 Version
+dashboard?</big><br>
+In short, yes - which is why most softmods come with that versiobn
+dashboard.&nbsp; This is what also causes some Errors like 13, 16, and
+21.&nbsp;&nbsp; Also?&nbsp; The V1.6+, and V1.7 (If exists) Xbox's dash
+CAN NOT be downgraded.<br>
+<br>
+<br>
+<br>
+<br>
+</span><font color="#ffffff" face="Arial" size="2"><font size="3"><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</font></font><font color="#ffffff" face="Arial" size="2"><font size="3"><br>
+</font></font>
+</body>
+</html>

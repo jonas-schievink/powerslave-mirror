@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            html, body {
+                height: 100vh;
+                min-height: 100vh;
+            }
+
+            iframe {
+                overflow: hidden;
+            }
+
+            * {
+                margin: 0;
+            }
+
+            #footnote {
+                font-size: small;
+                text-align: center;
+            }
+        </style>
+        <script>
+            function resizeIframe(obj){
+                obj.style.height = 0;
+                obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+            }
+        </script>
+    </head>
+    <body>
+        <iframe src="admiral_powerslave/index.html" frameborder="0" scrolling="no" width="100%" onload="resizeIframe(this)"></iframe>
+        <div id="footnote">
+            This is just a mirror of the content that used to be hosted at http://home.comcast.net/~admiral_powerslave/mainindex.html
+        </div>
+    </body>
+</html>

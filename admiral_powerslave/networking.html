@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Xbox Networking</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big><big
+ style="font-weight: bold;"><big>NETWORKING <br>
+</big></big></big></span><span style="color: rgb(255, 255, 255);"></span><big><small
+ style="color: rgb(255, 255, 153);"><a href="networking.html#ftpsets">FTP
+CLIENT SETTINGS</a><br>
+</small></big><span style="color: rgb(255, 255, 255);"><br>
+Turn off any FIREWALL you have installed to Windows or WindowsXP
+Firewall.</span><br>
+<span style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><br>
+<a href="#xoverset">Direct PC <big>&gt;&lt;</big> XBOX
+With Xover Cable</a><br>
+<br>
+<a href="#router">With Router, With built in or external HUB or SWITCH</a><br>
+<br>
+Can use RemoteX Boot Disc, or EvolutionX Already Installed - booted
+from HDD.<br>
+</big><big><br>
+<big style="font-weight: bold;">You;</big> Make your boot disc with
+STATIC or DHCP setting by editing the "evox.ini" file whic is explained
+in connection types.</big><big style="font-weight: bold;"><br>
+<br>
+<big>&gt;&lt;</big> </big><big>I</big><big>s a <a
+ style="color: rgb(255, 255, 255);" href="#xover">Crossover Cable</a></big><big
+ style="font-weight: bold;"><br>
+<big>=&nbsp;</big></big><big style="font-weight: bold;">&nbsp; </big><big>Is
+a regular straight through network cable<br>
+<br>
+</big><span style="color: rgb(255, 255, 153);">Turn off any FIREWALL
+you have installed to Windows or WindowsXP Firewall.</span><br>
+<br>
+Used: <span style="font-weight: bold;">EvolutionX Build 3935 - First
+you will require to get EvolutionX, as we cannot host it on the
+website, we will tell you the secret where you can find it, if you
+don't have it already. The Place is #xbins on Efnet. If&nbsp; that
+doesn't ring a bell to you, you can read a guide about getting onto
+Xbins <a href="http://www.xbins.org">here</a>.</span><br>
+<br>
+If booted with the RemoteX disc, check the I.P. address it's
+using.&nbsp; You must use THAT I.P. address, then you can FTP the files
+for EvoX or other dashboard to the Xbox.&nbsp; I used RemoteX, and a
+router, so it was VERY simple. RemoteX is setup for DHCP for use behind
+a router. <br>
+<br>
+If you downloaded an ISO already made, there should have been TWO
+versions, a *DHCP and *STATIC version.&nbsp; Pic the one that suits you
+best.&nbsp; Which evver version you used, and copied to the HDD that is
+what boots MOD ON from the HDD.<br>
+<br>
+You can always EDIT &amp; SAVE the settings in EvoX when booted from
+the HDD.&nbsp;&nbsp; It's funny, but people have made changes, and
+saved while booted from a DVD.&nbsp; Well, you should know, you can't,
+those changed will not get written, because you're booted from the DVD
+ROM.&nbsp;&nbsp; Even if the DVD drive was a writer?&nbsp; It would not
+be supported!<br>
+</span><big style="font-weight: bold;"><span
+ style="color: rgb(255, 255, 255);"></span></big><span
+ style="color: rgb(255, 255, 255);"><br>
+<big><span style="font-weight: bold;"></span></big></span><span
+ style="color: rgb(255, 255, 255);"></span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><br>
+<big><a name="xoverset"></a>XBOX TO PC - DIRECT:</big></big><br>
+XBOX<span style="font-weight: bold;"> &gt;&lt; </span>PC<br>
+<br>
+EDIT the settings in EvolutionX SETTINGS menu for
+NETWORK, make your Boot Disc, and Boot it MOD ON.<br>
+Can use the settings when on the HDD too.<br>
+<br>
+<big><span style="font-weight: bold;"><big>Look for this</big> [<small>These
+Are The DEFAULT SETTINGS</small>]:</span></big><br>
+<span style="color: rgb(255, 204, 204);">SetupNetwork&nbsp;&nbsp;&nbsp;
+= Yes</span><br style="color: rgb(255, 204, 204);">
+<span style="color: rgb(255, 204, 204);">StaticIP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= Yes</span><br style="color: rgb(255, 204, 204);">
+<span style="color: rgb(255, 204, 204);">Ip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 192.168.100.10</span><br style="color: rgb(255, 204, 204);">
+<span style="color: rgb(255, 204, 204);">Subnetmask&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 255.255.255.0</span><br style="color: rgb(255, 204, 204);">
+<span style="color: rgb(255, 204, 204);">Defaultgateway&nbsp; =
+192.168.100.1</span><br style="color: rgb(255, 204, 204);">
+<span style="color: rgb(255, 204, 204);">DNS1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 0.0.0.0</span><br style="color: rgb(255, 204, 204);">
+<span style="color: rgb(255, 204, 204);">DNS2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 0.0.0.0</span><br style="color: rgb(255, 204, 204);">
+<span style="color: rgb(255, 204, 204);">SetupDelay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 0</span><br style="color: rgb(255, 204, 204);">
+<span style="color: rgb(255, 204, 204);">SkipIfNoLink&nbsp;&nbsp;&nbsp;
+= No</span><br>
+<br>
+<big><span style="font-weight: bold;">Make it look like this:</span></big><br>
+<span style="color: rgb(255, 204, 153);"></span><span
+ style="color: rgb(255, 204, 153);">SetupNetwork&nbsp;&nbsp;&nbsp; = Yes</span><br
+ style="color: rgb(255, 204, 153);">
+<span style="color: rgb(255, 204, 153);">StaticIP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= Yes</span><br style="color: rgb(255, 204, 153);">
+<span style="color: rgb(255, 204, 153);">Ip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= <span style="font-weight: bold; color: rgb(255, 255, 153);">192.168.0.2</span></span><br
+ style="color: rgb(255, 204, 153);">
+<span style="color: rgb(255, 204, 153);">Subnetmask&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 255.255.255.0</span><br style="color: rgb(255, 204, 153);">
+<span style="color: rgb(255, 204, 153);">Defaultgateway&nbsp; = <span
+ style="font-weight: bold; color: rgb(255, 255, 153);">192.168.0.1</span></span><br
+ style="color: rgb(255, 204, 153);">
+<span style="color: rgb(255, 204, 153);">DNS1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 0.0.0.0</span><br style="color: rgb(255, 204, 153);">
+<span style="color: rgb(255, 204, 153);">DNS2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 0.0.0.0</span><br style="color: rgb(255, 204, 153);">
+<span style="color: rgb(255, 204, 153);">SetupDelay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 0</span><br style="color: rgb(255, 204, 153);">
+<span style="color: rgb(255, 204, 153);">SkipIfNoLink&nbsp;&nbsp;&nbsp;
+= No</span><br>
+<br>
+Alright, so now with your FTP program, you use 192.168.0.2 as address,
+and <span style="font-weight: bold; color: rgb(255, 255, 0);">xbox</span>
+as username and password. Then connect to the xbox using it.&nbsp; You
+should see a list of drives on your RIGHT side, those are the Xbox
+Partitions.&nbsp; Left side is the LOCAL hard disk, you can set that up
+to go where you want.<br>
+<br>
+BEFORE&nbsp; you begin any EXfering of files to the Xbox, BACKUP the
+contents of C: and F: to your LOCAL hard disk, burn to a CDR for safe
+keeping.&nbsp; This is so you have all the original settings BEFORE you
+started playing around.<br>
+</span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><big><br>
+<a name="router"></a>WITH A ROUTER&nbsp; W/SWITCH or HUB BUILT IN:</big></big><br>
+<span style="font-weight: bold;">PC <big><big>=</big></big> ROUTER <big><big>=</big></big>
+XBOX<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //<br>
+&nbsp;&nbsp; WAN (Cable/DSL Model)<br>
+<br>
+<big><big>WITH ROUTER &amp; SEPERATE SWITCH/HUB</big></big><br>
+</span>&nbsp; XBOX = HUB/SW = ROUTER<br>
+<big style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; &nbsp; //
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </big><big>PC&nbsp;&nbsp;&nbsp;</big><big
+ style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</big><big>&nbsp;
+WAN (Cable/Dsl Modem)<br>
+<br>
+</big><big style="font-weight: bold;">EVOX.INI Change:</big><br>
+</span><span style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 204, 204);">StaticIP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= Yes<br>
+<span style="color: rgb(255, 255, 255);">-to-</span><br>
+</span></span><span style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 204, 153);">StaticIP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= <span style="color: rgb(255, 255, 153);">No</span><br>
+<br>
+<span style="color: rgb(255, 255, 255);">Save &amp; Exit &gt;&nbsp;
+Make your boot disc with these settings, and boot MOD ON.&nbsp; This
+can also be used on the HDD as well.&nbsp; Check your IP address in
+EVOX by going to SETTINGS &gt; NETWORK and look at the IP address
+assigned by the router.<br>
+<br>
+Some routers can be set up to perminently assign the same address to a
+device by its MAC address.&nbsp; Set this up in your router so the same
+IP address is always assigned to Xbox when booted.<br>
+</span></span></span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><span
+ style="color: rgb(255, 204, 153);"><span
+ style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><br>
+<a name="xover"></a>CROSSOVER CABLE:</big>
+<br>
+<img alt="" src="graphics/crossovercable.jpg"
+ style="width: 360px; height: 212px;"><br>
+</span></span></span><span style="color: rgb(255, 255, 255);">Looks
+like the standard Ethernet cable, except special. What's special is
+that inside it, some wires are crossed over. Make sure you don't use a
+standard Ethernet cable when you instead need a crossover. The Xbox
+System Link cable is an Ethernet crossover cable. Other crossover
+cables work too, but they don't say "Xbox" on them.<br>
+</span>
+<hr style="width: 100%; height: 2px;"><span
+ style="color: rgb(255, 255, 255);"><big style="font-weight: bold;"><br>
+<a name="ftpsets"></a><big>FTP CLIENT SETTINGS:</big></big><br>
+<br>
+<span style="font-weight: bold;">Host Name/Address:</span> Use the IP
+Address EvoX Shows in Settings &gt; Network<br>
+<span style="font-weight: bold;">Port =</span> 21<br>
+<span style="font-weight: bold;">Host Type:</span> Unix Standard<br>
+<span style="font-weight: bold;">UserID:</span> xbox<br>
+<span style="font-weight: bold;">Password:</span> xbox<br>
+<br>
+If there are options to login Anonymous or Save Password, choose SAVE
+PASSWORD.<br>
+<br>
+<span style="font-weight: bold;">Startup Remote Folder:</span> I have
+F:\ but it just shows the list of drives.<br>
+<span style="font-weight: bold;">Initital Local Folder:</span>&nbsp; A
+place on&nbsp; your PC where you're going to mirror your Xbox drives -
+I have G:\MyXbox<br>
+</span>
+</body>
+</html>

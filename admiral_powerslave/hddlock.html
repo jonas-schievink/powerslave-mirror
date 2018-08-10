@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Xbox HDD Locking - What is LOCKING The HDD</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big><big><span
+ style="font-weight: bold;">HAR DISK PASSWORD LOCKING SYSTEM</span></big></big><br>
+<br>
+This is called an ATA-password. Also known as a HDD Password, HDP,
+Security lock, HDD Security feature.&nbsp; It is a standard included in
+the ATA Specification. (read the ata-spec). If a drive is locked it (to
+be precise the controller on the harddrive pcb) will reject all
+read/write operations and some other operations (NOT ALL!!!). Thus it
+is impossible to use any software-tools only to read/wipe the password.<br>
+<br>
+Swapping the harddrive pcb with another identical one from a unlocked
+drive will NOT clear or bypass the lock since the password(s) are
+stored in the "system maintenance cylinder" (at cylinder address
+16,384). On this cylinder, are other important data stored like:
+track-layout information, calibration information, identification,
+serial and so forth.<br>
+<br>
+The lock exists of 2 securitylevels: high and max. There are two
+passwords possible: User and Master. If the securitylevel is set to MAX
+only a userpassword can unlock the drive. If the securitylevel is set
+to high a user AND a master password can unlock the drive. The password
+can consist of 32 bits max by the way.<br>
+<br>
+A disk always has two passwords: A User password and a Master password.
+Most disks support a Master Password Revision Code, which can tell you
+if the Master password has been changed, or it it still the factory
+default. The revision code is word 92 in the IDENTIFY response. A value
+of 0xFFFE means the Master password is unchanged.<br>
+<br>
+A disk can be locked in two modes: High security mode or Maximum
+security mode. Bit 8 in word 128 of the IDENTIFY response tell you
+which mode your disk is in: 0 = High, 1 = Maximum.<br>
+<br>
+In High security mode, you can unlock the disk with either the user or
+master password, using the "SECURITY UNLOCK DEVICE" ATA command. There
+is an attempt limit, normally set to 5, after which you must power
+cycle or hard-reset the disk before you can attempt again.<br>
+<br>
+In Maximum security mode, you cannot unlock the disk! The only way to
+get the disk back to a usable state is to issue the SECURITY ERASE
+PREPARE command, immediately followed by SECURITY ERASE UNIT. The
+SECURITY ERASE UNIT command requires the Master password and will
+completely erase all data on the disk. The operation is rather slow,
+expect half an hour or more for big disks. (Word 89 in the IDENTIFY
+response indicates how long the operation will take.)<br>
+<br>
+<br>
+</span>
+</body>
+</html>

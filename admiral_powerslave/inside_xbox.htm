@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+  <meta name="ProgId" content="FrontPage.Editor.Document">
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=windows-1252">
+  <title>VHJ: Xbox Dissected</title>
+  <style fprolloverstyle="">A:hover {color: #FF0000; font-family: Arial; text-decoration: none}
+  </style>
+</head>
+<body alink="#ff0000" bgcolor="#000000" link="#00ff00" text="#ffffff"
+ vlink="#008000">
+<p align="center"><a href="http://www.vanshardware.com/index.htm">
+<br>
+</a></p>
+<div style="text-align: center;"><big><font face="Arial, sans-serif"><big
+ style="font-weight: bold;">TAKING APART XBOX AND LOOKING INSIDE</big></font></big><br>
+</div>
+<p><font face="Arial, sans-serif"><br>
+</font></p>
+<p align="center"><img src="inside_xbox_files/topdown_xbox.jpg"
+ border="0" height="355" width="576"></p>
+<font face="Arial, sans-serif">The first step to taking apart the Xbox
+is flipping it over and peeling off the rubber feet to expose the
+torque screw holes.&nbsp; Yes, nearly all of the screws used in the
+Xbox are the dreaded torque screws, so you'll need an appropriate set
+of drivers.&nbsp; The mounting holes are illustrated below.</font>
+<p align="center"><img src="inside_xbox_files/ScrewHoles.jpg" border="0"
+ height="390" width="520"></p>
+<p><font face="Arial, sans-serif">In addition to the mounting holes
+under the rubber feet, Microsoft hid two other holes under tamper-proof
+stickers as shown above.</font></p>
+<p><font face="Arial, sans-serif">After extracting the torque screws,
+flip over the console and carefully remove the top cover.&nbsp; The
+insides of the Xbox are robustly shielded with sharp metal so it is
+possible to cut yourself if you are not careful.</font></p>
+<p align="center"><img src="inside_xbox_files/TopCover_Screws.jpg"
+ border="0" height="408" width="469"></p>
+<p><font face="Arial, sans-serif">You can see the giant torque screws
+immediately below the cover.</font></p>
+<p><font face="Arial, sans-serif">We were simultaneously struck with
+both how full the Xbox was and how much it looked like a PC.&nbsp; Here
+is a picture of the Xbox with the top cover removed.</font></p>
+<p align="center"><img src="inside_xbox_files/InsideXbox.jpg" border="0"
+ height="427" width="533"></p>
+<p><font face="Arial, sans-serif">It is hard to see from this picture,
+but both the hard drive and the 5X DVD-ROM drive share the same IDE
+channel. </font></p>
+<p align="center"><font color="#008000" face="Times New Roman">
+<span class="home"><br>
+</span></font></p>
+<p><font color="#ffff00" face="Arial" size="5">The Drives</font></p>
+<p><font face="Arial, sans-serif">At first glance, the drives inside
+the Xbox look like normal PC components but there are subtle
+differences.&nbsp; The 5X DVD-ROM drive has a proprietary connector
+that bundles power, and audio out into a single cable.</font></p>
+<p align="center"><img src="inside_xbox_files/DVD_Connect.jpg"
+ border="0" height="205" width="480"></p>
+<p><font face="Arial, sans-serif">From all appearances, the hard drive
+is a standard Seagate model, but read on...</font></p>
+<p align="center"><img src="inside_xbox_files/hd2.jpg" border="0"
+ height="459" width="381"></p>
+<p>&nbsp;</p>
+<br>
+<p><font color="#ffff00" face="Arial" size="5">The Guts</font></p>
+<p><font face="Arial, sans-serif">After removing both drives along with
+their rigid plastic mounting frames, we could see the motherboard and
+power supply.&nbsp; In the photo below, the large passive heat sink
+covers the Intel processor.&nbsp; The smaller heat sink and fan cool
+the nVidia GPU.&nbsp; The IDE cable connecting the drives is attached
+to the lone IDE connector.&nbsp; The motherboard itself is very small
+-- about seven or eight inches square.&nbsp; </font></p>
+<p><font face="Arial, sans-serif">The power supply does not have a
+cover of its own so it is important to make sure the power cord is not
+connected.</font></p>
+<p align="center"><img src="inside_xbox_files/xboxguts.jpg" border="0"
+ height="480" width="640"></p>
+<p><font face="Arial, sans-serif">We thought it was interesting that
+the word "Microsoft" was silk-screened on the motherboard.</font></p>
+<p align="center"><img src="inside_xbox_files/Microsoft.jpg" border="0"
+ height="304" width="301"></p>
+<p><font face="Arial, sans-serif">What makes the Xbox special is the
+nVidia chipset.</font></p>
+<p align="center"><img src="inside_xbox_files/Chipset.jpg" border="0"
+ height="450" width="443"></p>
+<p><font face="Arial, sans-serif">If you look closely in the photo
+above, you can see the 800 MB/s HyperTransport traces connecting the
+GPU (under the heat sink) and the MCP (the small chip in the lower left
+bearing nVidia's logo).</font></p>
+<p align="center"><img src="inside_xbox_files/ExtraMemory.jpg"
+ border="0" height="375" width="339"><br>
+<i><br>
+</i></p>
+<div style="border-style: solid; border-width: 1px; padding: 1px 4px;">
+<font color="#ff0000" face="Arial, sans-serif">UPDAT</font><font
+ face="Arial, sans-serif"><font color="#ff0000">E</font>:&nbsp; The
+silkscreening on the memory was very light and difficult to read.&nbsp;
+Although Micron had been publicly tapped as a source for Xbox memory,
+we reexamined the chips in our Xbox carefully and the memory it
+contained is actually from Samsung.&nbsp; The chips have the markings
+"Samsung 136, K4D263238M-QC50"</font></div>
+<p><font face="Arial, sans-serif">Looking at the 64 MB of Samsung DDR
+SDRAM (composed of four chips -- two on each channel and two on each
+side of the motherboard)</font></p>
+<p><font color="#ffff00" face="Arial" size="5">The CPU</font></p>
+<p><font face="Arial, sans-serif">The large, passive CPU heat sink
+ventilated directly by the system fan is easy to remove by flipping the
+tension lever and stretching the base free from the mount.&nbsp; In the
+picture below, you can see the CPU and GPU located very close together.</font></p>
+<p align="center"><img src="inside_xbox_files/NB_CPU.jpg" border="0"
+ height="328" width="502"></p>
+<p><font face="Arial, sans-serif">The CPU is simply a 733 MHz BGA
+Mobile Celeron mounted directly to the motherboard.</font></p>
+<p align="center"><img src="inside_xbox_files/CPU.jpg" border="0"
+ height="268" width="302"></p>
+<p><font face="Arial, sans-serif">Although the chip is outwardly a 0.18
+micron Coppermine Mobile Celeron, it is unclear what FSB (Front-Side
+Bus: the chip talks to the outside world through this) speed the chip
+operates at.&nbsp; We had been told informally by Intel months ago that
+the FSB speed would be 133 MHz -- which would make this chip a mutant
+Celeron.&nbsp; Since 733 MHz&nbsp; a multiple of 133 MHz, the clock
+speed suggests that the part might be running at 133 MHz (although 66
+MHz is a possibility, we doubt that Microsoft would have accepted such
+a severe and artificial limitation that would greatly undermine gaming
+performance -- especially considering that the much more powerful AMD
+Duron with a 200 MHz FSB was passed over at the last moment for this
+chip).</font></p>
+<p><font face="Arial, sans-serif">A very interesting CPU to consider
+for game consoles is the soon-to-be-released
+VIA C5X.&nbsp; Not only does this chip consume little power making
+cooling solutions cheap and compact, but its two double-pumped SSE
+units will likely make it a very strong gaming chip.&nbsp; The FPU has
+also been completely redesigned greatly improving upon the C3's
+decidedly weak floating point performance.</font></p>
+<p align="center"><font color="#008000" face="Times New Roman">
+<span class="home"><br>
+</span></font></p>
+<p><font color="#ffff00" face="Arial" size="5">Overclocking</font></p>
+<p><font face="Arial, sans-serif">There doesn't appear to be any way to
+easily overclock the Xbox.&nbsp; It is determined to do so can find one
+certain route by removing the clock crystal and supplying an external
+clock signal.&nbsp; Be aware that every aspect of the machine will be
+sped up as well, meaning that game play will also be faster -- perhaps
+too fast if the adjustments are not made carefully.&nbsp; Also, since
+the entire system would be overclocked, headroom is not likely to be
+great.</font></p>
+<p align="center"><img src="inside_xbox_files/ClockCrystal.jpg"
+ border="0" height="514" width="415"><br>
+<i>There's the clock crystal -- have at it.</i></p>
+<p align="center"><font color="#008000" face="Times New Roman">
+<span class="home"><br>
+</span></font></p>
+</body>
+</html>

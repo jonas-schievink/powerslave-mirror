@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>MsDos 7</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<B><FONT SIZE=6><P ALIGN="CENTER">MsDos 7.0 from Windows 95</P>
+</B></FONT><FONT SIZE=2><P>&nbsp;</P>
+<P>&nbsp;</FONT><B><U>Exposing DOS:</P>
+</B></U><P>Microsoft had you believe in the beginning that Windows is now an operating system that no longer runs under DOS. It's not the case. There is almost no difference in the relationship between Windows 95 and it's hidden DOS 7.0 and Windows 3 and DOS 6.1 to 6.22. In fact, Windows 95 is much easier to deal with as DOS running Windows, and it's not hard to separate DOS 7, so that you can run Windows 95 or Windows 3.11 under it. Here's the secret trick Microsoft doesn't want you to know about.</P>
+<P>There is a file in your root directory called MSDOS.SYS. This file used to be a binary file, that was loaded with IO.SYS, but now it's just a plain text file, that you can edit. First you have to get rid of the Hidden, System, and Read-Only file attributes by typing "ATTRIB MSDOS.SYS -R -H -S". In that specific order because the "-R" must be first to remove the READ ONLY attribute, so the other switches can be changed.</P>
+<P>Then you bring up an editor on this file and make two changes. Change the line BootGUI=1 to BootGUI=0. Then add a line LOGO=0 (doesn't display the "Starting Windows 95 screen"). It's that easy! Here's what it should look like, the MSDOS.SYS file:</P>
+<P>[Paths]<BR>
+WinDir=C:\WINDOWS<BR>
+WinBootDir=C:\WINDOWS<BR>
+HostWinBootDrv=C<BR>
+<BR>
+[Options]<BR>
+BootMulti=1<BR>
+BootGUI=0<BR>
+Network=1<BR>
+Logo=0<BR>
+LoadTop=0</P>
+<P>After this, you reboot and it comes up into DOS. When you want to go into Windows 95, you just type WIN. Or, you can run your old Windows 3.11 if you still have it installed (on another partition or hard drive in the system).</P>
+<P>Microsoft now provides a utility to allow you to boot dos without going into Windows. It's part of their PowerToys software called TweakUI. This utility is great and installs in your Control Panel. After installing it you go to the control panel and click on the TweakUI icon. Then click on the Boot tab and change the boot settings any way you want. </P>
+<B><U><P>MsDos 7<BR>
+</B></U>As a DOS, MsDos 7 is just like MsDos 6 except that you have support for long file names, but only within Win95. You will not see or be able use the entire file names unless you are under a DOS window within Windows. Instead, a directory name like "Program Files" will look like this under DOS "PROGRA~1".   So, you'd type "CD\PROGRA~1".<BR>
+<BR>
+New directories created will still only accept the first eight characters you type if you booted directly into DOS. Also, some of the dos APPS will not have all their functions. While in WINDOWS, open a DOS window and type "XCOPY /?" see all the options? Now, boot back into DOS again, and type the same thing. You'll notice half the options are stripped (mostly the 32bit operations).</P>
+<P>If you get Qemm 8 you get a little more free memory under 640k than you did with MsDos 6. I suggest you use the:<BR>
+DEVICE=path\HIMEM.SYS and DEVICE=path\EMM386.EXE RAM for better stability, after all, it is a Microsoft product, for a Microsoft O/S.</P>
+<P>The MsDos utilities programs are in two places. Most of them are in the C:\WINDOWS\COMMAND directory. The rest of them are on your Windows 95 CD in the \OTHER\OLDMSDOS directory. Copy these two directories into a C:\DOS directory to be consistent with the way MsDos 6 was setup.</P>
+<P>If you want to get rid of the shutdown logos on exiting Windows 95, go into the C:\WINDOWS directory and get rid of the files LOGOS.SYS and LOGOW.SYS. You can just move then to another directory if you don't want to delete them. This will put you on an MsDos command line when exiting windows.</P>
+<P>For those of you who are running Windows 3 on a network and are scared of running Windows 95 because you are used to running Windows from DOS, separating the DOS should make things easier for you. It allows you to run Windows 95 just like you run Windows 3.xx now, and put you in an environment that you are familiar with. You can load up your VLM shells and run your network login scripts just like you are doing now. It allows you to upgrade to Windows 95 with less fear and loathing.</P>
+<P>Some of you may be using a dual boot system so that you can boot your old MsDos 6 and run programs without<BR>
+having Windows loaded. This is no longer necessary. Once you separate out the MsDos 7 you can get rid of<BR>
+MsDos 6 and your dual boot. MsDos 7 will replace your MsDos 6.</P>
+<B><U><P>About Windows 95:<BR>
+</B></U>Windows 95 is more stable than 3.11. You don't need to wait for it to be fixed because it's never going to be right. However, it is very usable. I like the fact that I only lock windows up about once a day on the average instead of continuously. It's a lot faster than 3.11 especially on the web. (Win95c [OSR2.5] is the final release of Win95).</P>
+<P>Windows 95 has a feature that if you are running DOS under Windows and from the command line you run a Windows application, it actually works! This allows you to hunt for things with your handy-dandy DOS utilities and when you find it you can just run it. You can also start Windows programs from a batch file.</P>
+<P>This should also work with Windows98, which is still on top of a DOS environment! Windows will never run as it's supposed to until DOS is eliminated like in WindowsNT, and the new releace of Windows (Win2000).  The only downfall, is that lots of MSDOS programs do not run under WinNT, and I expect the same with Win2000, which was originally called WinNT 5.</P></BODY>
+</HTML>

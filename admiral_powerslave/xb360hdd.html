@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Xbox 360 HDD Format Contents Info</title>
+  <meta content="Powerslave" name="author">
+</head>
+<body style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#ffffff">
+<span style="color: rgb(255, 255, 255);"><big><big><big><span
+ style="font-weight: bold;">XBOX 360 HDD FORMAT / CONTENTS</span></big></big></big><br>
+</span>
+<h2 style="color: rgb(255, 255, 255);"> Drive contents </h2>
+<table style="color: rgb(255, 255, 255);" border="1" cellpadding="2">
+  <tbody>
+    <tr>
+      <td> Address </td>
+      <td> Length (bytes) </td>
+      <td> Contains
+      </td>
+    </tr>
+    <tr>
+      <td> 0x0000 </td>
+      <td> 8192 </td>
+      <td> Null (0x00)
+      </td>
+    </tr>
+    <tr>
+      <td> 0x2000 </td>
+      <td> 68 </td>
+      <td> Plain text hard disk info
+      </td>
+    </tr>
+    <tr>
+      <td> 0x2044 </td>
+      <td> 24 </td>
+      <td> Static Binary Info (doesn't change console to console)
+      </td>
+    </tr>
+    <tr>
+      <td> 0x205C </td>
+      <td> 256 </td>
+      <td> Dynamic Binary Data (changes from console to console -
+possibly encrypted serial number of console)
+      </td>
+    </tr>
+    <tr>
+      <td> 0x2202 </td>
+      <td> 2 </td>
+      <td> Size of following PNG file
+      </td>
+    </tr>
+    <tr>
+      <td> 0x2204 </td>
+      <td> 2754 </td>
+      <td> MS logo in PNG format, made with Macromedia Fireworks MX
+2004 on the 19th of July 2005
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h2 style="color: rgb(255, 255, 255);"> FATX Partition Locations<br>
+</h2>
+<h3 style="color: rgb(255, 255, 255);"> Pre Live Update </h3>
+<table style="color: rgb(255, 255, 255);" border="1" cellpadding="2">
+  <tbody>
+    <tr>
+      <td> Address </td>
+      <td> Type
+      </td>
+    </tr>
+    <tr>
+      <td> 0x80200 </td>
+      <td> FATX16
+      </td>
+    </tr>
+    <tr>
+      <td> 0x130EB0000 </td>
+      <td> FATX32
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 style="color: rgb(255, 255, 255);"> Post Live Update </h3>
+<table style="color: rgb(255, 255, 255);" border="1" cellpadding="2">
+  <tbody>
+    <tr>
+      <td> Address </td>
+      <td> Description
+      </td>
+    </tr>
+    <tr>
+      <td> 0x80000 </td>
+      <td> Unknown
+      </td>
+    </tr>
+    <tr>
+      <td> 0x80080000 </td>
+      <td> Unknown
+      </td>
+    </tr>
+    <tr>
+      <td> 0x120EB0000 </td>
+      <td> Xbox Backwards compatibility drive
+      </td>
+    </tr>
+    <tr>
+      <td> 0x130EB0000 </td>
+      <td> Main Xbox 360 Partition
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 style="color: rgb(255, 255, 255);"> HDD Info Structure </h2>
+<table style="color: rgb(255, 255, 255);" border="1" cellpadding="2">
+  <tbody>
+    <tr>
+      <td> Address </td>
+      <td> Length (bytes) </td>
+      <td> Contains
+      </td>
+    </tr>
+    <tr>
+      <td> 0x2000 </td>
+      <td> 0x14 </td>
+      <td> Drive Serial # padded with spaces
+      </td>
+    </tr>
+    <tr>
+      <td> 0x2014 </td>
+      <td> 0x08 </td>
+      <td> Firmware Rev
+      </td>
+    </tr>
+    <tr>
+      <td> 0x201C </td>
+      <td> 0x28 </td>
+      <td> Drive Model, padded with spaces
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 style="color: rgb(255, 255, 255);"> Sata power connector <a
+ href="http://www.free60.org/wiki/Image:Satapinout3.jpg"
+ class="internal" title="Enlarge"><br>
+</a></h2>
+<table style="color: rgb(255, 255, 255);" border="1" cellpadding="2">
+  <tbody>
+    <tr>
+      <td>Pin # </td>
+      <td> Signal Name </td>
+      <td> On XBOX 360 </td>
+      <td> Signal Description
+      </td>
+    </tr>
+    <tr>
+      <td> 1 </td>
+      <td> V33 </td>
+      <td> Not connected </td>
+      <td> 3.3V Power
+      </td>
+    </tr>
+    <tr>
+      <td> 2 </td>
+      <td> V33 </td>
+      <td> Not connected </td>
+      <td> 3.3V Power
+      </td>
+    </tr>
+    <tr>
+      <td> 3 </td>
+      <td> V33 </td>
+      <td> Not connected </td>
+      <td> 3.3V Power, Pre-charge, 2nd mate
+      </td>
+    </tr>
+    <tr>
+      <td> 4 </td>
+      <td> Ground </td>
+      <td> Connected </td>
+      <td> 1st Mate, Pre-charge, 2nd mate
+      </td>
+    </tr>
+    <tr>
+      <td> 5 </td>
+      <td> Ground </td>
+      <td> Connected </td>
+      <td> 2nd Mate
+      </td>
+    </tr>
+    <tr>
+      <td> 6 </td>
+      <td> Ground </td>
+      <td> Connected </td>
+      <td> 3rd Mate
+      </td>
+    </tr>
+    <tr>
+      <td> 7 </td>
+      <td> V5 </td>
+      <td> Connected </td>
+      <td> 5V Power
+      </td>
+    </tr>
+    <tr>
+      <td> 8 </td>
+      <td> V5 </td>
+      <td> Connected </td>
+      <td> 5V Power
+      </td>
+    </tr>
+    <tr>
+      <td> 9 </td>
+      <td> V5 </td>
+      <td> Connected </td>
+      <td> 5V Power
+      </td>
+    </tr>
+    <tr>
+      <td> 10 </td>
+      <td> Ground </td>
+      <td> Connected </td>
+      <td> 2nd Mate
+      </td>
+    </tr>
+    <tr>
+      <td> 11 </td>
+      <td> Reserved</td>
+      <td> Not connected </td>
+      <td> -
+      </td>
+    </tr>
+    <tr>
+      <td> 12 </td>
+      <td> Ground </td>
+      <td> Connected </td>
+      <td> 1st Mate
+      </td>
+    </tr>
+    <tr>
+      <td> 13 </td>
+      <td> 12V </td>
+      <td> Not connected </td>
+      <td> 1st Mate, Pre-charge, 2nd mate
+      </td>
+    </tr>
+    <tr>
+      <td> 14 </td>
+      <td> 12V </td>
+      <td> Not connected </td>
+      <td> 2nd Mate
+      </td>
+    </tr>
+    <tr>
+      <td> 15 </td>
+      <td> 12V </td>
+      <td> Not connected </td>
+      <td> 3rd Mate</td>
+    </tr>
+  </tbody>
+</table>
+<span style="color: rgb(255, 255, 255);"><br>
+</span>
+</body>
+</html>
